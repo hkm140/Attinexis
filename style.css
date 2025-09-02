@@ -190,3 +190,31 @@ footer {
   background: #00b4d8;
   color: #fff;
 }
+/* Footer with only LinkedIn button aligned right */
+footer {
+  background: linear-gradient(135deg, #004aad, #00b4d8);
+  color: #fff;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-buttons {
+  margin-top: 0; /* remove extra margin */
+}
+.footer-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #fff;
+  color: #004aad;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.footer-btn:hover {
+  background: #00b4d8;
+  color: #fff;
+}
