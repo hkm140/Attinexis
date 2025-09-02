@@ -97,6 +97,11 @@ h2 {
   font-size: 2rem;
 }
 
+/* Smooth Scroll for Nav Links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Alternating section backgrounds */
 section:nth-of-type(even) {
   background: #f9f9f9;
