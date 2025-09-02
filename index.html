@@ -30,7 +30,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-
+ <!-- Cache-busting: ?v=2 forces browsers to load the latest version -->
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body id="top">
+    
     /* Hero Section */
     .hero {
       background: #fff;
