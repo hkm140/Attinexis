@@ -8,50 +8,56 @@ body {
 
 /* Hero Section - White Background with Logo + Tagline */
 .hero {
-  background: #fff;
-  color: #004aad;
-  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #ffffff, #f9fcff);
+  padding: 4rem 1rem;
 }
 .hero-container {
   display: flex;
-  align-items: center;
+  align-items: center;  /* align logo and text vertically */
   justify-content: center;
-  flex-wrap: wrap; /* Responsive */
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;  /* reduced space between logo and text */
   max-width: 1100px;
   margin: auto;
 }
 .hero-logo {
-  max-height: 140px;
+  max-height: 160px;  /* bigger logo */
   width: auto;
+  flex-shrink: 0;
 }
 @media (max-width: 768px) {
   .hero-logo {
-    max-height: 100px;
+    max-height: 120px;
   }
 }
 .hero-text {
   max-width: 600px;
 }
 .hero-text h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin: 0 0 1rem;
+  font-weight: 700;
+  color: #004aad;
 }
 .hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  color: #444;
 }
 .cta-btn {
   background: linear-gradient(135deg, #004aad, #00b4d8);
   color: #fff;
-  padding: 0.9rem 1.8rem;
-  border-radius: 6px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
   text-decoration: none;
+  font-size: 1.1rem;
   font-weight: bold;
-  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 .cta-btn:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 /* Navigation */
