@@ -28,11 +28,36 @@
       background: #fff;
       padding: 8px;
     }
-<section class="hero">
-  <h1>Transform Students into Industry-Ready Professionals</h1>
-  <p>Bridging the gap between campus learning and corporate success.</p>
-  <a href="#contact" class="cta-btn">Get in Touch</a>
-</section>
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #f1f8ff;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #004aad;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    .cta-btn {
+      background: linear-gradient(135deg, #004aad, #00b4d8);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: opacity 0.3s;
+    }
+    .cta-btn:hover {
+      opacity: 0.9;
+    }
 
     /* Navigation */
     nav {
@@ -77,6 +102,11 @@
       font-size: 2rem;
     }
 
+    /* Alternating section backgrounds */
+    section:nth-of-type(even) {
+      background: #f9f9f9;
+    }
+
     /* Cards */
     .modules, .programs, .outcomes {
       display: grid;
@@ -97,6 +127,19 @@
     .card h3 {
       margin-top: 0;
       color: #0077b6;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .testimonials .card {
+      font-style: italic;
+      text-align: center;
+      background: #fff;
     }
 
     /* Contact form */
@@ -145,6 +188,13 @@
     <img src="favicon.png" alt="AttiNexis Logo" class="logo-only">
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Transform Students into Industry-Ready Professionals</h1>
+    <p>Bridging the gap between campus learning and corporate success.</p>
+    <a href="#contact" class="cta-btn">Get in Touch</a>
+  </section>
+
   <!-- Navigation -->
   <nav>
     <ul>
@@ -152,6 +202,7 @@
       <li><a href="#modules">Modules</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -171,6 +222,9 @@
       <li>Job-ready tools, mindset & confidence</li>
       <li>Future-proofed learning path</li>
     </ul>
+    <p style="text-align:center; margin-top:2rem;">
+      <a href="#contact" class="cta-btn">Talk to Us</a>
+    </p>
   </section>
 
   <section id="modules">
@@ -204,6 +258,9 @@
         <p><strong>Contact us for pricing details</strong></p>
       </div>
     </div>
+    <p style="text-align:center; margin-top:2rem;">
+      <a href="#contact" class="cta-btn">Talk to Us</a>
+    </p>
   </section>
 
   <section id="outcomes">
@@ -226,6 +283,21 @@
           <li>Job-ready skills & confidence</li>
           <li>Future-proofed learning path</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>What Our Students & Partners Say</h2>
+    <div class="testimonials">
+      <div class="card">
+        <p>"AttiNexis helped me gain the confidence and tools I needed to crack my first job interview!"</p>
+        <strong>- Student, Class of 2024</strong>
+      </div>
+      <div class="card">
+        <p>"Our placement outcomes have improved significantly after partnering with AttiNexis."</p>
+        <strong>- Placement Head, Partner Institute</strong>
       </div>
     </div>
   </section>
