@@ -14,7 +14,12 @@
       background: #f9fafc;
     }
 
-    /* Hero Section - White Background */
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
     .hero {
       background: #fff;
       color: #004aad;
@@ -24,14 +29,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap; /* Responsive */
+      flex-wrap: wrap;
       gap: 3rem;
       max-width: 1100px;
       margin: auto;
       animation: fadeIn 1.2s ease-in-out;
     }
     .hero-logo {
-      max-height: 140px; /* adjusted logo size */
+      max-height: 140px;
       width: auto;
     }
     @media (max-width: 768px) {
@@ -135,6 +140,53 @@
       color: #0077b6;
     }
 
+    /* Impact Section */
+    #impact {
+      text-align: center;
+      background: #f9f9f9;
+      padding: 3rem 1rem;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .impact-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 2rem 1rem;
+      transition: transform 0.3s;
+    }
+    .impact-card:hover {
+      transform: translateY(-5px);
+    }
+    .impact-card h3 {
+      font-size: 2rem;
+      color: #004aad;
+      margin: 0;
+    }
+
+    /* Testimonials Section */
+    #testimonials {
+      padding: 3rem 1rem;
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .testimonials .card {
+      font-style: italic;
+      text-align: center;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
     /* Contact form */
     .contact-form {
       display: flex;
@@ -168,16 +220,15 @@
     footer {
       background: linear-gradient(135deg, #004aad, #00b4d8);
       color: #fff;
-      text-align: center;
       padding: 1.5rem;
       margin-top: 3rem;
-    }
-    .footer-buttons {
-      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .footer-btn {
       display: inline-block;
-      margin: 0 0.5rem;
       padding: 0.6rem 1.2rem;
       background: #fff;
       color: #004aad;
@@ -206,15 +257,12 @@
     }
   </style>
 </head>
-<body id="top">
+<body>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-container">
-      <!-- Left: Logo -->
       <img src="favicon.png" alt="AttiNexis Logo" class="hero-logo">
-
-      <!-- Right: Tagline -->
       <div class="hero-text">
         <h1>Transform Students into Industry-Ready Professionals</h1>
         <p>Bridging the gap between campus learning and corporate success.</p>
@@ -224,19 +272,21 @@
   </section>
 
   <!-- Navigation -->
-<nav>
-  <ul>
-    <li><a href="#top">Home</a></li>
-    <li><a href="#objective">Objective</a></li>
-    <li><a href="#modules">Modules</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#outcomes">Outcomes</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#objective">Objective</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Sections -->
+  <!-- Objective -->
   <section id="objective">
     <h2>Objective</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
@@ -250,11 +300,9 @@
       <li>Job-ready tools, mindset & confidence</li>
       <li>Future-proofed learning path</li>
     </ul>
-    <p style="text-align:center; margin-top:2rem;">
-      <a href="#contact" class="cta-btn">Talk to Us</a>
-    </p>
   </section>
 
+  <!-- Modules -->
   <section id="modules">
     <h2>Modules Covered</h2>
     <div class="modules">
@@ -269,6 +317,7 @@
     </div>
   </section>
 
+  <!-- Programs -->
   <section id="programs">
     <h2>Our Programs</h2>
     <div class="programs">
@@ -286,11 +335,9 @@
         <p><strong>Contact us for pricing details</strong></p>
       </div>
     </div>
-    <p style="text-align:center; margin-top:2rem;">
-      <a href="#contact" class="cta-btn">Talk to Us</a>
-    </p>
   </section>
 
+  <!-- Outcomes -->
   <section id="outcomes">
     <h2>Targeted Outcomes</h2>
     <div class="outcomes">
@@ -315,6 +362,41 @@
     </div>
   </section>
 
+  <!-- Impact -->
+  <section id="impact">
+    <h2>Our Impact</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <h3>1000+</h3>
+        <p>Students Trained</p>
+      </div>
+      <div class="impact-card">
+        <h3>25+</h3>
+        <p>Partner Institutes</p>
+      </div>
+      <div class="impact-card">
+        <h3>85%</h3>
+        <p>Placement Readiness</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Students & Partners Say</h2>
+    <div class="testimonials">
+      <div class="card">
+        <p>"AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer."</p>
+        <strong>- Student, Class of 2024</strong>
+      </div>
+      <div class="card">
+        <p>"Our institute saw significant improvement in placement outcomes after collaborating with AttiNexis."</p>
+        <strong>- Placement Officer</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
   <section id="about">
     <h2>About Us</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
@@ -326,6 +408,7 @@
     </p>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
     <form class="contact-form">
@@ -339,12 +422,11 @@
     </p>
   </section>
 
-<footer>
-  <p>&copy; 2025 AttiNexis. All rights reserved.</p>
-  <div class="footer-buttons">
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AttiNexis. All rights reserved.</p>
     <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="footer-btn">LinkedIn</a>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
