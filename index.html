@@ -19,6 +19,17 @@
       scroll-behavior: smooth;
     }
 
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Hero Section */
     .hero {
       background: #fff;
@@ -33,7 +44,6 @@
       gap: 3rem;
       max-width: 1100px;
       margin: auto;
-      animation: fadeIn 1.2s ease-in-out;
     }
     .hero-logo {
       max-height: 140px;
@@ -46,7 +56,6 @@
     }
     .hero-text {
       max-width: 600px;
-      animation: slideInRight 1.2s ease;
     }
     .hero-text h1 {
       font-size: 2rem;
@@ -130,7 +139,6 @@
       background: linear-gradient(135deg, #ffffff, #f1f8ff);
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       transition: transform 0.3s;
-      animation: fadeUp 1s ease;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -241,26 +249,12 @@
       background: #00b4d8;
       color: #fff;
     }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideInRight {
-      from { transform: translateX(50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes fadeUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
   </style>
 </head>
 <body>
 
   <!-- Hero Section -->
-  <section class="hero" id="hero">
+  <section class="hero fade-in" id="hero">
     <div class="hero-container">
       <img src="favicon.png" alt="AttiNexis Logo" class="hero-logo">
       <div class="hero-text">
@@ -287,7 +281,7 @@
   </nav>
 
   <!-- Objective -->
-  <section id="objective">
+  <section id="objective" class="fade-in">
     <h2>Objective</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
       We bridge the gap between college education and industry expectations.
@@ -303,7 +297,7 @@
   </section>
 
   <!-- Modules -->
-  <section id="modules">
+  <section id="modules" class="fade-in">
     <h2>Modules Covered</h2>
     <div class="modules">
       <div class="card">Corporate Readiness</div>
@@ -318,27 +312,24 @@
   </section>
 
   <!-- Programs -->
-  <section id="programs">
+  <section id="programs" class="fade-in">
     <h2>Our Programs</h2>
     <div class="programs">
       <div class="card">
         <h3>Sprint Course (40 Hours)</h3>
-        <p>Fast-track program focused on placement & interview readiness.
-        Covers core modules with high-level insights. Ideal for institutes
-        seeking quick, focused preparation.</p>
+        <p>Fast-track program focused on placement & interview readiness.</p>
         <p><strong>Contact us for pricing details</strong></p>
       </div>
       <div class="card">
         <h3>Marathon Course (90 Hours)</h3>
-        <p>Comprehensive deep-dive across all 8 modules with expert sessions
-        & activities. Best suited for holistic, long-term career success for students.</p>
+        <p>Comprehensive deep-dive across all 8 modules with expert sessions & activities.</p>
         <p><strong>Contact us for pricing details</strong></p>
       </div>
     </div>
   </section>
 
   <!-- Outcomes -->
-  <section id="outcomes">
+  <section id="outcomes" class="fade-in">
     <h2>Targeted Outcomes</h2>
     <div class="outcomes">
       <div class="card">
@@ -363,7 +354,7 @@
   </section>
 
   <!-- Impact -->
-  <section id="impact">
+  <section id="impact" class="fade-in">
     <h2>Our Impact</h2>
     <div class="impact-grid">
       <div class="impact-card">
@@ -382,7 +373,7 @@
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" class="fade-in">
     <h2>What Students & Partners Say</h2>
     <div class="testimonials">
       <div class="card">
@@ -397,19 +388,17 @@
   </section>
 
   <!-- About -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Us</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
       At AttiNexis, we are on a mission to bridge the gap between academic learning
       and corporate readiness. Our programs empower students with the tools,
       mindset, and practical experiences to succeed in placements and beyond.
-      With expert-led sessions and real-world problem-solving, we help students
-      transform into industry-ready professionals who stand out in competitive markets.
     </p>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact Us</h2>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required>
@@ -428,5 +417,24 @@
     <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="footer-btn">LinkedIn</a>
   </footer>
 
+  <!-- Scroll animation JS -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
