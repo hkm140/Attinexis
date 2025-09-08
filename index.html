@@ -426,7 +426,15 @@
     <p>&copy; 2025 AttiNexis. All rights reserved.</p>
     <a href="https://www.linkedin.com/company/attinexis-edutech-llp//" target="_blank" class="footer-btn">LinkedIn</a>
   </footer>
-
+ <!-- Scroll Progress Script -->
+  <script>
+    window.onscroll = function() {
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (scrollTop / scrollHeight) * 100;
+      document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+  </script>
   <!-- Scroll animation JS -->
   <script>
     const faders = document.querySelectorAll('.fade-in');
