@@ -5,7 +5,17 @@ body {
   color: #333;
   background: #f9fafc;
 }
-
+/* Scroll Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #004aad, #00b4d8);
+  width: 0%;   /* start empty */
+  z-index: 9999;
+  transition: width 0.25s ease-out;
+}
 /* Hero Section - White Background with Logo + Tagline */
 .hero {
   background: linear-gradient(135deg, #ffffff, #f9fcff);
