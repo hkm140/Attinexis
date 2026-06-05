@@ -3,456 +3,1456 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AttiNexis | Career Readiness Programs</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>AttiNexis | Career Readiness Programs for Campus-to-Corporate</title>
+  <meta name="description" content="AttiNexis bridges the gap between campus learning and corporate success through structured career readiness programs. PhD-led, industry-proven.">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    <!-- JS with cache-busting -->
-  <script src="script.js?v=2"></script>
-    body {
-      margin:0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9fafc;
-    }
-  <!-- Progress Bar -->
-  <div id="progress-bar"></div>
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --blue: #004aad;
+      --blue-dark: #003380;
+      --cyan: #00b4d8;
+      --green: #6abf69;
+      --green-dark: #4a9e4a;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --light-grey: #eef2f7;
+      --text: #1a2340;
+      --text-muted: #5a6a85;
+      --border: #d8e2f0;
+      --shadow: 0 8px 32px rgba(0,74,173,0.10);
+      --shadow-lg: 0 16px 48px rgba(0,74,173,0.14);
     }
 
-    /* Animation classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* ── SCROLL PROGRESS ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      width: 0%; z-index: 9999; transition: width 0.2s ease;
     }
- <!-- Cache-busting: ?v=2 forces browsers to load the latest version -->
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body id="top">
-    
-    /* Hero Section */
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--blue);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      padding: 0.45rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+    .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .topbar a:hover { color: #fff; }
+    .topbar i { margin-right: 0.35rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(0,74,173,0.09);
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: auto;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 2rem;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-links {
+      list-style: none;
+      display: flex; gap: 0.2rem;
+    }
+    .nav-links li a {
+      display: block;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: var(--blue); background: var(--light-grey); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--blue); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1rem 2rem 1.5rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        gap: 0.2rem;
+      }
+      .nav-links.open { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .topbar { display: none; }
+    }
+
+    /* ── HERO ── */
     .hero {
-      background: #fff;
-      color: #004aad;
-      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #003b8e 0%, #005bc5 50%, #0082d8 100%);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-container {
-  display: flex;
-  flex-direction: column;  /* Stack logo above text */
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;  /* small space between logo and text */
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .hero-logo {
-  max-height: 200px; /* make logo bigger */
-  width: 200px;
-  margin-bottom: 0.5rem;
+    .hero-inner {
+      max-width: 1100px; margin: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 1;
     }
     @media (max-width: 768px) {
-      .hero-logo {
-        max-height: 100px;
-      }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-right { display: none; }
     }
-    .hero-text {
-      max-width: 600px;
-    }
-    .hero-text h1 {
-      font-size: 2rem;
-      margin: 0 0 1rem;
-    }
-    .hero-text p {
-      font-size: 1.2rem;
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.4rem 1rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 500;
       margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
     }
-    .cta-btn {
-      background: linear-gradient(135deg, #004aad, #00b4d8);
-      color: #fff;
-      padding: 0.9rem 1.8rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s;
+    .hero-tag .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
     }
-    .cta-btn:hover {
-      opacity: 0.9;
+    @keyframes pulse {
+      0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; line-height: 1.2;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    .hero h1 span { color: #7ee8ff; }
+    .hero-sub {
+      font-size: 1.08rem; line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff; color: var(--blue);
+      padding: 0.85rem 1.8rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover {
+      background: var(--green); color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6);
+      color: #fff; padding: 0.85rem 1.8rem;
+      border-radius: 8px; font-weight: 500;
+      font-size: 0.95rem; text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
     }
 
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      padding: 0.8rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 100;
+    /* Hero Right – Stats Card */
+    .hero-right {
+      display: flex; flex-direction: column; gap: 1.2rem;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
+    .stat-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px; padding: 1.4rem 1.8rem;
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; gap: 1.2rem;
+      animation: floatUp 0.8s ease both;
+    }
+    .stat-card:nth-child(2) { animation-delay: 0.15s; }
+    .stat-card:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .stat-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .stat-card h3 { font-size: 1.8rem; font-weight: 700; }
+    .stat-card p { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.4rem 2rem;
+    }
+    .trust-bar-inner {
+      max-width: 1100px; margin: auto;
+      display: flex; align-items: center;
+      gap: 2.5rem; flex-wrap: wrap;
       justify-content: center;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
     }
-    nav ul li {
-      margin: 0 1rem;
+    .trust-item {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.88rem; font-weight: 500; color: var(--text-muted);
     }
-    nav ul li a {
-      text-decoration: none;
-      color: #004aad;
-      font-weight: bold;
-      transition: color 0.3s;
+    .trust-item i { color: var(--blue); font-size: 1.1rem; }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: 5rem 2rem;
     }
-    nav ul li a:hover {
-      color: #00b4d8;
+    .section-inner { max-width: 1100px; margin: auto; }
+    .section-alt { background: var(--off-white); }
+    .section-blue {
+      background: linear-gradient(135deg, #003b8e, #0060cc);
+      color: #fff;
     }
 
-    /* Sections */
-    section {
-      padding: 3rem 1rem;
-      max-width: 1100px;
-      margin: auto;
+    .section-label {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 0.7rem;
     }
-    h2 {
-      color: #004aad;
+    .section-label.light { color: rgba(255,255,255,0.6); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem; font-weight: 700;
+      color: var(--text); line-height: 1.25;
       margin-bottom: 1rem;
-      text-align: center;
-      font-size: 2rem;
     }
+    .section-title.light { color: #fff; }
+    .section-desc {
+      color: var(--text-muted); font-size: 1.05rem;
+      max-width: 620px; line-height: 1.75;
+    }
+    .section-desc.light { color: rgba(255,255,255,0.75); }
+    .section-header { margin-bottom: 3rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-desc { margin: 0 auto; }
 
-    /* Alternating section backgrounds */
-    section:nth-of-type(even) {
-      background: #f9f9f9;
+    /* ── FOUNDER SECTION ── */
+    .founder-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 4rem; align-items: center;
     }
-
-    /* Cards */
-    .modules, .programs, .outcomes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    @media (max-width: 768px) {
+      .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-    .card {
-      border-radius: 12px;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #ffffff, #f1f8ff);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #0077b6;
-    }
-
-    /* Impact Section */
-    #impact {
-      text-align: center;
-      background: #f9f9f9;
-      padding: 3rem 1rem;
-    }
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .impact-card {
+    .founder-card {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 2rem 1rem;
-      transition: transform 0.3s;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
     }
-    .impact-card:hover {
-      transform: translateY(-5px);
-    }
-    .impact-card h3 {
-      font-size: 2rem;
-      color: #004aad;
-      margin: 0;
-    }
-
-    /* Testimonials Section */
-    #testimonials {
-      padding: 3rem 1rem;
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .testimonials .card {
-      font-style: italic;
-      text-align: center;
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    /* Contact form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    .contact-form button {
+    .founder-img-wrap {
       background: linear-gradient(135deg, #004aad, #00b4d8);
-      color: #fff;
-      padding: 0.9rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: opacity 0.3s;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
     }
-    .contact-form button:hover {
-      opacity: 0.9;
+    .founder-avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.6);
+      object-fit: cover; margin-bottom: 1rem;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: rgba(255,255,255,0.85);
+      margin: 0 auto 1rem;
+    }
+    .founder-name {
+      color: #fff; font-size: 1.25rem; font-weight: 600;
+      font-family: 'Playfair Display', serif;
+    }
+    .founder-title { color: rgba(255,255,255,0.8); font-size: 0.88rem; }
+    .founder-body { padding: 1.8rem; }
+    .credential-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .credential-list li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      font-size: 0.9rem; color: var(--text-muted);
+    }
+    .credential-list li i { color: var(--blue); margin-top: 2px; flex-shrink: 0; }
+
+    .founder-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 700;
+      color: var(--text); margin-bottom: 1rem;
+    }
+    .founder-content p {
+      color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 1.2rem; font-size: 1rem;
+    }
+    .quote-block {
+      background: var(--off-white);
+      border-left: 4px solid var(--blue);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin-top: 1.5rem;
+    }
+    .quote-block p {
+      font-style: italic; font-size: 1.05rem;
+      color: var(--text); margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
     }
 
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, #004aad, #00b4d8);
-      color: #fff;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+    /* ── PROBLEM SECTION ── */
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 0.5rem;
     }
-    .footer-btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #fff;
-      color: #004aad;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+    .problem-card {
+      background: #fff; border-radius: 16px;
+      padding: 1.8rem; border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .problem-card:hover {
+      box-shadow: var(--shadow-lg); transform: translateY(-4px);
+    }
+    .problem-num {
+      font-size: 2.8rem; font-weight: 700; line-height: 1;
+      color: var(--light-grey); margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .problem-card h4 {
+      font-size: 1rem; font-weight: 600;
+      color: var(--blue); margin-bottom: 0.5rem;
+    }
+    .problem-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── MODULES ── */
+    .modules-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 1000px) {
+      .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .modules-grid { grid-template-columns: 1fr; }
+    }
+    .module-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px; padding: 1.6rem;
       transition: all 0.3s;
     }
-    .footer-btn:hover {
-      background: #00b4d8;
-      color: #fff;
+    .module-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
     }
+    .module-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #7ee8ff;
+      margin-bottom: 1rem;
+    }
+    .module-card h4 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .module-card ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .module-card ul li {
+      font-size: 0.82rem; color: rgba(255,255,255,0.65);
+      padding-left: 1rem; position: relative;
+    }
+    .module-card ul li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--green); font-weight: 700;
+    }
+
+    /* ── PROGRAMS ── */
+    .programs-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin-top: 0.5rem;
+    }
+    @media (max-width: 700px) {
+      .programs-grid { grid-template-columns: 1fr; }
+    }
+    .program-card {
+      background: #fff; border-radius: 20px;
+      border: 2px solid var(--border);
+      padding: 2.5rem; position: relative;
+      transition: all 0.3s;
+    }
+    .program-card:hover {
+      border-color: var(--blue); box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .program-card.featured {
+      border-color: var(--blue);
+      background: linear-gradient(135deg, #f0f6ff, #e8f4ff);
+    }
+    .featured-badge {
+      position: absolute; top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue); color: #fff;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.3rem 1rem; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .program-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: var(--light-grey); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.2rem;
+    }
+    .program-card.featured .program-icon { background: rgba(0,74,173,0.1); color: var(--blue); }
+    .program-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem;
+    }
+    .program-hours {
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .program-price {
+      font-size: 1.8rem; font-weight: 700; color: var(--blue);
+      margin-bottom: 0.2rem;
+    }
+    .program-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .price-note { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .program-features {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 0.7rem; margin-bottom: 2rem;
+    }
+    .program-features li {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+    .program-features li i { color: var(--green); margin-top: 2px; flex-shrink: 0; }
+    .btn-card {
+      display: block; text-align: center;
+      padding: 0.85rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-card-primary {
+      background: var(--blue); color: #fff;
+    }
+    .btn-card-primary:hover { background: var(--blue-dark); }
+    .btn-card-outline {
+      border: 2px solid var(--blue); color: var(--blue);
+    }
+    .btn-card-outline:hover { background: var(--blue); color: #fff; }
+
+    /* Pricing table */
+    .pricing-table {
+      width: 100%; border-collapse: collapse;
+      margin-top: 3rem; font-size: 0.9rem;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .pricing-table thead { background: var(--blue); color: #fff; }
+    .pricing-table th {
+      padding: 1rem 1.2rem; text-align: left;
+      font-weight: 600; font-size: 0.88rem;
+    }
+    .pricing-table td {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table tr:nth-child(even) td { background: var(--off-white); }
+    .pricing-table .check { color: var(--green); }
+    .pricing-table .col-sprint { color: var(--blue); font-weight: 500; }
+    .pricing-table .col-marathon { color: var(--green-dark); font-weight: 500; }
+
+    /* ── OUTCOMES ── */
+    .outcomes-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+    }
+    .tab-btn {
+      padding: 0.7rem 1.6rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; border: 2px solid var(--border);
+      background: #fff; color: var(--text-muted);
+      transition: all 0.25s;
+    }
+    .tab-btn.active {
+      background: var(--blue); color: #fff; border-color: var(--blue);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media (max-width: 600px) {
+      .tab-panel.active { grid-template-columns: 1fr; }
+    }
+    .outcome-card {
+      background: #fff; border-radius: 16px;
+      border: 1px solid var(--border); padding: 1.8rem;
+      transition: all 0.3s;
+    }
+    .outcome-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .outcome-card h4 {
+      font-size: 1rem; font-weight: 600; color: var(--blue);
+      margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .outcome-card h4 i { font-size: 0.9rem; }
+    .outcome-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .outcome-card ul li {
+      font-size: 0.88rem; color: var(--text-muted);
+      padding-left: 1.2rem; position: relative; line-height: 1.5;
+    }
+    .outcome-card ul li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--green); font-weight: 700; font-size: 0.85rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    .testimonial-card {
+      background: #fff; border-radius: 16px;
+      border: 1px solid var(--border); padding: 2rem;
+      transition: all 0.3s; position: relative;
+    }
+    .testimonial-card::before {
+      content: '"'; position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 4rem; font-family: 'Playfair Display', serif;
+      color: var(--light-grey); line-height: 1;
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 1rem; }
+    .testimonial-text {
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 600; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: 0.9rem; }
+    .author-role { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem; color: var(--text);
+      margin-bottom: 1.2rem; line-height: 1.3;
+    }
+    .about-content p {
+      color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 1rem; font-size: 1rem;
+    }
+    .vision-statement {
+      background: linear-gradient(135deg, #004aad, #0060cc);
+      color: #fff; border-radius: 16px;
+      padding: 2rem; margin-top: 1.5rem;
+    }
+    .vision-statement h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; margin-bottom: 0.6rem;
+      opacity: 0.75;
+    }
+    .vision-statement p {
+      font-size: 1.05rem; font-style: italic;
+      color: rgba(255,255,255,0.9); margin: 0; line-height: 1.7;
+    }
+    .about-visual {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-stat-box {
+      background: #fff; border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 1.8rem; text-align: center;
+      transition: all 0.3s;
+    }
+    .about-stat-box:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .about-stat-box .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--blue);
+    }
+    .about-stat-box .lbl {
+      font-size: 0.83rem; color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .about-stat-box:last-child {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #e8f4ff, #f0f9ff);
+      border-color: rgba(0,74,173,0.2);
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 4rem; align-items: start;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; margin-bottom: 1rem; color: var(--text);
+    }
+    .contact-info p {
+      color: var(--text-muted); line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .contact-detail .icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--light-grey); display: flex;
+      align-items: center; justify-content: center;
+      color: var(--blue); font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-detail a { text-decoration: none; color: var(--text); font-weight: 500; }
+    .contact-detail a:hover { color: var(--blue); }
+    .contact-detail small { display: block; color: var(--text-muted); font-size: 0.8rem; }
+
+    .contact-form {
+      background: #fff; border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .contact-form h4 {
+      font-size: 1.2rem; font-weight: 600;
+      margin-bottom: 1.5rem; color: var(--text);
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group label {
+      display: block; font-size: 0.85rem;
+      font-weight: 500; margin-bottom: 0.4rem; color: var(--text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      color: var(--text); background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,74,173,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .submit-btn {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--blue), #0060cc);
+      color: #fff; border: none; border-radius: 10px;
+      font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,74,173,0.25); }
+    #form-success {
+      display: none; background: #e8f8ee;
+      border: 1px solid #4CAF50; border-radius: 8px;
+      padding: 1rem; text-align: center;
+      color: #2e7d32; font-weight: 500; margin-top: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a1628;
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 2rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 2.5rem;
+    }
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .footer-brand p {
+      font-size: 0.9rem; line-height: 1.75;
+      margin-top: 1rem; max-width: 320px;
+    }
+    .footer-logo { height: 40px; filter: brightness(0) invert(1); opacity: 0.9; }
+    .footer-social {
+      display: flex; gap: 0.8rem; margin-top: 1.5rem;
+    }
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      transition: all 0.25s; font-size: 0.9rem;
+    }
+    .social-icon:hover { background: var(--blue); color: #fff; }
+    .footer-col h5 {
+      color: #fff; font-size: 0.9rem; font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links li a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.88rem; transition: color 0.2s;
+    }
+    .footer-links li a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1100px; margin: auto;
+      padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.8rem;
+      font-size: 0.82rem;
+    }
+
+    /* ── FADE-IN ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── DIVIDER ── */
+    .wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; }
+
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero fade-in" id="hero">
-    <div class="hero-container">
-      <img src="favicon.png" alt="AttiNexis Logo" class="hero-logo">
-      <div class="hero-text">
-        <h1>Transform Students into Industry-Ready Professionals</h1>
-        <p>Bridging the gap between campus learning and corporate success.</p>
-        <a href="#contact" class="cta-btn">Get in Touch</a>
-      </div>
-    </div>
-  </section>
+<!-- Scroll Progress -->
+<div id="progress-bar"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#objective">Objective</a></li>
+<!-- Top Bar -->
+<div class="topbar">
+  <a href="mailto:connect@attinexis.com"><i class="fas fa-envelope"></i>connect@attinexis.com</a>
+  <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+</div>
+
+<!-- Nav -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo"><img src="favicon.png" alt="AttiNexis"></a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about-founder">Our Founder</a></li>
+      <li><a href="#problem">Why AttiNexis</a></li>
       <li><a href="#modules">Modules</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
-      <li><a href="#impact">Impact</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Objective -->
-  <section id="objective" class="fade-in">
-    <h2>Objective</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      We bridge the gap between college education and industry expectations.
-      Our structured, multi-module approach equips students with the mindset,
-      skills, tools, and clarity needed to thrive in today’s dynamic job market.
-    </p>
-    <ul style="max-width:600px; margin:2rem auto;">
-      <li>Industry-ready graduates</li>
-      <li>Strong personal brand & career clarity</li>
-      <li>Job-ready tools, mindset & confidence</li>
-      <li>Future-proofed learning path</li>
-    </ul>
-  </section>
-
-  <!-- Modules -->
-  <section id="modules" class="fade-in">
-    <h2>Modules Covered</h2>
-    <div class="modules">
-      <div class="card">Corporate Readiness</div>
-      <div class="card">Critical Thinking & Problem Solving</div>
-      <div class="card">Resume, LinkedIn & Job Search Strategy</div>
-      <div class="card">Business Communication & Confidence</div>
-      <div class="card">Corporate Tools & Digital Literacy</div>
-      <div class="card">Interview Skills Bootcamp</div>
-      <div class="card">Emerging Careers & Industry Trends</div>
-      <div class="card">Career Strategy & Life Design</div>
-    </div>
-  </section>
-
-  <!-- Programs -->
-  <section id="programs" class="fade-in">
-    <h2>Our Programs</h2>
-    <div class="programs">
-      <div class="card">
-        <h3>Sprint Course (40 Hours)</h3>
-        <p>Fast-track program focused on placement & interview readiness.</p>
-        <p><strong>Contact us for pricing details</strong></p>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span> PhD-Led Career Readiness Programs
       </div>
-      <div class="card">
-        <h3>Marathon Course (90 Hours)</h3>
-        <p>Comprehensive deep-dive across all 8 modules with expert sessions & activities.</p>
-        <p><strong>Contact us for pricing details</strong></p>
+      <h1>Transform Students Into <span>Industry-Ready</span> Professionals</h1>
+      <p class="hero-sub">Bridging the gap between campus learning and corporate success — through structured, expert-led programs built for today's hiring reality.</p>
+      <div class="hero-btns">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#contact" class="btn-outline">Partner With Us</a>
       </div>
     </div>
-  </section>
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-icon">🎓</div>
+        <div>
+          <h3>8 Modules</h3>
+          <p>Comprehensive career readiness curriculum</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏢</div>
+        <div>
+          <h3>40–90 Hrs</h3>
+          <p>Flexible Sprint & Marathon program tracks</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div>
+          <h3>10–15%</h3>
+          <p>Targeted improvement in placement outcomes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Outcomes -->
-  <section id="outcomes" class="fade-in">
-    <h2>Targeted Outcomes</h2>
-    <div class="outcomes">
-      <div class="card">
-        <h3>For Institutes</h3>
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><i class="fas fa-user-graduate"></i> PhD-Led Curriculum</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience</div>
+    <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Institute Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
+  </div>
+</div>
+
+<!-- Founder Section -->
+<section class="section" id="about-founder">
+  <div class="section-inner">
+    <div class="founder-grid">
+      <div class="founder-card reveal">
+        <div class="founder-img-wrap">
+          <div class="founder-avatar"><i class="fas fa-user"></i></div>
+          <div class="founder-name">Dr. [Founder Name]</div>
+          <div class="founder-title">Founder & Lead Facilitator, AttiNexis</div>
+        </div>
+        <div class="founder-body">
+          <ul class="credential-list">
+            <li><i class="fas fa-graduation-cap"></i> PhD — [Specialization]</li>
+            <li><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience across Industry</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Expert in Campus-to-Corporate Transition</li>
+            <li><i class="fas fa-handshake"></i> Trusted Academic Partner for Engineering & Management Institutes</li>
+            <li><i class="fas fa-award"></i> Designed curriculum aligned to NEP 2020 & Industry Hiring Standards</li>
+          </ul>
+        </div>
+      </div>
+      <div class="founder-content reveal reveal-delay-1">
+        <div class="section-label">Meet the Founder</div>
+        <h3>Where Academic Rigour Meets Corporate Reality</h3>
+        <p>AttiNexis was born out of a deeply personal insight — watching talented graduates struggle not because of a lack of knowledge, but a lack of corporate readiness. With a PhD and over a decade of hands-on corporate exposure, our founder brings both academic depth and real-world credibility to every program.</p>
+        <p>She engages directly with college leadership, TPOs, and faculty — understanding each institution's unique placement challenges and co-designing solutions that work. This isn't a standardised off-the-shelf product; it's a partnership built on trust and measurable outcomes.</p>
+        <div class="quote-block">
+          <p>"Every student deserves to graduate not just with a degree, but with the clarity, confidence, and career strategy to excel — that's the gap AttiNexis was built to close."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem Section -->
+<section class="section section-alt" id="problem">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">The Challenge</div>
+      <h2 class="section-title reveal">Why Student Employability Is At Risk</h2>
+      <p class="section-desc reveal">India's engineering and management graduates face a widening gap between what colleges teach and what employers expect. AttiNexis addresses each of these challenges head-on.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-num">01</div>
+        <h4>Skills Don't Match Jobs</h4>
+        <p>According to NASSCOM, 45% of graduates are unemployable due to lack of industry-relevant, hands-on skills.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <div class="problem-num">02</div>
+        <h4>No Career Direction</h4>
+        <p>Students lack structured guidance, leading to misaligned course and career choices that hurt long-term prospects.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <div class="problem-num">03</div>
+        <h4>Generic Curriculum</h4>
+        <p>One-size-fits-all learning fails to address individual aspirations or specific industry needs.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">04</div>
+        <h4>No Real Industry Link</h4>
+        <p>Limited employer collaboration means students miss real-world exposure, internship pipelines, and live project experience.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <div class="problem-num">05</div>
+        <h4>Rising Career Anxiety</h4>
+        <p>Students fear being left behind — unsure of what to learn, how to prepare, or which career path to choose.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <div class="problem-num">06</div>
+        <h4>Policy Pressure Rising</h4>
+        <p>NEP 2020 demands that colleges integrate employability and skill development into mainstream education — urgently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules Section -->
+<section class="section section-blue" id="modules">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label light">What We Teach</div>
+      <h2 class="section-title light reveal">8 Modules. One Complete Career Foundation.</h2>
+      <p class="section-desc light reveal">Every module is built in close alignment with what hiring managers and talent acquisition teams actually look for.</p>
+    </div>
+    <div class="modules-grid">
+      <div class="module-card reveal">
+        <div class="module-icon"><i class="fas fa-building"></i></div>
+        <h4>Corporate Readiness</h4>
         <ul>
-          <li>Improved placement outcomes</li>
-          <li>Stronger reputation & admission demand</li>
-          <li>Employer partnerships & visibility</li>
-          <li>Value-add to academic offering</li>
+          <li>Industry expectations vs. college reality</li>
+          <li>Workplace communication norms</li>
+          <li>Time ownership & deadline management</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>For Students</h3>
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-icon"><i class="fas fa-brain"></i></div>
+        <h4>Critical Thinking & Problem Solving</h4>
         <ul>
-          <li>Industry-ready graduates</li>
-          <li>Strong personal brand & clarity</li>
-          <li>Job-ready skills & confidence</li>
-          <li>Future-proofed learning path</li>
+          <li>Case-based problem solving</li>
+          <li>Business models & workflows</li>
+          <li>Lateral thinking techniques</li>
+        </ul>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-icon"><i class="fas fa-file-alt"></i></div>
+        <h4>Resume, LinkedIn & Job Strategy</h4>
+        <ul>
+          <li>Impactful resume structuring</li>
+          <li>LinkedIn branding & job strategy</li>
+          <li>Cold email & application tailoring</li>
+        </ul>
+      </div>
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-icon"><i class="fas fa-comments"></i></div>
+        <h4>Business Communication</h4>
+        <ul>
+          <li>Group discussion & mock sessions</li>
+          <li>Presentation design & delivery</li>
+          <li>Elevator pitch confidence</li>
+        </ul>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-icon"><i class="fas fa-laptop-code"></i></div>
+        <h4>Corporate Tools & Digital Literacy</h4>
+        <ul>
+          <li>Excel, Tableau, Power BI basics</li>
+          <li>Productivity tools (Notion, Slack, Trello)</li>
+          <li>AI tools: ChatGPT, Canva, etc.</li>
+        </ul>
+      </div>
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-icon"><i class="fas fa-user-tie"></i></div>
+        <h4>Interview Skills Bootcamp</h4>
+        <ul>
+          <li>Mock HR & technical interviews</li>
+          <li>STAR technique & structured responses</li>
+          <li>Body language & emotional regulation</li>
+        </ul>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-icon"><i class="fas fa-chart-bar"></i></div>
+        <h4>Emerging Careers & Trends</h4>
+        <ul>
+          <li>AI, data, consulting & tech hiring</li>
+          <li>BFSI, IT, Analytics, EdTech prep</li>
+          <li>Freelance & global work trends</li>
+        </ul>
+      </div>
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-icon"><i class="fas fa-compass"></i></div>
+        <h4>Career Strategy & Life Design</h4>
+        <ul>
+          <li>Job vs. higher studies vs. entrepreneurship</li>
+          <li>Multiple income streams</li>
+          <li>Personal finance basics</li>
         </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Impact -->
-  <section id="impact" class="fade-in">
-    <h2>Our Impact</h2>
-    <div class="impact-grid">
-      <div class="impact-card">
-        <h3>50+</h3>
-        <p>Students Trained</p>
+<!-- Programs Section -->
+<section class="section" id="programs">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Our Programs</div>
+      <h2 class="section-title reveal">Choose the Right Track</h2>
+      <p class="section-desc reveal">Both programs deliver real impact. Choose based on your institute's timeline and depth requirements.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-icon">⚡</div>
+        <div class="program-name">Sprint Course</div>
+        <div class="program-hours"><i class="fas fa-clock"></i> 40 Hours</div>
+        <div class="program-price">₹10,800 <span>/ student (60 students)</span></div>
+        <div class="price-note">₹8,640 for 100 students · ₹6,480 for 150+</div>
+        <ul class="program-features">
+          <li><i class="fas fa-check-circle"></i> Focused coverage on placement-critical sections</li>
+          <li><i class="fas fa-check-circle"></i> 8 activities (1 per module)</li>
+          <li><i class="fas fa-check-circle"></i> 4 Industry expert sessions</li>
+          <li><i class="fas fa-check-circle"></i> 2 hours mock practice sessions</li>
+          <li><i class="fas fa-check-circle"></i> All 8 core modules at high-level</li>
+        </ul>
+        <a href="#contact" class="btn-card btn-card-outline">Enquire Now</a>
       </div>
-      <div class="impact-card">
-        <h3>2+</h3>
-        <p>Partner Institutes</p>
-      </div>
-      <div class="impact-card">
-        <h3>85%</h3>
-        <p>Placement Readiness</p>
+      <div class="program-card featured reveal reveal-delay-1">
+        <div class="featured-badge">⭐ Most Comprehensive</div>
+        <div class="program-icon" style="background:rgba(0,74,173,0.1);">🏆</div>
+        <div class="program-name">Marathon Course</div>
+        <div class="program-hours"><i class="fas fa-clock"></i> 90 Hours</div>
+        <div class="program-price">₹21,600 <span>/ student (60 students)</span></div>
+        <div class="price-note">₹17,280 for 100 students · ₹12,960 for 150+</div>
+        <ul class="program-features">
+          <li><i class="fas fa-check-circle"></i> Deep-dive across all 8 modules + sub-sections</li>
+          <li><i class="fas fa-check-circle"></i> 20 activities (multiple per module)</li>
+          <li><i class="fas fa-check-circle"></i> 8–10 Industry expert sessions</li>
+          <li><i class="fas fa-check-circle"></i> 8–10 hours mock practice sessions</li>
+          <li><i class="fas fa-check-circle"></i> Best for holistic, long-term career success</li>
+        </ul>
+        <a href="#contact" class="btn-card btn-card-primary">Get a Custom Quote</a>
       </div>
     </div>
-  </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="fade-in">
-    <h2>What Students & Partners Say</h2>
-    <div class="testimonials">
-      <div class="card">
-        <p>"AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer."</p>
-        <strong>- Student, Class of 2025</strong>
+    <!-- Comparison Table -->
+    <div class="reveal" style="overflow-x:auto; margin-top:1rem;">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Particulars</th>
+            <th>Sprint Course</th>
+            <th>Marathon Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Duration</strong></td>
+            <td class="col-sprint">40 Hours</td>
+            <td class="col-marathon">90 Hours</td>
+          </tr>
+          <tr>
+            <td><strong>Coverage</strong></td>
+            <td class="col-sprint">High-level, placement-focused</td>
+            <td class="col-marathon">In-depth, all 8 modules + sub-sections</td>
+          </tr>
+          <tr>
+            <td><strong>Activities</strong></td>
+            <td class="col-sprint">8 (1 per module)</td>
+            <td class="col-marathon">20 (multiple per module)</td>
+          </tr>
+          <tr>
+            <td><strong>Industry Expert Sessions</strong></td>
+            <td class="col-sprint">4 sessions</td>
+            <td class="col-marathon">8–10 sessions</td>
+          </tr>
+          <tr>
+            <td><strong>Practice Sessions</strong></td>
+            <td class="col-sprint">2 hours</td>
+            <td class="col-marathon">8–10 hours</td>
+          </tr>
+          <tr>
+            <td><strong>Starting Price (60 students)</strong></td>
+            <td class="col-sprint">₹10,800 / student</td>
+            <td class="col-marathon">₹21,600 / student</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.8rem; text-align:center;">* Final pricing based on confirmed enrollment volume. Contact us for a tailored quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Outcomes Section -->
+<section class="section section-alt" id="outcomes">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Impact</div>
+      <h2 class="section-title reveal">Targeted Outcomes</h2>
+      <p class="section-desc reveal">AttiNexis programs are designed to deliver measurable results — for both institutes and students.</p>
+    </div>
+    <div class="outcomes-tabs reveal">
+      <button class="tab-btn active" onclick="switchTab('institutes', this)">🏫 For Institutes</button>
+      <button class="tab-btn" onclick="switchTab('students', this)">🎓 For Students</button>
+    </div>
+    <div id="tab-institutes" class="tab-panel active">
+      <div class="outcome-card">
+        <h4><i class="fas fa-chart-line"></i> Improved Placement Outcomes</h4>
+        <ul>
+          <li>10–15% increase in students securing jobs or internships in reputed firms</li>
+          <li>Better placement statistics strengthening institutional reputation</li>
+          <li>Higher admission demand driven by visible career outcomes</li>
+        </ul>
       </div>
-      <div class="card">
-        <p>"Our institute saw significant improvement in placement outcomes after collaborating with AttiNexis."</p>
-        <strong>- Placement Officer</strong>
+      <div class="outcome-card">
+        <h4><i class="fas fa-award"></i> Industry Alignment & Branding</h4>
+        <ul>
+          <li>Positioned as a "future-ready campus" with direct industry collaboration</li>
+          <li>Competitive advantage in NAAC/NIRF accreditations and rankings</li>
+          <li>Differentiated offering in a crowded education landscape</li>
+        </ul>
+      </div>
+      <div class="outcome-card">
+        <h4><i class="fas fa-handshake"></i> Employer Partnerships & Visibility</h4>
+        <ul>
+          <li>Attracts recruiters with trained, job-ready students</li>
+          <li>Opens doors to new industry partnerships, live projects, and internships</li>
+        </ul>
+      </div>
+      <div class="outcome-card">
+        <h4><i class="fas fa-heart"></i> Retention & Student Satisfaction</h4>
+        <ul>
+          <li>Students perceive institute as invested in their career journey</li>
+          <li>Higher alumni success translates into stronger alumni networks and brand loyalty</li>
+        </ul>
       </div>
     </div>
-  </section>
+    <div id="tab-students" class="tab-panel">
+      <div class="outcome-card">
+        <h4><i class="fas fa-user-tie"></i> Industry-Ready Graduates</h4>
+        <ul>
+          <li>Exposure to workplace etiquette, communication norms, and project workflows</li>
+          <li>Confidence to adapt quickly in first job roles, reducing ramp-up time</li>
+        </ul>
+      </div>
+      <div class="outcome-card">
+        <h4><i class="fas fa-id-badge"></i> Strong Personal Brand & Career Clarity</h4>
+        <ul>
+          <li>Refined resumes, LinkedIn profiles, and interview preparation for better visibility</li>
+          <li>Clear direction: job vs. higher studies vs. entrepreneurship pathways</li>
+        </ul>
+      </div>
+      <div class="outcome-card">
+        <h4><i class="fas fa-tools"></i> Job-Ready Tools, Mindset & Confidence</h4>
+        <ul>
+          <li>Hands-on proficiency in Excel, PowerPoint, AI tools, and productivity apps</li>
+          <li>Critical thinking and problem-solving mindset that employers value</li>
+        </ul>
+      </div>
+      <div class="outcome-card">
+        <h4><i class="fas fa-rocket"></i> Future-Proofed Learning Path</h4>
+        <ul>
+          <li>Awareness of emerging industries: AI, analytics, consulting, fintech, and more</li>
+          <li>Guidance on freelancing, multiple income streams, and long-term career resilience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about" class="fade-in">
-    <h2>About Us</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      At AttiNexis, we are on a mission to bridge the gap between academic learning
-      and corporate readiness. Our programs empower students with the tools,
-      mindset, and practical experiences to succeed in placements and beyond.
-    </p>
-  </section>
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">What They Say</div>
+      <h2 class="section-title reveal">Voices from Our Community</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer — I walked into my placement interview feeling fully prepared.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Student</div>
+            <div class="author-role">Engineering Graduate, Class of 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Our institute saw a significant improvement in placement outcomes after collaborating with AttiNexis. The structured approach and faculty engagement made all the difference.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div>
+            <div class="author-name">Training & Placement Officer</div>
+            <div class="author-role">Partner Engineering College</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The LinkedIn branding workshop alone helped me reframe how I present myself professionally. I received three interview calls within a week of updating my profile.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Management Student</div>
+            <div class="author-role">MBA Graduate, 2025 Batch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="fade-in">
-    <h2>Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="text-align:center; margin-top:1rem;">
-      Email: <a href="mailto:connect@attinexis.com">connect@attinexis.com</a>
-    </p>
-  </section>
+<!-- About -->
+<section class="section section-alt" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <div class="section-label">About AttiNexis</div>
+        <h2>Attitude Meets Action</h2>
+        <p>At AttiNexis, we are on a mission to bridge the gap between academic learning and corporate readiness. Today's graduates often enter the job market with strong technical knowledge but lack the career skills, confidence, and industry exposure needed to thrive.</p>
+        <p>We design and deliver career readiness programs that empower students with the tools, mindset, and practical experiences to succeed in placements and beyond. Our modules are built in close alignment with industry expectations and current hiring trends.</p>
+        <p>With a blend of expert-led sessions, interactive activities, and real-world problem-solving, we help students transform into industry-ready professionals who stand out in competitive markets.</p>
+        <div class="vision-statement">
+          <h4>Our Vision</h4>
+          <p>"To create a future where every student graduates not just with a degree, but with the clarity, confidence, and career strategy to excel in their chosen path."</p>
+        </div>
+      </div>
+      <div class="about-visual reveal reveal-delay-1">
+        <div class="about-stat-box">
+          <div class="num">8</div>
+          <div class="lbl">Career Readiness Modules</div>
+        </div>
+        <div class="about-stat-box">
+          <div class="num">90h</div>
+          <div class="lbl">Max Program Depth</div>
+        </div>
+        <div class="about-stat-box">
+          <div class="num">10+</div>
+          <div class="lbl">Industry Expert Sessions (Marathon)</div>
+        </div>
+        <div class="about-stat-box" style="grid-column:1/-1; background: linear-gradient(135deg,#e8f4ff,#f0f9ff); border-color:rgba(0,74,173,0.2);">
+          <div class="num" style="color:var(--blue);">PhD + 10 Yrs</div>
+          <div class="lbl">Academic + Corporate Expertise Behind Every Program</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 AttiNexis. All rights reserved.</p>
-    <a href="https://www.linkedin.com/company/attinexis-edutech-llp//" target="_blank" class="footer-btn">LinkedIn</a>
-  </footer>
- <!-- Scroll Progress Script -->
-  <script>
-    window.onscroll = function() {
-      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (scrollTop / scrollHeight) * 100;
-      document.getElementById("progress-bar").style.width = scrolled + "%";
-    };
-  </script>
-  <!-- Scroll animation JS -->
-  <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">Get In Touch</div>
+        <h3>Let's Build Something Together</h3>
+        <p>Whether you're a Training & Placement Officer, Principal, or College Director — we'd love to understand your specific challenges and show you how AttiNexis can help. Reach out for a no-obligation conversation.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <a href="mailto:connect@attinexis.com">connect@attinexis.com</a>
+              <small>We respond within 24 hours</small>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fab fa-linkedin"></i></div>
+            <div>
+              <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank">AttiNexis on LinkedIn</a>
+              <small>Follow us for updates & insights</small>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <a href="https://attinexis.com">attinexis.com</a>
+              <small>Attitude Meets Action</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-1">
+        <h4>Send Us a Message</h4>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="fname" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label>Designation *</label>
+            <input type="text" id="fdesig" placeholder="TPO / Principal / HOD">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Institute Name *</label>
+          <input type="text" id="finstitute" placeholder="Your college / university name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="femail" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Interested In</label>
+          <select id="fprogram">
+            <option value="">Select a program</option>
+            <option>Sprint Course (40 Hours)</option>
+            <option>Marathon Course (90 Hours)</option>
+            <option>Not sure yet — need more info</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="fmessage" placeholder="Tell us about your institute, number of students, and what you're looking to achieve..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Send Message <i class="fas fa-paper-plane" style="margin-left:0.5rem;"></i></button>
+        <div id="form-success">✅ Thank you! We'll get back to you within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="favicon.png" alt="AttiNexis" class="footer-logo">
+      <p>Bridging the gap between campus learning and corporate success through structured, PhD-led career readiness programs.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:connect@attinexis.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul class="footer-links">
+        <li><a href="#about-founder">Our Founder</a></li>
+        <li><a href="#problem">Why AttiNexis</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#outcomes">Outcomes</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul class="footer-links">
+        <li><a href="#programs">Sprint Course (40 Hrs)</a></li>
+        <li><a href="#programs">Marathon Course (90 Hrs)</a></li>
+        <li><a href="#contact">Request Custom Program</a></li>
+      </ul>
+      <h5 style="margin-top:1.5rem;">Contact</h5>
+      <ul class="footer-links">
+        <li><a href="mailto:connect@attinexis.com">connect@attinexis.com</a></li>
+        <li><a href="https://attinexis.com">attinexis.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AttiNexis Edutech LLP. All rights reserved.</span>
+    <span>Attitude Meets Action</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('progress-bar').style.width = (st / sh * 100) + '%';
+  });
+
+  // Hamburger menu
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
     });
-  </script>
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(r => revealObs.observe(r));
+
+  // Tabs
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Form submit
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    if (!name || !email) { alert('Please fill in your name and email.'); return; }
+    const msg = `Hello AttiNexis,\n\nName: ${name}\nDesignation: ${document.getElementById('fdesig').value}\nInstitute: ${document.getElementById('finstitute').value}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
+    window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Program Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
