@@ -73,14 +73,14 @@
       justify-content: space-between;
       padding: 0.7rem 2rem;
     }
-    .nav-logo img { height: 200px; }
+    .nav-logo img { height: 44px; }
     .nav-links {
       list-style: none;
       display: flex; gap: 0.2rem;
     }
     .nav-links li a {
       display: block;
-      padding: 1rem 2rem;
+      padding: 0.45rem 0.9rem;
       text-decoration: none;
       color: var(--text);
       font-size: 0.88rem;
@@ -745,13 +745,7 @@
       font-size: 0.9rem; line-height: 1.75;
       margin-top: 1rem; max-width: 320px;
     }
-    .footer-logo {
-    height: 80px;
-    width: auto;
-    margin-bottom: 15px;
-    filter: none;
-    opacity: 1;
-}
+    .footer-logo { height: 40px; filter: brightness(0) invert(1); opacity: 0.9; }
     .footer-social {
       display: flex; gap: 0.8rem; margin-top: 1.5rem;
     }
@@ -805,7 +799,7 @@
 <!-- Top Bar -->
 <div class="topbar">
   <a href="mailto:connect@attinexis.com"><i class="fas fa-envelope"></i>connect@attinexis.com</a>
-  <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+  <a href="https://www.linkedin.com/company/attinexis/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
 </div>
 
 <!-- Nav -->
@@ -822,6 +816,7 @@
       <li><a href="#programs">Programs</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="blog.html">Blogs</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
   </div>
@@ -885,12 +880,12 @@
       <div class="founder-card reveal">
         <div class="founder-img-wrap">
           <div class="founder-avatar"><i class="fas fa-user"></i></div>
-          <div class="founder-name">Dr. Dhanashri Landge</div>
+          <div class="founder-name">Dr. [Founder Name]</div>
           <div class="founder-title">Founder & Lead Facilitator, AttiNexis</div>
         </div>
         <div class="founder-body">
           <ul class="credential-list">
-            <li><i class="fas fa-graduation-cap"></i> PhD — Marketing </li>
+            <li><i class="fas fa-graduation-cap"></i> PhD — [Specialization]</li>
             <li><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience across Industry</li>
             <li><i class="fas fa-chalkboard-teacher"></i> Expert in Campus-to-Corporate Transition</li>
             <li><i class="fas fa-handshake"></i> Trusted Academic Partner for Engineering & Management Institutes</li>
@@ -1052,7 +1047,8 @@
         <div class="program-icon">⚡</div>
         <div class="program-name">Sprint Course</div>
         <div class="program-hours"><i class="fas fa-clock"></i> 40 Hours</div>
-
+        <div class="program-price">₹10,800 <span>/ student (60 students)</span></div>
+        <div class="price-note">₹8,640 for 100 students · ₹6,480 for 150+</div>
         <ul class="program-features">
           <li><i class="fas fa-check-circle"></i> Focused coverage on placement-critical sections</li>
           <li><i class="fas fa-check-circle"></i> 8 activities (1 per module)</li>
@@ -1067,7 +1063,8 @@
         <div class="program-icon" style="background:rgba(0,74,173,0.1);">🏆</div>
         <div class="program-name">Marathon Course</div>
         <div class="program-hours"><i class="fas fa-clock"></i> 90 Hours</div>
-
+        <div class="program-price">₹21,600 <span>/ student (60 students)</span></div>
+        <div class="price-note">₹17,280 for 100 students · ₹12,960 for 150+</div>
         <ul class="program-features">
           <li><i class="fas fa-check-circle"></i> Deep-dive across all 8 modules + sub-sections</li>
           <li><i class="fas fa-check-circle"></i> 20 activities (multiple per module)</li>
@@ -1115,7 +1112,10 @@
             <td class="col-sprint">2 hours</td>
             <td class="col-marathon">8–10 hours</td>
           </tr>
-
+          <tr>
+            <td><strong>Starting Price (60 students)</strong></td>
+            <td class="col-sprint">₹10,800 / student</td>
+            <td class="col-marathon">₹21,600 / student</td>
           </tr>
         </tbody>
       </table>
@@ -1302,7 +1302,7 @@
           <div class="contact-detail">
             <div class="icon"><i class="fab fa-linkedin"></i></div>
             <div>
-              <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank">AttiNexis on LinkedIn</a>
+              <a href="https://www.linkedin.com/company/attinexis/" target="_blank">AttiNexis on LinkedIn</a>
               <small>Follow us for updates & insights</small>
             </div>
           </div>
@@ -1368,7 +1368,8 @@
       <img src="favicon.png" alt="AttiNexis" class="footer-logo">
       <p>Bridging the gap between campus learning and corporate success through structured, PhD-led career readiness programs.</p>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/company/attinexis-edutech-llp/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/attinexis_yourcareercoach" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
         <a href="mailto:connect@attinexis.com" class="social-icon"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
@@ -1381,6 +1382,7 @@
         <li><a href="#programs">Programs</a></li>
         <li><a href="#outcomes">Outcomes</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="blog.html">Blogs</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1398,7 +1400,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 AttiNexis Edutech LLP. All rights reserved.</span>
+    <span>© 2025 AttiNexis Edutech LLP. All rights reserved.</span>
     <span>Attitude Meets Action</span>
   </div>
 </footer>
