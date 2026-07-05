@@ -839,6 +839,142 @@
     .casestudy-bottom span { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
     .casestudy-bottom strong { color: var(--text); font-style: normal; }
 
+    /* ── 9. HERO WORD CYCLE ── */
+    #hero-cycle {
+      display: inline-block;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    #hero-cycle.cycling {
+      opacity: 0; transform: translateY(-8px);
+    }
+
+    /* ── 1. TRUST BAR MARQUEE ── */
+    .trust-bar { overflow: hidden; }
+    .trust-bar-inner {
+      display: flex; gap: 2.5rem;
+      flex-wrap: nowrap; width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .trust-bar-inner:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── 2. PROBLEM CARD HOVER REVEAL ── */
+    .problem-card { overflow: hidden; }
+    .problem-fix {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      font-size: 0.82rem; color: var(--blue);
+      font-weight: 600; margin-top: 0;
+      padding-top: 0; border-top: 0 solid var(--border);
+    }
+    .problem-card:hover .problem-fix {
+      max-height: 60px; opacity: 1;
+      margin-top: 0.75rem; padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .problem-fix i { margin-right: 0.4rem; color: var(--green-dark); }
+
+    /* ── 3. MODULE CARD WHY-LINE ── */
+    .module-why {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+      font-size: 0.78rem; color: rgba(255,255,255,0.5);
+      font-style: italic; margin-top: 0;
+      border-top: 0 solid rgba(255,255,255,0.12);
+      padding-top: 0;
+    }
+    .module-card:hover .module-why {
+      max-height: 60px; opacity: 1;
+      margin-top: 0.8rem; padding-top: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ── 4. OUTCOMES TAB FADE TRANSITION ── */
+    .tab-panel {
+      animation: tabFade 0.35s ease;
+    }
+    @keyframes tabFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── 5. TESTIMONIAL CAROUSEL ── */
+    .testimonials-grid { display: block; position: relative; }
+    .testimonial-slide {
+      display: none;
+      animation: slideFade 0.5s ease;
+    }
+    .testimonial-slide.active { display: block; }
+    @keyframes slideFade {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .carousel-dots {
+      display: flex; justify-content: center;
+      gap: 0.6rem; margin-top: 1.8rem;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); border: none; cursor: pointer;
+      transition: all 0.3s; padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--blue); width: 24px; border-radius: 4px;
+    }
+
+    /* ── 6. COUNTER ANIMATION ── */
+    .count-up { display: inline-block; }
+
+    /* ── 7. ABOUT READ MORE ── */
+    .about-extra {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+    .about-extra.open { max-height: 200px; opacity: 1; }
+    .read-more-btn {
+      background: none; border: none; padding: 0;
+      color: var(--blue); font-size: 0.9rem;
+      font-weight: 600; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      display: flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.5rem; transition: gap 0.2s;
+    }
+    .read-more-btn:hover { gap: 0.6rem; }
+
+    /* ── 8. FORM SUCCESS CARD ── */
+    #form-success {
+      display: none;
+      background: linear-gradient(135deg, #f0f6ff, #e8f4ff);
+      border: 1px solid rgba(0,74,173,0.2);
+      border-radius: 14px; padding: 2rem;
+      text-align: center; margin-top: 1rem;
+    }
+    #form-success .success-icon {
+      font-size: 2.5rem; margin-bottom: 0.75rem;
+    }
+    #form-success h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; color: var(--text); margin-bottom: 0.5rem;
+    }
+    #form-success p {
+      font-size: 0.9rem; color: var(--text-muted);
+      margin-bottom: 1.2rem; line-height: 1.6;
+    }
+    #form-success .success-linkedin {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--blue); color: #fff;
+      padding: 0.6rem 1.3rem; border-radius: 8px;
+      text-decoration: none; font-size: 0.88rem; font-weight: 600;
+      transition: all 0.25s;
+    }
+    #form-success .success-linkedin:hover { background: var(--blue-dark); }
+
     /* ── FADE-IN ANIMATIONS ── */
     .reveal {
       opacity: 0; transform: translateY(28px);
@@ -893,7 +1029,7 @@
       <div class="hero-tag">
         <span class="dot"></span> PhD-Led Career Readiness Programs
       </div>
-      <h1>Transform Students Into <span>Industry-Ready</span> Professionals</h1>
+      <h1>Transform Students Into <span id="hero-cycle">Industry-Ready</span> Professionals</h1>
       <p class="hero-sub">Bridging the gap between campus learning and corporate success — through structured, expert-led programs built for today's hiring reality.</p>
       <div class="hero-btns">
         <a href="#programs" class="btn-primary">Explore Programs</a>
@@ -929,6 +1065,11 @@
 <!-- Trust Bar -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
+    <div class="trust-item"><i class="fas fa-user-graduate"></i> PhD-Led Curriculum</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience</div>
+    <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Institute Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
     <div class="trust-item"><i class="fas fa-user-graduate"></i> PhD-Led Curriculum</div>
     <div class="trust-item"><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience</div>
     <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
@@ -983,31 +1124,37 @@
         <div class="problem-num">01</div>
         <h4>Skills Don't Match Jobs</h4>
         <p>According to NASSCOM, 45% of graduates are unemployable due to lack of industry-relevant, hands-on skills.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>AttiNexis builds real, hands-on workplace skills across 8 structured modules.</div>
       </div>
       <div class="problem-card reveal reveal-delay-1">
         <div class="problem-num">02</div>
         <h4>No Career Direction</h4>
         <p>Students lack structured guidance, leading to misaligned course and career choices that hurt long-term prospects.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>Our Career Strategy module gives students a clear, personalised roadmap.</div>
       </div>
       <div class="problem-card reveal reveal-delay-2">
         <div class="problem-num">03</div>
         <h4>Generic Curriculum</h4>
         <p>One-size-fits-all learning fails to address individual aspirations or specific industry needs.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>We co-design each engagement around your institute's specific student profile.</div>
       </div>
       <div class="problem-card reveal">
         <div class="problem-num">04</div>
         <h4>No Real Industry Link</h4>
         <p>Limited employer collaboration means students miss real-world exposure, internship pipelines, and live project experience.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>Every program includes live industry expert sessions and real case studies.</div>
       </div>
       <div class="problem-card reveal reveal-delay-1">
         <div class="problem-num">05</div>
         <h4>Rising Career Anxiety</h4>
         <p>Students fear being left behind — unsure of what to learn, how to prepare, or which career path to choose.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>We replace anxiety with clarity — tools, direction, and practiced confidence.</div>
       </div>
       <div class="problem-card reveal reveal-delay-2">
         <div class="problem-num">06</div>
         <h4>Policy Pressure Rising</h4>
         <p>NEP 2020 demands that colleges integrate employability and skill development into mainstream education — urgently.</p>
+        <div class="problem-fix"><i class="fas fa-arrow-right"></i>AttiNexis programs are fully aligned to NEP 2020 employability mandates.</div>
       </div>
     </div>
   </div>
@@ -1030,6 +1177,7 @@
           <li>Workplace communication norms</li>
           <li>Time ownership & deadline management</li>
         </ul>
+        <div class="module-why">Employers say first-job ramp-up is the #1 cost of hiring freshers.</div>
       </div>
       <div class="module-card reveal reveal-delay-1">
         <div class="module-icon"><i class="fas fa-brain"></i></div>
@@ -1039,6 +1187,7 @@
           <li>Business models & workflows</li>
           <li>Lateral thinking techniques</li>
         </ul>
+        <div class="module-why">Ranked the #1 skill gap by hiring managers across BFSI, IT & consulting.</div>
       </div>
       <div class="module-card reveal reveal-delay-2">
         <div class="module-icon"><i class="fas fa-file-alt"></i></div>
@@ -1048,6 +1197,7 @@
           <li>LinkedIn branding & job strategy</li>
           <li>Cold email & application tailoring</li>
         </ul>
+        <div class="module-why">Most students never get screened in — this module fixes that.</div>
       </div>
       <div class="module-card reveal reveal-delay-3">
         <div class="module-icon"><i class="fas fa-comments"></i></div>
@@ -1057,6 +1207,7 @@
           <li>Presentation design & delivery</li>
           <li>Elevator pitch confidence</li>
         </ul>
+        <div class="module-why">GDs and presentations are elimination rounds — practice here is practice for real.</div>
       </div>
       <div class="module-card reveal">
         <div class="module-icon"><i class="fas fa-laptop-code"></i></div>
@@ -1066,6 +1217,7 @@
           <li>Productivity tools (Notion, Slack, Trello)</li>
           <li>AI tools: ChatGPT, Canva, etc.</li>
         </ul>
+        <div class="module-why">Day-one productivity is now a baseline expectation, not a bonus.</div>
       </div>
       <div class="module-card reveal reveal-delay-1">
         <div class="module-icon"><i class="fas fa-user-tie"></i></div>
@@ -1075,6 +1227,7 @@
           <li>STAR technique & structured responses</li>
           <li>Body language & emotional regulation</li>
         </ul>
+        <div class="module-why">Confidence in interviews is a skill — it's built through repetition, not hope.</div>
       </div>
       <div class="module-card reveal reveal-delay-2">
         <div class="module-icon"><i class="fas fa-chart-bar"></i></div>
@@ -1084,6 +1237,7 @@
           <li>BFSI, IT, Analytics, EdTech prep</li>
           <li>Freelance & global work trends</li>
         </ul>
+        <div class="module-why">Students who know where the jobs are moving get there first.</div>
       </div>
       <div class="module-card reveal reveal-delay-3">
         <div class="module-icon"><i class="fas fa-compass"></i></div>
@@ -1093,6 +1247,7 @@
           <li>Multiple income streams</li>
           <li>Personal finance basics</li>
         </ul>
+        <div class="module-why">Clarity of direction multiplies the impact of every other skill.</div>
       </div>
     </div>
   </div>
@@ -1266,39 +1421,50 @@
       <div class="section-label">What They Say</div>
       <h2 class="section-title reveal">Voices from Our Community</h2>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer — I walked into my placement interview feeling fully prepared.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">S</div>
-          <div>
-            <div class="author-name">Student</div>
-            <div class="author-role">Engineering Graduate, Class of 2025</div>
+    <div class="testimonials-grid" id="testimonialCarousel">
+      <div class="testimonial-slide active">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer — I walked into my placement interview feeling fully prepared.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <div class="author-name">Student</div>
+              <div class="author-role">Engineering Graduate, Class of 2025</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">Our institute saw a significant improvement in placement outcomes after collaborating with AttiNexis. The structured approach and faculty engagement made all the difference.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">T</div>
-          <div>
-            <div class="author-name">Training & Placement Officer</div>
-            <div class="author-role">Partner Engineering College</div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Our institute saw a significant improvement in placement outcomes after collaborating with AttiNexis. The structured approach and faculty engagement made all the difference.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">T</div>
+            <div>
+              <div class="author-name">Training & Placement Officer</div>
+              <div class="author-role">Partner Engineering College</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">The LinkedIn branding workshop alone helped me reframe how I present myself professionally. I received three interview calls within a week of updating my profile.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">R</div>
-          <div>
-            <div class="author-name">Management Student</div>
-            <div class="author-role">MBA Graduate, 2025 Batch</div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">The LinkedIn branding workshop alone helped me reframe how I present myself professionally. I received three interview calls within a week of updating my profile.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <div class="author-name">Management Student</div>
+              <div class="author-role">MBA Graduate, 2025 Batch</div>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" onclick="goToSlide(2)"></button>
       </div>
     </div>
   </div>
@@ -1325,11 +1491,11 @@
           <h3>Bridging the Industry Gap for 240+ Engineering Students</h3>
           <div class="casestudy-metrics">
             <div class="metric-box">
-              <div class="metric-value">240+</div>
+              <div class="metric-value count-up" data-target="240" data-suffix="+">0+</div>
               <div class="metric-label">Students Reached<br>(2nd to Final Year)</div>
             </div>
             <div class="metric-box">
-              <div class="metric-value">2 Yrs</div>
+              <div class="metric-value count-up" data-target="2" data-suffix=" Yrs">0 Yrs</div>
               <div class="metric-label">Ongoing Engagement<br>2025–2026</div>
             </div>
             <div class="metric-box">
@@ -1374,7 +1540,10 @@
         <h2>Attitude Meets Action</h2>
         <p>At AttiNexis, we are on a mission to bridge the gap between academic learning and corporate readiness. Today's graduates often enter the job market with strong technical knowledge but lack the career skills, confidence, and industry exposure needed to thrive.</p>
         <p>We design and deliver career readiness programs that empower students with the tools, mindset, and practical experiences to succeed in placements and beyond. Our modules are built in close alignment with industry expectations and current hiring trends.</p>
-        <p>With a blend of expert-led sessions, interactive activities, and real-world problem-solving, we help students transform into industry-ready professionals who stand out in competitive markets.</p>
+        <div class="about-extra" id="aboutExtra">
+          <p>With a blend of expert-led sessions, interactive activities, and real-world problem-solving, we help students transform into industry-ready professionals who stand out in competitive markets.</p>
+        </div>
+        <button class="read-more-btn" id="readMoreBtn" onclick="toggleReadMore()">Read more <i class="fas fa-arrow-right" id="readMoreIcon"></i></button>
         <div class="vision-statement">
           <h4>Our Vision</h4>
           <p>"To create a future where every student graduates not just with a degree, but with the clarity, confidence, and career strategy to excel in their chosen path."</p>
@@ -1382,15 +1551,15 @@
       </div>
       <div class="about-visual reveal reveal-delay-1">
         <div class="about-stat-box">
-          <div class="num">8</div>
+          <div class="num count-up" data-target="8">0</div>
           <div class="lbl">Career Readiness Modules</div>
         </div>
         <div class="about-stat-box">
-          <div class="num">90h</div>
+          <div class="num count-up" data-target="90" data-suffix="h">0h</div>
           <div class="lbl">Max Program Depth</div>
         </div>
         <div class="about-stat-box">
-          <div class="num">10+</div>
+          <div class="num count-up" data-target="10" data-suffix="+">0+</div>
           <div class="lbl">Industry Expert Sessions (Marathon)</div>
         </div>
         <div class="about-stat-box" style="grid-column:1/-1; background: linear-gradient(135deg,#e8f4ff,#f0f9ff); border-color:rgba(0,74,173,0.2);">
@@ -1443,19 +1612,9 @@
       </div>
       <div class="contact-form reveal reveal-delay-1">
         <h4>Send Us a Message</h4>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name *</label>
-            <input type="text" id="fname" placeholder="Full name" required>
-          </div>
-          <div class="form-group">
-            <label>Designation *</label>
-            <input type="text" id="fdesig" placeholder="TPO / Principal / HOD">
-          </div>
-        </div>
         <div class="form-group">
-          <label>Institute Name *</label>
-          <input type="text" id="finstitute" placeholder="Your college / university name">
+          <label>Your Name *</label>
+          <input type="text" id="fname" placeholder="Full name" required>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -1481,7 +1640,14 @@
           <textarea id="fmessage" placeholder="Tell us about your institute, number of students, and what you're looking to achieve..."></textarea>
         </div>
         <button class="submit-btn" onclick="submitForm()">Send Message <i class="fas fa-paper-plane" style="margin-left:0.5rem;"></i></button>
-        <div id="form-success">✅ Thank you! We'll get back to you within 24 hours.</div>
+        <div id="form-success">
+          <div class="success-icon">🎉</div>
+          <h4 id="success-name">Thank you!</h4>
+          <p>We've received your message and will get back to you within 24 hours. While you wait, follow us on LinkedIn for career readiness insights.</p>
+          <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="success-linkedin">
+            <i class="fab fa-linkedin-in"></i> Follow AttiNexis
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -1532,19 +1698,19 @@
 </footer>
 
 <script>
-  // Scroll progress
+  // ── SCROLL PROGRESS ──
   window.addEventListener('scroll', () => {
     const st = document.documentElement.scrollTop;
     const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     document.getElementById('progress-bar').style.width = (st / sh * 100) + '%';
   });
 
-  // Hamburger menu
+  // ── HAMBURGER MENU ──
   document.getElementById('hamburger').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('open');
   });
 
-  // Scroll reveal
+  // ── SCROLL REVEAL ──
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1553,7 +1719,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(r => revealObs.observe(r));
 
-  // Tabs
+  // ── OUTCOME TABS ──
   function switchTab(tab, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1561,17 +1727,97 @@
     btn.classList.add('active');
   }
 
-  // Form submit
+  // ── 1. HERO WORD CYCLE ──
+  const words = ['Industry-Ready', 'Placement-Ready', 'Career-Ready', 'Future-Ready'];
+  let wordIdx = 0;
+  const cycleEl = document.getElementById('hero-cycle');
+  setInterval(() => {
+    cycleEl.classList.add('cycling');
+    setTimeout(() => {
+      wordIdx = (wordIdx + 1) % words.length;
+      cycleEl.textContent = words[wordIdx];
+      cycleEl.classList.remove('cycling');
+    }, 400);
+  }, 2800);
+
+  // ── 2. COUNT-UP ANIMATION ──
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        countObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
+
+  // ── 3. TESTIMONIAL CAROUSEL ──
+  let currentSlide = 0;
+  let carouselTimer;
+
+  function goToSlide(index) {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    resetCarouselTimer();
+  }
+
+  function nextSlide() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    goToSlide((currentSlide + 1) % slides.length);
+  }
+
+  function resetCarouselTimer() {
+    clearInterval(carouselTimer);
+    carouselTimer = setInterval(nextSlide, 4500);
+  }
+
+  resetCarouselTimer();
+
+  // ── 4. ABOUT READ MORE ──
+  function toggleReadMore() {
+    const extra = document.getElementById('aboutExtra');
+    const btn = document.getElementById('readMoreBtn');
+    const icon = document.getElementById('readMoreIcon');
+    const isOpen = extra.classList.contains('open');
+    extra.classList.toggle('open');
+    btn.innerHTML = isOpen
+      ? 'Read more <i class="fas fa-arrow-right" id="readMoreIcon"></i>'
+      : 'Read less <i class="fas fa-arrow-up" id="readMoreIcon"></i>';
+  }
+
+  // ── 5. FORM SUBMIT ──
   function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
-    const msg = `Hello AttiNexis,\n\nName: ${name}\nDesignation: ${document.getElementById('fdesig').value}\nInstitute: ${document.getElementById('finstitute').value}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
+    const firstName = name.split(' ')[0];
+    const msg = `Hello AttiNexis,\n\nName: ${name}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
     window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Program Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
+    document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
+    const form = document.querySelector('.contact-form');
+    form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
     document.getElementById('form-success').style.display = 'block';
   }
 
-  // Active nav highlight
+  // ── 6. ACTIVE NAV HIGHLIGHT ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
