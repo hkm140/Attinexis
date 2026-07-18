@@ -132,6 +132,7 @@
       padding: 5rem 2rem 4rem;
       position: relative;
       overflow: hidden;
+      scroll-margin-top: 76px;
     }
     .hero::before {
       content: '';
@@ -178,6 +179,11 @@
       margin-bottom: 2rem;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-microlink {
+      margin-top: 1.2rem; font-size: 0.9rem; color: rgba(255,255,255,0.65);
+    }
+    .hero-microlink a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .hero-microlink a:hover { color: var(--cyan); }
     .btn-primary {
       background: #fff; color: var(--blue);
       padding: 0.85rem 1.8rem; border-radius: 8px;
@@ -240,6 +246,7 @@
     /* ── SECTION BASE ── */
     .section {
       padding: 5rem 2rem;
+      scroll-margin-top: 76px;
     }
     .section-inner { max-width: 1100px; margin: auto; }
     .section-alt { background: var(--off-white); }
@@ -416,6 +423,18 @@
     @media (max-width: 700px) {
       .programs-grid { grid-template-columns: 1fr; }
     }
+    .consult-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem; margin-top: 0.5rem;
+    }
+    @media (max-width: 900px) { .consult-grid { grid-template-columns: 1fr; } }
+    .consult-card {
+      background: #fff; border-radius: 16px;
+      border: 2px solid var(--border); padding: 2rem;
+      transition: all 0.3s;
+    }
+    .consult-card:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateY(-4px); }
+    .consult-desc { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.5; }
     .program-card {
       background: #fff; border-radius: 20px;
       border: 2px solid var(--border);
@@ -757,6 +776,8 @@
       font-size: 0.88rem; transition: color 0.2s;
     }
     .footer-links li a:hover { color: #fff; }
+    .footer-legal-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-legal-links a:hover { color: #fff; }
     .footer-bottom {
       max-width: 1100px; margin: auto;
       padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
@@ -1026,6 +1047,7 @@
       <li><a href="#problem">Why AttiNexis</a></li>
       <li><a href="#modules">Modules</a></li>
       <li><a href="#programs">Programs</a></li>
+      <li><a href="#consultation">1:1 Consultation</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="https://substack.com/@dhanashrilandge" target="_blank">Blogs</a></li>
@@ -1047,6 +1069,7 @@
         <a href="#programs" class="btn-primary">Explore Programs</a>
         <a href="#contact" class="btn-outline">Partner With Us</a>
       </div>
+      <p class="hero-microlink">Not ready to commit? <a href="#consultation">Book a 1:1 consultation instead →</a></p>
     </div>
     <div class="hero-right">
       <div class="stat-card">
@@ -1345,12 +1368,45 @@
         </tbody>
       </table>
       <p style="font-size:0.88rem; color:var(--text-muted); margin-top:1.2rem; text-align:center;">Pricing is customised based on your batch size and program track. <a href="#contact" style="color:var(--blue); font-weight:600;">Reach out for a tailored quote →</a></p>
+      <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.5rem; text-align:center;">Still deciding? <a href="#consultation" style="color:var(--blue); font-weight:600;">Book a 1:1 consultation first →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 1:1 Consultation -->
+<section class="section section-alt" id="consultation">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Not Ready for a Full Program Yet?</div>
+      <h2 class="section-title reveal">Start With a 1:1 Strategy Session</h2>
+      <p class="section-desc reveal">A focused 60-minute consultation with our Founder — for institutions weighing their options, and for individuals seeking career or AI-adoption guidance.</p>
+    </div>
+    <div class="consult-grid">
+      <div class="consult-card reveal">
+        <div class="program-icon"><i class="fas fa-university"></i></div>
+        <div class="program-name" style="font-size:1.15rem;">College Program Consultation</div>
+        <p class="consult-desc">For placement officers and faculty identifying skill gaps or structuring a program before committing to Sprint or Marathon.</p>
+      </div>
+      <div class="consult-card reveal reveal-delay-1">
+        <div class="program-icon"><i class="fas fa-compass"></i></div>
+        <div class="program-name" style="font-size:1.15rem;">Career Strategy Consultation</div>
+        <p class="consult-desc">For early and mid-career professionals seeking clarity on growth, role transitions, or skill priorities.</p>
+      </div>
+      <div class="consult-card reveal reveal-delay-2">
+        <div class="program-icon"><i class="fas fa-robot"></i></div>
+        <div class="program-name" style="font-size:1.15rem;">AI Adoption Consultation</div>
+        <p class="consult-desc">For educators and institutions seeking practical, responsible AI workflows for classrooms and operations.</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center; margin-top:2.5rem;">
+      <a href="#contact" class="btn-card btn-card-primary" style="display:inline-block; padding:0.9rem 2.2rem;">Book a 1:1 Session</a>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.8rem;">60 minutes · Online · Pricing shared after enquiry</p>
     </div>
   </div>
 </section>
 
 <!-- Outcomes Section -->
-<section class="section section-alt" id="outcomes">
+<section class="section" id="outcomes">
   <div class="section-inner">
     <div class="section-header center">
       <div class="section-label">Impact</div>
@@ -1646,6 +1702,7 @@
             <option value="">Select a program</option>
             <option>Sprint Course (40 Hours)</option>
             <option>Marathon Course (90 Hours)</option>
+            <option>1:1 Consultation</option>
             <option>Not sure yet — need more info</option>
           </select>
         </div>
@@ -1706,7 +1763,11 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 AttiNexis Learning and Edtech LLP. All rights reserved.</span>
+    <span>© 2026 AttiNexis Learning and Edtech LLP. All rights reserved.</span>
+    <span class="footer-legal-links">
+      <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms-of-use.html">Terms of Use</a>
+    </span>
     <span>Attitude Meets Action</span>
   </div>
 </footer>
