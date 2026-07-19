@@ -1879,17 +1879,45 @@
   }
 
   // ── 5. FORM SUBMIT ──
-  function submitForm() {
+  async function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
     const firstName = name.split(' ')[0];
-    const msg = `Hello AttiNexis,\n\nName: ${name}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
-    window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Program Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
-    document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
-    const form = document.querySelector('.contact-form');
-    form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
-    document.getElementById('form-success').style.display = 'block';
+    const btn = document.querySelector('.submit-btn');
+    const originalBtnText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = 'Sending...';
+
+    const payload = {
+      access_key: "3515ba6f-3699-4ef5-9b16-23351431d9b5",
+      subject: `AttiNexis Program Enquiry from ${name}`,
+      from_name: "AttiNexis Website",
+      name: name,
+      email: email,
+      phone: document.getElementById('fphone').value,
+      interested_in: document.getElementById('fprogram').value,
+      message: document.getElementById('fmessage').value,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) throw new Error(result.message || "Submission failed");
+
+      document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
+      const form = document.querySelector('.contact-form');
+      form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
+      document.getElementById('form-success').style.display = 'block';
+    } catch (err) {
+      alert("Sorry, your message couldn't be sent right now. Please email us directly at connect@attinexis.com.");
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+    }
   }
 
   // ── 6. ACTIVE NAV HIGHLIGHT ──
