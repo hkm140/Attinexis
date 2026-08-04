@@ -45,37 +45,6 @@
       width: 0%; z-index: 9999; transition: width 0.2s ease;
     }
 
-    /* ── WHATSAPP FLOATING BUTTON ── */
-    .whatsapp-float {
-      position: fixed; bottom: 24px; right: 24px; z-index: 998;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; text-decoration: none;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      animation: wa-pulse 2.4s infinite;
-    }
-    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(37,211,102,0.6); }
-    .whatsapp-tooltip {
-      position: fixed; bottom: 38px; right: 92px; z-index: 998;
-      background: var(--text); color: #fff; font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem; padding: 0.55rem 0.9rem; border-radius: 8px;
-      white-space: nowrap; opacity: 0; pointer-events: none;
-      transform: translateX(8px); transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .whatsapp-float:hover + .whatsapp-tooltip,
-    .whatsapp-tooltip:hover { opacity: 1; transform: translateX(0); }
-    @keyframes wa-pulse {
-      0% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.5); }
-      70% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 12px rgba(37,211,102,0); }
-      100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
-    }
-    @media (max-width: 600px) {
-      .whatsapp-float { bottom: 18px; right: 18px; width: 52px; height: 52px; font-size: 1.5rem; }
-      .whatsapp-tooltip { display: none; }
-    }
-
     /* ── TOPBAR ── */
     .topbar {
       background: var(--blue);
@@ -163,7 +132,6 @@
       padding: 5rem 2rem 4rem;
       position: relative;
       overflow: hidden;
-      scroll-margin-top: 76px;
     }
     .hero::before {
       content: '';
@@ -210,11 +178,6 @@
       margin-bottom: 2rem;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-microlink {
-      margin-top: 1.2rem; font-size: 0.9rem; color: rgba(255,255,255,0.65);
-    }
-    .hero-microlink a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-    .hero-microlink a:hover { color: var(--cyan); }
     .btn-primary {
       background: #fff; color: var(--blue);
       padding: 0.85rem 1.8rem; border-radius: 8px;
@@ -277,7 +240,6 @@
     /* ── SECTION BASE ── */
     .section {
       padding: 5rem 2rem;
-      scroll-margin-top: 76px;
     }
     .section-inner { max-width: 1100px; margin: auto; }
     .section-alt { background: var(--off-white); }
@@ -454,18 +416,6 @@
     @media (max-width: 700px) {
       .programs-grid { grid-template-columns: 1fr; }
     }
-    .consult-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem; margin-top: 0.5rem;
-    }
-    @media (max-width: 900px) { .consult-grid { grid-template-columns: 1fr; } }
-    .consult-card {
-      background: #fff; border-radius: 16px;
-      border: 2px solid var(--border); padding: 2rem;
-      transition: all 0.3s;
-    }
-    .consult-card:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateY(-4px); }
-    .consult-desc { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.5; }
     .program-card {
       background: #fff; border-radius: 20px;
       border: 2px solid var(--border);
@@ -807,8 +757,6 @@
       font-size: 0.88rem; transition: color 0.2s;
     }
     .footer-links li a:hover { color: #fff; }
-    .footer-legal-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
-    .footer-legal-links a:hover { color: #fff; }
     .footer-bottom {
       max-width: 1100px; margin: auto;
       padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
@@ -895,7 +843,7 @@
     .trust-bar-inner {
       display: flex; align-items: center;
       gap: 0; flex-wrap: nowrap; width: max-content;
-      animation: marquee 36s linear infinite;
+      animation: marquee 48s linear infinite;
     }
     .trust-bar-inner:hover { animation-play-state: paused; }
     .trust-item {
@@ -1039,6 +987,100 @@
       font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.3;
     }
 
+    /* ── SERVICES SECTION ── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 0.5rem;
+    }
+    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: #fff; border-radius: 18px;
+      border: 1px solid var(--border); padding: 2rem;
+      display: flex; flex-direction: column;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      box-shadow: var(--shadow-lg); transform: translateY(-5px);
+      border-color: rgba(0,74,173,0.2);
+    }
+    .service-card-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--off-white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.2rem;
+      transition: all 0.3s;
+    }
+    .service-card:hover .service-card-icon {
+      background: rgba(0,74,173,0.08); border-color: rgba(0,74,173,0.2);
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.6rem; line-height: 1.3;
+    }
+    .service-card p {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.65; margin-bottom: 1.2rem; flex: 1;
+    }
+    .service-bullets {
+      list-style: none; margin-bottom: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .service-bullets li {
+      font-size: 0.82rem; color: var(--text-muted);
+      padding-left: 1.1rem; position: relative; line-height: 1.45;
+    }
+    .service-bullets li::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--blue); font-weight: 700; font-size: 1rem;
+    }
+    .service-outcome {
+      background: var(--off-white); border-radius: 10px;
+      padding: 0.75rem 1rem; margin-top: auto;
+      font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
+      border-left: 3px solid var(--green);
+    }
+    .service-outcome strong { color: var(--text); font-weight: 600; }
+
+    .services-positioning {
+      background: linear-gradient(135deg, #003b8e, #0060cc);
+      border-radius: 18px; padding: 2.5rem;
+      text-align: center; margin-top: 3rem; color: #fff;
+    }
+    .services-positioning p {
+      font-size: 1.08rem; color: rgba(255,255,255,0.85);
+      max-width: 720px; margin: 0 auto 1.8rem; line-height: 1.75;
+    }
+    .services-positioning-btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-white {
+      background: #fff; color: var(--blue);
+      padding: 0.8rem 1.6rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.92rem;
+      text-decoration: none; transition: all 0.25s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-white:hover { background: var(--green); color: #fff; transform: translateY(-2px); }
+    .btn-white-outline {
+      border: 2px solid rgba(255,255,255,0.6); color: #fff;
+      padding: 0.8rem 1.6rem; border-radius: 8px;
+      font-weight: 500; font-size: 0.92rem;
+      text-decoration: none; transition: all 0.25s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,0.12); }
+
     /* ── FADE-IN ANIMATIONS ── */
     .reveal {
       opacity: 0; transform: translateY(28px);
@@ -1060,12 +1102,6 @@
 <!-- Scroll Progress -->
 <div id="progress-bar"></div>
 
-<a href="https://wa.me/919114327520?text=Hi%20AttiNexis%2C%20I%27d%20like%20to%20know%20more%20about%20your%20programs."
-   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-<span class="whatsapp-tooltip">Chat with us</span>
-
 <!-- Top Bar -->
 <div class="topbar">
   <a href="mailto:connect@attinexis.com"><i class="fas fa-envelope"></i>connect@attinexis.com</a>
@@ -1082,9 +1118,9 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#about-founder">Our Founder</a></li>
       <li><a href="#problem">Why AttiNexis</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#modules">Modules</a></li>
       <li><a href="#programs">Programs</a></li>
-      <li><a href="#consultation">1:1 Consultation</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="https://substack.com/@dhanashrilandge" target="_blank">Blogs</a></li>
@@ -1098,36 +1134,35 @@
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-tag">
-        <span class="dot"></span> PhD-Led Career Readiness Programs
+        <span class="dot"></span> Industry Intelligence & Employability Partner for Higher Education
       </div>
-      <h1>Transform Students Into <span id="hero-cycle">Industry-Ready</span> Professionals</h1>
-      <p class="hero-sub">Bridging the gap between campus learning and corporate success — through structured, expert-led programs built for today's hiring reality.</p>
+      <h1>Helping Colleges Stay <span id="hero-cycle">Industry-Relevant</span></h1>
+      <p class="hero-sub">From industry intelligence to student employability — AttiNexis helps institutions prepare for the future of work through research, expert networks and structured career-readiness programs.</p>
       <div class="hero-btns">
-        <a href="#programs" class="btn-primary">Explore Programs</a>
-        <a href="#contact" class="btn-outline">Partner With Us</a>
+        <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Institutional Consultation</a>
+        <a href="#contact" class="btn-outline"><i class="fas fa-file-alt"></i> Request a College Proposal</a>
       </div>
-      <p class="hero-microlink">Not ready to commit? <a href="#consultation">Book a 1:1 consultation instead →</a></p>
     </div>
     <div class="hero-right">
       <div class="stat-card">
-        <div class="stat-icon">🎓</div>
+        <div class="stat-icon">🏛️</div>
         <div>
-          <h3>8 Modules</h3>
-          <p>Comprehensive career readiness curriculum</p>
+          <h3>7 Services</h3>
+          <p>Industry intelligence to placement readiness</p>
         </div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🏢</div>
+        <div class="stat-icon">👔</div>
         <div>
-          <h3>40–90 Hrs</h3>
-          <p>Flexible Sprint & Marathon program tracks</p>
+          <h3>5–42 Yrs</h3>
+          <p>Industry experience across our expert panel</p>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">📈</div>
         <div>
-          <h3>10–15%</h3>
-          <p>Targeted improvement in placement outcomes</p>
+          <h3>240+ Students</h3>
+          <p>Reached across partner institutions</p>
         </div>
       </div>
     </div>
@@ -1137,16 +1172,20 @@
 <!-- Trust Bar -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="trust-item"><i class="fas fa-user-graduate"></i> PhD-Led Curriculum</div>
-    <div class="trust-item"><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience</div>
+    <div class="trust-item"><i class="fas fa-lightbulb"></i> Industry Intelligence Partner</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel Experience</div>
     <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
-    <div class="trust-item"><i class="fas fa-handshake"></i> Institute Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Institutional Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-graduation-cap"></i> PhD-Led Programs</div>
     <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
-    <div class="trust-item"><i class="fas fa-user-graduate"></i> PhD-Led Curriculum</div>
-    <div class="trust-item"><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience</div>
+    <div class="trust-item"><i class="fas fa-robot"></i> AI & Future Workforce Ready</div>
+    <div class="trust-item"><i class="fas fa-lightbulb"></i> Industry Intelligence Partner</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel Experience</div>
     <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
-    <div class="trust-item"><i class="fas fa-handshake"></i> Institute Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Institutional Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-graduation-cap"></i> PhD-Led Programs</div>
     <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
+    <div class="trust-item"><i class="fas fa-robot"></i> AI & Future Workforce Ready</div>
   </div>
 </div>
 
@@ -1162,7 +1201,7 @@
         </div>
         <div class="founder-body">
           <ul class="credential-list">
-            <li><i class="fas fa-graduation-cap"></i> PhD — Marketing Management</li>
+            <li><i class="fas fa-graduation-cap"></i> PhD — [Specialization]</li>
             <li><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience across Industry</li>
             <li><i class="fas fa-chalkboard-teacher"></i> Expert in Campus-to-Corporate Transition</li>
             <li><i class="fas fa-handshake"></i> Trusted Academic Partner for Engineering & Management Institutes</li>
@@ -1227,6 +1266,132 @@
         <h4>Policy Pressure Rising</h4>
         <p>NEP 2020 demands that colleges integrate employability and skill development into mainstream education — urgently.</p>
         <div class="problem-fix"><i class="fas fa-arrow-right"></i>AttiNexis programs are fully aligned to NEP 2020 employability mandates.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title reveal">Our Services</h2>
+      <p class="section-desc reveal">We help colleges stay industry-relevant, strengthen student employability and manage industry engagement through research, expert networks and structured career-readiness programs.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-card-icon">🔍</div>
+        <h3>Industry Intelligence for Higher Education</h3>
+        <p>We help colleges understand how industries, technologies and hiring expectations are changing — so academic and placement teams can make better decisions.</p>
+        <ul class="service-bullets">
+          <li>Emerging industry and technology trends</li>
+          <li>AI-led workforce changes</li>
+          <li>High-growth sectors and job roles</li>
+          <li>Employer skill expectations</li>
+          <li>Placement and hiring intelligence</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Academic leaders and placement teams receive current industry insights to make better program, training and placement decisions.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card-icon">🤝</div>
+        <h3>Managed Industry Expert Connect</h3>
+        <p>AttiNexis manages the complete expert engagement process for colleges — from identification to post-session reporting. Our expert panel spans 5 to 42 years of industry experience.</p>
+        <ul class="service-bullets">
+          <li>Expert identification and onboarding</li>
+          <li>Session planning and topic alignment</li>
+          <li>Expert coordination and student engagement</li>
+          <li>Feedback collection and post-session reporting</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Colleges gain reliable access to industry professionals without increasing administrative workload on faculty and placement teams.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card-icon">🚀</div>
+        <h3>Future Workforce Readiness Programs</h3>
+        <p>We prepare students for changing workplace expectations through practical, industry-led learning — going well beyond generic soft-skills training.</p>
+        <ul class="service-bullets">
+          <li>Corporate communication and workplace behaviour</li>
+          <li>AI and digital literacy</li>
+          <li>Career strategy and professional confidence</li>
+          <li>Problem-solving and interview readiness</li>
+          <li>Industry awareness</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Students become better prepared to contribute from the first day of employment.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-card-icon">👩‍🏫</div>
+        <h3>Faculty & Placement Team Enablement</h3>
+        <p>We support faculty members and placement teams with current industry insights, frameworks and employability tools — reducing the operational burden on college teams.</p>
+        <ul class="service-bullets">
+          <li>Faculty industry briefings</li>
+          <li>AI awareness sessions</li>
+          <li>Recruiter expectation updates</li>
+          <li>Student readiness frameworks</li>
+          <li>Industry engagement planning</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Faculty and placement teams can guide students more effectively with reduced operational burden.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card-icon">🏭</div>
+        <h3>Corporate Hiring & Internship Partnerships</h3>
+        <p>AttiNexis connects colleges with corporate opportunities for internships, live projects, placements and PPOs — with full coordination and candidate readiness support.</p>
+        <ul class="service-bullets">
+          <li>Internship sourcing and corporate hiring coordination</li>
+          <li>Student shortlisting and employer communication</li>
+          <li>Pre-placement preparation</li>
+          <li>Candidate readiness support</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Colleges gain access to structured corporate opportunities while students receive practical exposure and career pathways.</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card-icon">⚡</div>
+        <h3>Student Career Labs</h3>
+        <p>Short-format career labs designed for students who may not engage with long training programs — focused, practical and relevant in an engaging format.</p>
+        <ul class="service-bullets">
+          <li>3-hour industry sessions and career clinics</li>
+          <li>Role-based workshops and interview labs</li>
+          <li>AI readiness sessions</li>
+          <li>Salary and career pathway discussions</li>
+        </ul>
+        <div class="service-outcome"><strong>Outcome:</strong> Students receive focused, practical and relevant learning in an engaging format.</div>
+      </div>
+
+      <div class="service-card reveal" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+        <div>
+          <div class="service-card-icon">🏛️</div>
+          <h3>Industry Intelligence Partnership for Colleges</h3>
+          <p>For institutions seeking continuous support, AttiNexis offers quarterly and annual partnerships — becoming your institution's external industry intelligence and employability partner.</p>
+          <ul class="service-bullets">
+            <li>Monthly industry intelligence brief</li>
+            <li>Expert sessions and faculty briefings</li>
+            <li>Student workshops and placement insights</li>
+            <li>Career readiness assessments</li>
+            <li>Corporate engagement support</li>
+          </ul>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
+          <div class="service-outcome" style="margin-bottom:1rem; border-left-color: var(--blue);">
+            <strong>Outcome:</strong> AttiNexis becomes the institution's external industry intelligence and employability partner — on a quarterly or annual basis.
+          </div>
+          <a href="#contact" class="btn-card btn-card-primary" style="text-align:center; margin-top:0.5rem;">
+            <i class="fas fa-handshake"></i> Explore Partnership Models
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="services-positioning reveal">
+      <p>Bring Industry Intelligence into Your Campus — partner with AttiNexis to strengthen placement readiness, support faculty teams and connect students with real industry expectations.</p>
+      <div class="services-positioning-btns">
+        <a href="#contact" class="btn-white"><i class="fas fa-calendar-check"></i> Book an Institutional Consultation</a>
+        <a href="#contact" class="btn-white-outline"><i class="fas fa-file-alt"></i> Request a College Proposal</a>
       </div>
     </div>
   </div>
@@ -1405,45 +1570,12 @@
         </tbody>
       </table>
       <p style="font-size:0.88rem; color:var(--text-muted); margin-top:1.2rem; text-align:center;">Pricing is customised based on your batch size and program track. <a href="#contact" style="color:var(--blue); font-weight:600;">Reach out for a tailored quote →</a></p>
-      <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.5rem; text-align:center;">Still deciding? <a href="#consultation" style="color:var(--blue); font-weight:600;">Book a 1:1 consultation first →</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- 1:1 Consultation -->
-<section class="section section-alt" id="consultation">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-label">Not Ready for a Full Program Yet?</div>
-      <h2 class="section-title reveal">Start With a 1:1 Strategy Session</h2>
-      <p class="section-desc reveal">A focused 60-minute consultation with our Founder — for institutions weighing their options, and for individuals seeking career or AI-adoption guidance.</p>
-    </div>
-    <div class="consult-grid">
-      <div class="consult-card reveal">
-        <div class="program-icon"><i class="fas fa-university"></i></div>
-        <div class="program-name" style="font-size:1.15rem;">College Program Consultation</div>
-        <p class="consult-desc">For placement officers and faculty identifying skill gaps or structuring a program before committing to Sprint or Marathon.</p>
-      </div>
-      <div class="consult-card reveal reveal-delay-1">
-        <div class="program-icon"><i class="fas fa-compass"></i></div>
-        <div class="program-name" style="font-size:1.15rem;">Career Strategy Consultation</div>
-        <p class="consult-desc">For early and mid-career professionals seeking clarity on growth, role transitions, or skill priorities.</p>
-      </div>
-      <div class="consult-card reveal reveal-delay-2">
-        <div class="program-icon"><i class="fas fa-robot"></i></div>
-        <div class="program-name" style="font-size:1.15rem;">AI Adoption Consultation</div>
-        <p class="consult-desc">For educators and institutions seeking practical, responsible AI workflows for classrooms and operations.</p>
-      </div>
-    </div>
-    <div class="reveal" style="text-align:center; margin-top:2.5rem;">
-      <a href="#contact" class="btn-card btn-card-primary" style="display:inline-block; padding:0.9rem 2.2rem;">Book a 1:1 Session</a>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.8rem;">60 minutes · Online · Pricing shared after enquiry</p>
     </div>
   </div>
 </section>
 
 <!-- Outcomes Section -->
-<section class="section" id="outcomes">
+<section class="section section-alt" id="outcomes">
   <div class="section-inner">
     <div class="section-header center">
       <div class="section-label">Impact</div>
@@ -1739,7 +1871,6 @@
             <option value="">Select a program</option>
             <option>Sprint Course (40 Hours)</option>
             <option>Marathon Course (90 Hours)</option>
-            <option>1:1 Consultation</option>
             <option>Not sure yet — need more info</option>
           </select>
         </div>
@@ -1800,11 +1931,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 AttiNexis Learning and Edtech LLP. All rights reserved.</span>
-    <span class="footer-legal-links">
-      <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
-      <a href="terms-of-use.html">Terms of Use</a>
-    </span>
+    <span>© 2025 AttiNexis Learning and Edtech LLP. All rights reserved.</span>
     <span>Attitude Meets Action</span>
   </div>
 </footer>
@@ -1840,7 +1967,7 @@
   }
 
   // ── 1. HERO WORD CYCLE ──
-  const words = ['Industry-Ready', 'Placement-Ready', 'Career-Ready', 'Future-Ready'];
+  const words = ['Industry-Relevant', 'Future-Ready', 'Placement-Strong', 'Employer-Aligned'];
   let wordIdx = 0;
   const cycleEl = document.getElementById('hero-cycle');
   setInterval(() => {
@@ -1916,45 +2043,17 @@
   }
 
   // ── 5. FORM SUBMIT ──
-  async function submitForm() {
+  function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
     const firstName = name.split(' ')[0];
-    const btn = document.querySelector('.submit-btn');
-    const originalBtnText = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = 'Sending...';
-
-    const payload = {
-      access_key: "3515ba6f-3699-4ef5-9b16-23351431d9b5",
-      subject: `AttiNexis Program Enquiry from ${name}`,
-      from_name: "AttiNexis Website",
-      name: name,
-      email: email,
-      phone: document.getElementById('fphone').value,
-      interested_in: document.getElementById('fprogram').value,
-      message: document.getElementById('fmessage').value,
-    };
-
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await res.json();
-      if (!res.ok || !result.success) throw new Error(result.message || "Submission failed");
-
-      document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
-      const form = document.querySelector('.contact-form');
-      form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
-      document.getElementById('form-success').style.display = 'block';
-    } catch (err) {
-      alert("Sorry, your message couldn't be sent right now. Please email us directly at connect@attinexis.com.");
-      btn.disabled = false;
-      btn.innerHTML = originalBtnText;
-    }
+    const msg = `Hello AttiNexis,\n\nName: ${name}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
+    window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Program Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
+    document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
+    const form = document.querySelector('.contact-form');
+    form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
+    document.getElementById('form-success').style.display = 'block';
   }
 
   // ── 6. ACTIVE NAV HIGHLIGHT ──
