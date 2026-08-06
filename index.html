@@ -150,11 +150,44 @@
     @media (max-width: 768px) { .partnership-timeline { grid-template-columns: 1fr; } .partnership-timeline::before { display: none; } }
     .timeline-step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
     .timeline-num { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; box-shadow: 0 8px 24px rgba(0,74,173,0.25); }
-    .timeline-step h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .timeline-step .timeline-tag { display: inline-block; background: rgba(0,74,173,0.08); color: var(--blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 0.8rem; }
-    .timeline-step p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
-    .timeline-step ul { list-style: none; text-align: left; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.35rem; }
-    .timeline-step ul li { font-size: 0.83rem; color: var(--text-muted); padding-left: 1rem; position: relative; }
+.timeline-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-step .timeline-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-step p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+}
+
+.timeline-step ul li {
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.92);
+    padding-left: 1.1rem;
+    position: relative;
+}
+
+.timeline-step ul li::before {
+    color: #7CFC8D;
+}
     .timeline-step ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green-dark); font-weight: 700; font-size: 0.78rem; }
 
     /* PACKAGES */
