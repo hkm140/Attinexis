@@ -103,7 +103,7 @@
     .section-title { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1.25; margin-bottom: 1rem; }
     .section-title.light { color: #fff; }
     .section-desc { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; line-height: 1.75; }
-    .section-desc.light { color: rgba(255,255,255,0.75); }
+    .section-desc.light { color: rgba(255,255,255,0.92); }
     .section-header { margin-bottom: 3rem; }
     .section-header.center { text-align: center; }
     .section-header.center .section-desc { margin: 0 auto; }
@@ -216,7 +216,7 @@
     @media (max-width: 768px) { .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
     .founder-card { background: #fff; border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; }
     .founder-img-wrap { background: linear-gradient(135deg, #004aad, #00b4d8); padding: 3rem 2rem 2rem; text-align: center; }
-    .founder-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,0.85); margin: 0 auto 1rem; }
+    .founder-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.8); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,0.85); margin: 0 auto 1rem; }
     .founder-name { color: #fff; font-size: 1.25rem; font-weight: 600; font-family: 'Playfair Display', serif; }
     .founder-title { color: rgba(255,255,255,0.8); font-size: 0.88rem; }
     .founder-body { padding: 1.8rem; }
