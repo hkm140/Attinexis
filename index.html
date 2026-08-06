@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AttiNexis | Career Readiness Programs for Campus-to-Corporate</title>
-  <meta name="description" content="AttiNexis bridges the gap between campus learning and corporate success through structured career readiness programs. PhD-led, industry-proven.">
+  <title>AttiNexis | Industry Intelligence & Employability Partner for Colleges</title>
+  <meta name="description" content="AttiNexis is an Industry Intelligence and Employability Partner for higher education institutions. We help colleges stay industry-relevant, strengthen student employability and manage industry engagement through research, expert networks and structured programs.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,1119 +26,321 @@
       --shadow: 0 8px 32px rgba(0,74,173,0.10);
       --shadow-lg: 0 16px 48px rgba(0,74,173,0.14);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      overflow-x: hidden;
-    }
+    /* SCROLL PROGRESS */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--cyan)); width: 0%; z-index: 9999; transition: width 0.2s ease; }
 
-        /* ── WHATSAPP FLOATING BUTTON ── */
-    .whatsapp-float {
-      position: fixed; bottom: 24px; right: 24px; z-index: 998;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; text-decoration: none;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      animation: wa-pulse 2.4s infinite;
-    }
-    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 22px rgba(37,211,102,0.6); }
-    .whatsapp-tooltip {
-      position: fixed; bottom: 38px; right: 92px; z-index: 998;
-      background: var(--text); color: #fff; font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem; padding: 0.55rem 0.9rem; border-radius: 8px;
-      white-space: nowrap; opacity: 0; pointer-events: none;
-      transform: translateX(8px); transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .whatsapp-float:hover + .whatsapp-tooltip,
-    .whatsapp-tooltip:hover { opacity: 1; transform: translateX(0); }
-    @keyframes wa-pulse {
-      0% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.5); }
-      70% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 12px rgba(37,211,102,0); }
-      100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0); }
-    }
-    @media (max-width: 600px) {
-      .whatsapp-float { bottom: 18px; right: 18px; width: 52px; height: 52px; font-size: 1.5rem; }
-      .whatsapp-tooltip { display: none; }
-    }
-    
-    /* ── SCROLL PROGRESS ── */
-    #progress-bar {
-      position: fixed; top: 0; left: 0; height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      width: 0%; z-index: 9999; transition: width 0.2s ease;
-    }
-
-    /* ── TOPBAR ── */
-    .topbar {
-      background: var(--blue);
-      color: rgba(255,255,255,0.85);
-      font-size: 0.78rem;
-      padding: 0.45rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 2rem;
-    }
+    /* TOPBAR */
+    .topbar { background: var(--blue); color: rgba(255,255,255,0.85); font-size: 0.78rem; padding: 0.45rem 2rem; display: flex; justify-content: flex-end; gap: 2rem; }
     .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; }
     .topbar a:hover { color: #fff; }
     .topbar i { margin-right: 0.35rem; }
+    @media (max-width: 600px) { .topbar { display: none; } }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 16px rgba(0,74,173,0.09);
-      z-index: 1000;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: auto;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 0.4rem 2rem;
-    }
+    /* NAV */
+    nav { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 16px rgba(0,74,173,0.09); z-index: 1000; }
+    .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 2rem; }
     .nav-logo img { height: 52px; }
-    .nav-links {
-      list-style: none;
-      display: flex; gap: 0.2rem;
-    }
-    .nav-links li a {
-      display: block;
-      padding: 0.45rem 0.9rem;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
-    .nav-links li a:hover,
-    .nav-links li a.active { color: var(--blue); background: var(--light-grey); }
-    .nav-cta {
-      background: var(--blue) !important;
-      color: #fff !important;
-      border-radius: 8px !important;
-    }
+    .nav-links { list-style: none; display: flex; gap: 0.2rem; }
+    .nav-links li a { display: block; padding: 0.45rem 0.9rem; text-decoration: none; color: var(--text); font-size: 0.88rem; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--blue); background: var(--light-grey); }
+    .nav-cta { background: var(--blue) !important; color: #fff !important; border-radius: 8px !important; }
     .nav-cta:hover { background: var(--blue-dark) !important; }
-
-    /* hamburger */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px;
-    }
-    .hamburger span {
-      width: 24px; height: 2px;
-      background: var(--blue); border-radius: 2px;
-      transition: all 0.3s;
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--blue); border-radius: 2px; transition: all 0.3s; }
     @media (max-width: 900px) {
       .hamburger { display: flex; }
       .nav-logo img { height: 42px; }
-      .nav-links {
-        display: none; position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: #fff;
-        flex-direction: column;
-        padding: 1rem 2rem 1.5rem;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        gap: 0.2rem;
-      }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 1rem 2rem 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.1); gap: 0.2rem; }
       .nav-links.open { display: flex; }
     }
-    @media (max-width: 600px) {
-      .topbar { display: none; }
-    }
 
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, #003b8e 0%, #005bc5 50%, #0082d8 100%);
-      color: #fff;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-inner {
-      max-width: 1100px; margin: auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-      position: relative; z-index: 1;
-    }
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-right { display: none; }
-    }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 0.4rem 1rem; border-radius: 100px;
-      font-size: 0.82rem; font-weight: 500;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(8px);
-    }
-    .hero-tag .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; } 50% { opacity: 0.4; }
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem; line-height: 1.2;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-    }
-    .hero h1 span { color: #7ee8ff; }
-    .hero-sub {
-      font-size: 1.08rem; line-height: 1.7;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 2rem;
-    }
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #002d7a 0%, #004aad 55%, #0072c6 100%); color: #fff; padding: 5.5rem 2rem 4.5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .hero-inner { max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+    @media (max-width: 768px) { .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; } .hero-right { display: none; } }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; margin-bottom: 1.5rem; backdrop-filter: blur(8px); }
+    .hero-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.1rem); line-height: 1.2; margin-bottom: 1.2rem; font-weight: 700; }
+    .hero h1 span { color: #7ee8ff; display: inline-block; }
+    #hero-cycle { transition: opacity 0.4s ease, transform 0.4s ease; }
+    #hero-cycle.cycling { opacity: 0; transform: translateY(-8px); }
+    .hero-sub { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 540px; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: #fff; color: var(--blue);
-      padding: 0.85rem 1.8rem; border-radius: 8px;
-      font-weight: 600; font-size: 0.95rem;
-      text-decoration: none; transition: all 0.25s;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-    .btn-primary:hover {
-      background: var(--green); color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      border: 2px solid rgba(255,255,255,0.6);
-      color: #fff; padding: 0.85rem 1.8rem;
-      border-radius: 8px; font-weight: 500;
-      font-size: 0.95rem; text-decoration: none;
-      transition: all 0.25s;
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: #fff;
-    }
+    .btn-primary { background: #fff; color: var(--blue); padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(0,0,0,0.15); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { background: var(--green); color: #fff; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+    .hero-right { display: flex; flex-direction: column; gap: 1rem; }
+    .hero-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 1.4rem 1.6rem; backdrop-filter: blur(12px); animation: floatUp 0.8s ease both; }
+    .hero-card:nth-child(2) { animation-delay: 0.15s; }
+    .hero-card:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes floatUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .hero-card-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .hero-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .hero-card p { font-size: 0.82rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
 
-    /* Hero Right – Stats Card */
-    .hero-right {
-      display: flex; flex-direction: column; gap: 1.2rem;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 16px; padding: 1.4rem 1.8rem;
-      backdrop-filter: blur(12px);
-      display: flex; align-items: center; gap: 1.2rem;
-      animation: floatUp 0.8s ease both;
-    }
-    .stat-card:nth-child(2) { animation-delay: 0.15s; }
-    .stat-card:nth-child(3) { animation-delay: 0.3s; }
-    @keyframes floatUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .stat-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(255,255,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
-    }
-    .stat-card h3 { font-size: 1.8rem; font-weight: 700; }
-    .stat-card p { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+    /* TRUST BAR */
+    .trust-bar { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.2rem 0; overflow: hidden; }
+    .trust-bar-inner { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; width: max-content; animation: marquee 48s linear infinite; }
+    .trust-bar-inner:hover { animation-play-state: paused; }
+    .trust-item { display: flex; align-items: center; gap: 0.7rem; font-size: 0.88rem; font-weight: 500; color: var(--text-muted); white-space: nowrap; padding: 0 3.5rem; border-right: 1px solid var(--border); min-width: 25vw; justify-content: center; }
+    .trust-item i { color: var(--blue); font-size: 1.1rem; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--off-white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1.2rem 0;
-      overflow: hidden;
-    }
-
-    /* ── SECTION BASE ── */
-    .section {
-      padding: 5rem 2rem;
-    }
+    /* SECTION BASE */
+    .section { padding: 5rem 2rem; }
     .section-inner { max-width: 1100px; margin: auto; }
     .section-alt { background: var(--off-white); }
-    .section-blue {
-      background: linear-gradient(135deg, #003b8e, #0060cc);
-      color: #fff;
-    }
-
-    .section-label {
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--cyan);
-      margin-bottom: 0.7rem;
-    }
+    .section-blue { background: linear-gradient(135deg, #002d7a, #004aad); color: #fff; }
+    .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.7rem; }
     .section-label.light { color: rgba(255,255,255,0.6); }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem; font-weight: 700;
-      color: var(--text); line-height: 1.25;
-      margin-bottom: 1rem;
-    }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1.25; margin-bottom: 1rem; }
     .section-title.light { color: #fff; }
-    .section-desc {
-      color: var(--text-muted); font-size: 1.05rem;
-      max-width: 620px; line-height: 1.75;
-    }
+    .section-desc { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; line-height: 1.75; }
     .section-desc.light { color: rgba(255,255,255,0.75); }
     .section-header { margin-bottom: 3rem; }
     .section-header.center { text-align: center; }
     .section-header.center .section-desc { margin: 0 auto; }
 
-    /* ── FOUNDER SECTION ── */
-    .founder-grid {
-      display: grid; grid-template-columns: 1fr 1.6fr;
-      gap: 4rem; align-items: center;
-    }
-    @media (max-width: 768px) {
-      .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .founder-card {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      position: relative;
-    }
-    .founder-img-wrap {
-      background: linear-gradient(135deg, #004aad, #00b4d8);
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
-    .founder-avatar {
-      width: 110px; height: 110px; border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.6);
-      object-fit: cover; margin-bottom: 1rem;
-      background: rgba(255,255,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; color: rgba(255,255,255,0.85);
-      margin: 0 auto 1rem;
-    }
-    .founder-name {
-      color: #fff; font-size: 1.25rem; font-weight: 600;
-      font-family: 'Playfair Display', serif;
-    }
+    /* PROBLEM SECTION */
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .problem-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .problem-grid { grid-template-columns: 1fr; } }
+    .problem-card { background: #fff; border-radius: 16px; padding: 1.8rem; border: 1px solid var(--border); overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; position: relative; }
+    .problem-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .problem-num { font-size: 2.8rem; font-weight: 700; line-height: 1; color: var(--light-grey); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+    .problem-card h4 { font-size: 1rem; font-weight: 600; color: var(--blue); margin-bottom: 0.5rem; }
+    .problem-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .problem-fix { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; opacity: 0; font-size: 0.82rem; color: var(--green-dark); font-weight: 600; margin-top: 0; }
+    .problem-card:hover .problem-fix { max-height: 60px; opacity: 1; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+
+    /* CORE SERVICES */
+    .core-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .core-services-grid { grid-template-columns: 1fr; } }
+    .core-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+    .core-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .core-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .core-card-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,74,173,0.1), rgba(0,180,216,0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--blue); margin-bottom: 1.2rem; }
+    .core-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
+    .core-card .card-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.2rem; }
+    .core-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.4rem; }
+    .core-card ul li { font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.45; }
+    .core-card ul li::before { content: '›'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+    .core-outcome { background: linear-gradient(135deg, #e8f4ff, #f0f9ff); border-radius: 10px; padding: 0.9rem 1.1rem; border-left: 3px solid var(--blue); font-size: 0.83rem; color: var(--text); line-height: 1.5; }
+    .core-outcome strong { color: var(--blue); }
+
+    /* ADD-ON SERVICES */
+    .addon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1rem; }
+    @media (max-width: 900px) { .addon-grid { grid-template-columns: 1fr; } }
+    .addon-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; transition: all 0.3s; }
+    .addon-card:hover { background: #fff; box-shadow: var(--shadow); transform: translateY(-3px); }
+    .addon-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    .addon-card h4 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .addon-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* HOW PARTNERSHIP WORKS */
+    .partnership-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+    .partnership-timeline::before { content: ''; position: absolute; top: 36px; left: 16.66%; right: 16.66%; height: 2px; background: linear-gradient(90deg, var(--blue), var(--cyan)); z-index: 0; }
+    @media (max-width: 768px) { .partnership-timeline { grid-template-columns: 1fr; } .partnership-timeline::before { display: none; } }
+    .timeline-step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .timeline-num { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; box-shadow: 0 8px 24px rgba(0,74,173,0.25); }
+    .timeline-step h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .timeline-step .timeline-tag { display: inline-block; background: rgba(0,74,173,0.08); color: var(--blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 0.8rem; }
+    .timeline-step p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+    .timeline-step ul { list-style: none; text-align: left; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .timeline-step ul li { font-size: 0.83rem; color: var(--text-muted); padding-left: 1rem; position: relative; }
+    .timeline-step ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green-dark); font-weight: 700; font-size: 0.78rem; }
+
+    /* PACKAGES */
+    .packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 700px) { .packages-grid { grid-template-columns: 1fr; } }
+    .package-card { background: #fff; border-radius: 20px; border: 2px solid var(--border); padding: 2.5rem; position: relative; transition: all 0.3s; }
+    .package-card:hover { border-color: var(--blue); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .package-card.featured { border-color: var(--blue); background: linear-gradient(135deg, #f0f6ff, #e8f4ff); }
+    .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 1rem; border-radius: 100px; white-space: nowrap; }
+    .package-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .package-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text); }
+    .package-tagline { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .package-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+    .package-features li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.9rem; color: var(--text); }
+    .package-features li i { color: var(--green-dark); margin-top: 2px; flex-shrink: 0; }
+    .package-features li .feat-muted { color: var(--text-muted); }
+    .btn-card { display: block; text-align: center; padding: 0.9rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.25s; }
+    .btn-card-primary { background: var(--blue); color: #fff; }
+    .btn-card-primary:hover { background: var(--blue-dark); }
+    .btn-card-outline { border: 2px solid var(--blue); color: var(--blue); }
+    .btn-card-outline:hover { background: var(--blue); color: #fff; }
+    .package-note { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.6rem; }
+
+    /* FOUNDER */
+    .founder-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center; }
+    @media (max-width: 768px) { .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .founder-card { background: #fff; border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; }
+    .founder-img-wrap { background: linear-gradient(135deg, #004aad, #00b4d8); padding: 3rem 2rem 2rem; text-align: center; }
+    .founder-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,0.85); margin: 0 auto 1rem; }
+    .founder-name { color: #fff; font-size: 1.25rem; font-weight: 600; font-family: 'Playfair Display', serif; }
     .founder-title { color: rgba(255,255,255,0.8); font-size: 0.88rem; }
     .founder-body { padding: 1.8rem; }
     .credential-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .credential-list li {
-      display: flex; align-items: flex-start; gap: 0.8rem;
-      font-size: 0.9rem; color: var(--text-muted);
-    }
+    .credential-list li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.9rem; color: var(--text-muted); }
     .credential-list li i { color: var(--blue); margin-top: 2px; flex-shrink: 0; }
+    .founder-content h3 { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+    .founder-content p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; }
+    .quote-block { background: var(--off-white); border-left: 4px solid var(--blue); padding: 1.2rem 1.5rem; border-radius: 0 12px 12px 0; margin-top: 1.5rem; }
+    .quote-block p { font-style: italic; font-size: 1.05rem; color: var(--text); margin: 0; font-family: 'Playfair Display', serif; font-weight: 600; }
 
-    .founder-content h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem; font-weight: 700;
-      color: var(--text); margin-bottom: 1rem;
-    }
-    .founder-content p {
-      color: var(--text-muted); line-height: 1.8;
-      margin-bottom: 1.2rem; font-size: 1rem;
-    }
-    .quote-block {
-      background: var(--off-white);
-      border-left: 4px solid var(--blue);
-      padding: 1.2rem 1.5rem;
-      border-radius: 0 12px 12px 0;
-      margin-top: 1.5rem;
-    }
-    .quote-block p {
-      font-style: italic; font-size: 1.05rem;
-      color: var(--text); margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-
-    /* ── PROBLEM SECTION ── */
-    .problem-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 0.5rem;
-    }
-    @media (max-width: 900px) {
-      .problem-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .problem-grid { grid-template-columns: 1fr; }
-    }
-    .problem-card {
-      background: #fff; border-radius: 16px;
-      padding: 1.8rem; border: 1px solid var(--border);
-      position: relative; overflow: hidden;
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .problem-card:hover {
-      box-shadow: var(--shadow-lg); transform: translateY(-4px);
-    }
-    .problem-num {
-      font-size: 2.8rem; font-weight: 700; line-height: 1;
-      color: var(--light-grey); margin-bottom: 0.5rem;
-      font-family: 'Playfair Display', serif;
-    }
-    .problem-card h4 {
-      font-size: 1rem; font-weight: 600;
-      color: var(--blue); margin-bottom: 0.5rem;
-    }
-    .problem-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
-
-    /* ── MODULES ── */
-    .modules-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-    }
-    @media (max-width: 1000px) {
-      .modules-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .modules-grid { grid-template-columns: 1fr; }
-    }
-    .module-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 16px; padding: 1.6rem;
-      transition: all 0.3s;
-    }
-    .module-card:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-3px);
-    }
-    .module-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; color: #7ee8ff;
-      margin-bottom: 1rem;
-    }
-    .module-card h4 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .module-card ul {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 0.4rem;
-    }
-    .module-card ul li {
-      font-size: 0.82rem; color: rgba(255,255,255,0.65);
-      padding-left: 1rem; position: relative;
-    }
-    .module-card ul li::before {
-      content: '›'; position: absolute; left: 0;
-      color: var(--green); font-weight: 700;
-    }
-
-    /* ── PROGRAMS ── */
-    .programs-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2rem; margin-top: 0.5rem;
-    }
-    @media (max-width: 700px) {
-      .programs-grid { grid-template-columns: 1fr; }
-    }
-    .program-card {
-      background: #fff; border-radius: 20px;
-      border: 2px solid var(--border);
-      padding: 2.5rem; position: relative;
-      transition: all 0.3s;
-    }
-    .program-card:hover {
-      border-color: var(--blue); box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-    .program-card.featured {
-      border-color: var(--blue);
-      background: linear-gradient(135deg, #f0f6ff, #e8f4ff);
-    }
-    .featured-badge {
-      position: absolute; top: -14px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--blue); color: #fff;
-      font-size: 0.75rem; font-weight: 600;
-      padding: 0.3rem 1rem; border-radius: 100px;
-      white-space: nowrap;
-    }
-    .program-icon {
-      width: 56px; height: 56px; border-radius: 14px;
-      background: var(--light-grey); display: flex;
-      align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.2rem;
-    }
-    .program-card.featured .program-icon { background: rgba(0,74,173,0.1); color: var(--blue); }
-    .program-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem;
-    }
-    .program-hours {
-      font-size: 0.85rem; color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
-    .program-price {
-      font-size: 1.8rem; font-weight: 700; color: var(--blue);
-      margin-bottom: 0.2rem;
-    }
-    .program-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-    .program-features {
-      list-style: none; display: flex; flex-direction: column;
-      gap: 0.7rem; margin-bottom: 2rem;
-    }
-    .program-features li {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      font-size: 0.9rem;
-    }
-    .program-features li i { color: var(--green); margin-top: 2px; flex-shrink: 0; }
-    .btn-card {
-      display: block; text-align: center;
-      padding: 0.85rem; border-radius: 10px;
-      font-weight: 600; font-size: 0.95rem;
-      text-decoration: none; transition: all 0.25s;
-    }
-    .btn-card-primary {
-      background: var(--blue); color: #fff;
-    }
-    .btn-card-primary:hover { background: var(--blue-dark); }
-    .btn-card-outline {
-      border: 2px solid var(--blue); color: var(--blue);
-    }
-    .btn-card-outline:hover { background: var(--blue); color: #fff; }
-
-    /* Pricing table */
-    .pricing-table {
-      width: 100%; border-collapse: collapse;
-      margin-top: 3rem; font-size: 0.9rem;
-      border-radius: 16px; overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .pricing-table thead { background: var(--blue); color: #fff; }
-    .pricing-table th {
-      padding: 1rem 1.2rem; text-align: left;
-      font-weight: 600; font-size: 0.88rem;
-    }
-    .pricing-table td {
-      padding: 0.9rem 1.2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .pricing-table tr:last-child td { border-bottom: none; }
-    .pricing-table tr:nth-child(even) td { background: var(--off-white); }
-    .pricing-table .check { color: var(--green); }
-    .pricing-table .col-sprint { color: var(--blue); font-weight: 500; }
-    .pricing-table .col-marathon { color: var(--green-dark); font-weight: 500; }
-
-    /* ── OUTCOMES ── */
-    .outcomes-tabs {
-      display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
-    }
-    .tab-btn {
-      padding: 0.7rem 1.6rem; border-radius: 8px;
-      font-weight: 600; font-size: 0.9rem;
-      cursor: pointer; border: 2px solid var(--border);
-      background: #fff; color: var(--text-muted);
-      transition: all 0.25s;
-    }
-    .tab-btn.active {
-      background: var(--blue); color: #fff; border-color: var(--blue);
-    }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    @media (max-width: 600px) {
-      .tab-panel.active { grid-template-columns: 1fr; }
-    }
-    .outcome-card {
-      background: #fff; border-radius: 16px;
-      border: 1px solid var(--border); padding: 1.8rem;
-      transition: all 0.3s;
-    }
-    .outcome-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .outcome-card h4 {
-      font-size: 1rem; font-weight: 600; color: var(--blue);
-      margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem;
-    }
-    .outcome-card h4 i { font-size: 0.9rem; }
-    .outcome-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .outcome-card ul li {
-      font-size: 0.88rem; color: var(--text-muted);
-      padding-left: 1.2rem; position: relative; line-height: 1.5;
-    }
-    .outcome-card ul li::before {
-      content: '✓'; position: absolute; left: 0;
-      color: var(--green); font-weight: 700; font-size: 0.85rem;
-    }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 900px) {
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
-    .testimonial-card {
-      background: #fff; border-radius: 16px;
-      border: 1px solid var(--border); padding: 2rem;
-      transition: all 0.3s; position: relative;
-    }
-    .testimonial-card::before {
-      content: '"'; position: absolute;
-      top: 1rem; right: 1.5rem;
-      font-size: 4rem; font-family: 'Playfair Display', serif;
-      color: var(--light-grey); line-height: 1;
-    }
-    .testimonial-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 1rem; }
-    .testimonial-text {
-      font-size: 0.95rem; line-height: 1.75;
-      color: var(--text-muted); margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
-    .author-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-weight: 600; font-size: 0.9rem; flex-shrink: 0;
-    }
-    .author-name { font-weight: 600; font-size: 0.9rem; }
-    .author-role { font-size: 0.8rem; color: var(--text-muted); }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      gap: 4rem; align-items: center;
-    }
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    }
-    .about-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem; color: var(--text);
-      margin-bottom: 1.2rem; line-height: 1.3;
-    }
-    .about-content p {
-      color: var(--text-muted); line-height: 1.8;
-      margin-bottom: 1rem; font-size: 1rem;
-    }
-    .vision-statement {
-      background: linear-gradient(135deg, #004aad, #0060cc);
-      color: #fff; border-radius: 16px;
-      padding: 2rem; margin-top: 1.5rem;
-    }
-    .vision-statement h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; margin-bottom: 0.6rem;
-      opacity: 0.75;
-    }
-    .vision-statement p {
-      font-size: 1.05rem; font-style: italic;
-      color: rgba(255,255,255,0.9); margin: 0; line-height: 1.7;
-    }
-    .about-visual {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .about-stat-box {
-      background: #fff; border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 1.8rem; text-align: center;
-      transition: all 0.3s;
-    }
-    .about-stat-box:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .about-stat-box .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; font-weight: 700;
-      color: var(--blue);
-    }
-    .about-stat-box .lbl {
-      font-size: 0.83rem; color: var(--text-muted);
-      margin-top: 0.3rem;
-    }
-    .about-stat-box:last-child {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, #e8f4ff, #f0f9ff);
-      border-color: rgba(0,74,173,0.2);
-    }
-
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.4fr;
-      gap: 4rem; align-items: start;
-    }
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .contact-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; margin-bottom: 1rem; color: var(--text);
-    }
-    .contact-info p {
-      color: var(--text-muted); line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-detail {
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .contact-detail .icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: var(--light-grey); display: flex;
-      align-items: center; justify-content: center;
-      color: var(--blue); font-size: 1rem; flex-shrink: 0;
-    }
-    .contact-detail a { text-decoration: none; color: var(--text); font-weight: 500; }
-    .contact-detail a:hover { color: var(--blue); }
-    .contact-detail small { display: block; color: var(--text-muted); font-size: 0.8rem; }
-
-    .contact-form {
-      background: #fff; border-radius: 20px;
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-    }
-    .contact-form h4 {
-      font-size: 1.2rem; font-weight: 600;
-      margin-bottom: 1.5rem; color: var(--text);
-    }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
-    .form-group label {
-      display: block; font-size: 0.85rem;
-      font-weight: 500; margin-bottom: 0.4rem; color: var(--text);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%; padding: 0.75rem 1rem;
-      border: 1.5px solid var(--border); border-radius: 8px;
-      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
-      color: var(--text); background: #fff;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(0,74,173,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .submit-btn {
-      width: 100%; padding: 1rem;
-      background: linear-gradient(135deg, var(--blue), #0060cc);
-      color: #fff; border: none; border-radius: 10px;
-      font-size: 1rem; font-weight: 600;
-      cursor: pointer; transition: all 0.3s;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,74,173,0.25); }
-    #form-success {
-      display: none; background: #e8f8ee;
-      border: 1px solid #4CAF50; border-radius: 8px;
-      padding: 1rem; text-align: center;
-      color: #2e7d32; font-weight: 500; margin-top: 1rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0a1628;
-      color: rgba(255,255,255,0.7);
-      padding: 3rem 2rem 1.5rem;
-    }
-    .footer-inner {
-      max-width: 1100px; margin: auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem; margin-bottom: 2.5rem;
-    }
-    @media (max-width: 700px) {
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    }
-    .footer-brand p {
-      font-size: 0.9rem; line-height: 1.75;
-      margin-top: 1rem; max-width: 320px;
-    }
-    .footer-logo { height: 56px; opacity: 1; }
-    .footer-social {
-      display: flex; gap: 0.8rem; margin-top: 1.5rem;
-    }
-    .social-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      transition: all 0.25s; font-size: 0.9rem;
-    }
-    .social-icon:hover { background: var(--blue); color: #fff; }
-    .footer-col h5 {
-      color: #fff; font-size: 0.9rem; font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-links li a {
-      color: rgba(255,255,255,0.6); text-decoration: none;
-      font-size: 0.88rem; transition: color 0.2s;
-    }
-    .footer-links li a:hover { color: #fff; }
-    .footer-bottom {
-      max-width: 1100px; margin: auto;
-      padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 0.8rem;
-      font-size: 0.82rem;
-    }
-
-    /* ── CASE STUDY SECTION ── */
-    .casestudy-wrap {
-      background: linear-gradient(135deg, #003b8e, #0060cc);
-      padding: 5rem 2rem;
-    }
+    /* CASE STUDY */
+    .casestudy-wrap { background: linear-gradient(135deg, #002d7a, #004aad); padding: 5rem 2rem; }
     .casestudy-inner { max-width: 1100px; margin: auto; }
-    .casestudy-header { text-align: center; margin-bottom: 3rem; }
-    .casestudy-card {
-      background: #fff; border-radius: 24px;
-      overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-    }
-    .casestudy-top {
-      display: grid; grid-template-columns: 1fr 2fr; align-items: stretch;
-    }
+    .casestudy-card { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.18); }
+    .casestudy-top { display: grid; grid-template-columns: 1fr 2fr; align-items: stretch; }
     @media (max-width: 768px) { .casestudy-top { grid-template-columns: 1fr; } }
-    .casestudy-partner {
-      background: var(--off-white); border-right: 1px solid var(--border);
-      padding: 2.5rem 2rem; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center; gap: 1rem;
-    }
+    .casestudy-partner { background: var(--off-white); border-right: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 1rem; }
     .casestudy-partner img { width: 90px; height: 90px; object-fit: contain; }
-    .casestudy-partner-name {
-      font-family: 'Playfair Display', serif; font-size: 1.05rem;
-      font-weight: 700; color: var(--text); line-height: 1.35;
-    }
+    .casestudy-partner-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.35; }
     .casestudy-partner-sub { font-size: 0.8rem; color: var(--text-muted); }
-    .engagement-badge {
-      display: inline-block; background: rgba(0,74,173,0.08); color: var(--blue);
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px;
-    }
+    .engagement-badge { display: inline-block; background: rgba(0,74,173,0.08); color: var(--blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; }
     .casestudy-content { padding: 2.5rem; }
-    .casestudy-content h3 {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
-      color: var(--text); margin-bottom: 1.5rem; line-height: 1.3;
-    }
-    .casestudy-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.8rem;
-    }
+    .casestudy-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 1.5rem; line-height: 1.3; }
+    .casestudy-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.8rem; }
     @media (max-width: 600px) { .casestudy-metrics { grid-template-columns: 1fr 1fr; } }
-    .metric-box {
-      background: var(--off-white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.1rem; text-align: center;
-    }
-    .metric-value {
-      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
-      color: var(--blue); line-height: 1; margin-bottom: 0.3rem;
-    }
+    .metric-box { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; text-align: center; }
+    .metric-value { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 0.3rem; }
     .metric-label { font-size: 0.75rem; color: var(--text-muted); line-height: 1.35; }
     .casestudy-insights { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
     @media (max-width: 600px) { .casestudy-insights { grid-template-columns: 1fr; } }
-    .insight-item {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;
-    }
+    .insight-item { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
     .insight-item i { color: var(--blue); margin-top: 2px; flex-shrink: 0; font-size: 0.85rem; }
-    .casestudy-bottom {
-      background: var(--off-white); border-top: 1px solid var(--border);
-      padding: 1.2rem 2.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    }
+    .casestudy-bottom { background: var(--off-white); border-top: 1px solid var(--border); padding: 1.2rem 2.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
     .casestudy-bottom i { color: var(--green-dark); }
     .casestudy-bottom span { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
     .casestudy-bottom strong { color: var(--text); font-style: normal; }
 
-    /* ── 9. HERO WORD CYCLE ── */
-    #hero-cycle {
-      display: inline-block;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    #hero-cycle.cycling {
-      opacity: 0; transform: translateY(-8px);
-    }
+    /* TESTIMONIALS */
+    .testimonials-grid { position: relative; min-height: 220px; }
+    .testimonial-slide { display: none; }
+    .testimonial-slide.active { display: block; animation: fadeIn 0.5s ease; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+    .testimonial-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); padding: 2rem; position: relative; max-width: 700px; margin: 0 auto; }
+    .testimonial-card::before { content: '"'; position: absolute; top: 1rem; right: 1.5rem; font-size: 4rem; font-family: 'Playfair Display', serif; color: var(--light-grey); line-height: 1; }
+    .stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 1rem; }
+    .testimonial-text { font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--cyan)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 0.9rem; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 0.9rem; }
+    .author-role { font-size: 0.8rem; color: var(--text-muted); }
+    .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+    .carousel-dot.active { background: var(--blue); width: 24px; border-radius: 4px; }
 
-    /* ── 1. TRUST BAR MARQUEE ── */
-    .trust-bar { overflow: hidden; }
-    .trust-bar-inner {
-      display: flex; align-items: center;
-      gap: 0; flex-wrap: nowrap; width: max-content;
-      animation: marquee 48s linear infinite;
-    }
-    .trust-bar-inner:hover { animation-play-state: paused; }
-    .trust-item {
-      padding: 0 3.5rem;
-      border-right: 1px solid var(--border);
-      min-width: 25vw; justify-content: center;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── 2. PROBLEM CARD HOVER REVEAL ── */
-    .problem-card { overflow: hidden; }
-    .problem-fix {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-      font-size: 0.82rem; color: var(--blue);
-      font-weight: 600; margin-top: 0;
-      padding-top: 0; border-top: 0 solid var(--border);
-    }
-    .problem-card:hover .problem-fix {
-      max-height: 60px; opacity: 1;
-      margin-top: 0.75rem; padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
-    }
-    .problem-fix i { margin-right: 0.4rem; color: var(--green-dark); }
-
-    /* ── 3. MODULE CARD WHY-LINE ── */
-    .module-why {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
-      font-size: 0.78rem; color: rgba(255,255,255,0.5);
-      font-style: italic; margin-top: 0;
-      border-top: 0 solid rgba(255,255,255,0.12);
-      padding-top: 0;
-    }
-    .module-card:hover .module-why {
-      max-height: 60px; opacity: 1;
-      margin-top: 0.8rem; padding-top: 0.8rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-
-    /* ── 4. OUTCOMES TAB FADE TRANSITION ── */
-    .tab-panel {
-      animation: tabFade 0.35s ease;
-    }
-    @keyframes tabFade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── 5. TESTIMONIAL CAROUSEL ── */
-    .testimonials-grid { display: block; position: relative; }
-    .testimonial-slide {
-      display: none;
-      animation: slideFade 0.5s ease;
-    }
-    .testimonial-slide.active { display: block; }
-    @keyframes slideFade {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .carousel-dots {
-      display: flex; justify-content: center;
-      gap: 0.6rem; margin-top: 1.8rem;
-    }
-    .carousel-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--border); border: none; cursor: pointer;
-      transition: all 0.3s; padding: 0;
-    }
-    .carousel-dot.active {
-      background: var(--blue); width: 24px; border-radius: 4px;
-    }
-
-    /* ── 6. COUNTER ANIMATION ── */
-    .count-up { display: inline-block; }
-
-    /* ── 7. ABOUT READ MORE ── */
-    .about-extra {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.4s ease;
-      opacity: 0;
-    }
-    .about-extra.open { max-height: 200px; opacity: 1; }
-    .read-more-btn {
-      background: none; border: none; padding: 0;
-      color: var(--blue); font-size: 0.9rem;
-      font-weight: 600; cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      display: flex; align-items: center; gap: 0.4rem;
-      margin-top: 0.5rem; transition: gap 0.2s;
-    }
-    .read-more-btn:hover { gap: 0.6rem; }
-
-    /* ── 8. FORM SUCCESS CARD ── */
-    #form-success {
-      display: none;
-      background: linear-gradient(135deg, #f0f6ff, #e8f4ff);
-      border: 1px solid rgba(0,74,173,0.2);
-      border-radius: 14px; padding: 2rem;
-      text-align: center; margin-top: 1rem;
-    }
-    #form-success .success-icon {
-      font-size: 2.5rem; margin-bottom: 0.75rem;
-    }
-    #form-success h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; color: var(--text); margin-bottom: 0.5rem;
-    }
-    #form-success p {
-      font-size: 0.9rem; color: var(--text-muted);
-      margin-bottom: 1.2rem; line-height: 1.6;
-    }
-    #form-success .success-linkedin {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--blue); color: #fff;
-      padding: 0.6rem 1.3rem; border-radius: 8px;
-      text-decoration: none; font-size: 0.88rem; font-weight: 600;
-      transition: all 0.25s;
-    }
-    #form-success .success-linkedin:hover { background: var(--blue-dark); }
-
-    .about-counters {
-      display: flex; gap: 0; margin-top: 2rem;
-      border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
-    }
-    .about-counter-item {
-      flex: 1; text-align: center; padding: 1.2rem 1rem;
-      border-right: 1px solid var(--border); background: #fff;
-    }
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .about-content h2 { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--text); margin-bottom: 1.2rem; line-height: 1.3; }
+    .about-content p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+    .about-extra { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .about-extra.open { max-height: 200px; }
+    .read-more-btn { background: none; border: none; color: var(--blue); font-size: 0.9rem; font-weight: 600; cursor: pointer; padding: 0.5rem 0; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1rem; font-family: 'DM Sans', sans-serif; }
+    .about-counters { display: flex; gap: 0; margin-top: 1.5rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .about-counter-item { flex: 1; text-align: center; padding: 1.2rem 1rem; border-right: 1px solid var(--border); background: #fff; }
     .about-counter-item:last-child { border-right: none; }
-    .about-counter-item .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1;
-    }
-    .about-counter-item .lbl {
-      font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.3;
-    }
+    .about-counter-item .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; }
+    .about-counter-item .lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.3; }
+    .vision-statement { background: linear-gradient(135deg, #004aad, #0060cc); color: #fff; border-radius: 20px; padding: 2.5rem; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+    .vision-statement h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.8rem; opacity: 0.75; }
+    .vision-statement p { font-size: 1.05rem; font-style: italic; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.8; }
 
-    /* ── SERVICES SECTION ── */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 0.5rem;
-    }
-    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--text); }
+    .contact-info p { color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail { display: flex; align-items: center; gap: 1rem; }
+    .contact-detail .icon { width: 42px; height: 42px; border-radius: 10px; background: var(--light-grey); display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 1rem; flex-shrink: 0; }
+    .contact-detail a { text-decoration: none; color: var(--text); font-weight: 500; }
+    .contact-detail a:hover { color: var(--blue); }
+    .contact-detail small { display: block; color: var(--text-muted); font-size: 0.8rem; }
+    .contact-form { background: #fff; border-radius: 20px; border: 1px solid var(--border); padding: 2.5rem; box-shadow: var(--shadow); }
+    .contact-form h4 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--text); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--text); }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--text); background: #fff; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,74,173,0.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .submit-btn { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--blue), #0060cc); color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,74,173,0.25); }
+    #form-success { display: none; text-align: center; padding: 2rem; }
+    #form-success .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    #form-success h4 { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    #form-success p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.6; }
+    .success-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--blue); color: #fff; padding: 0.7rem 1.4rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-    .service-card {
-      background: #fff; border-radius: 18px;
-      border: 1px solid var(--border); padding: 2rem;
-      display: flex; flex-direction: column;
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .service-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-card:hover {
-      box-shadow: var(--shadow-lg); transform: translateY(-5px);
-      border-color: rgba(0,74,173,0.2);
-    }
-    .service-card-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: var(--off-white); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1.2rem;
-      transition: all 0.3s;
-    }
-    .service-card:hover .service-card-icon {
-      background: rgba(0,74,173,0.08); border-color: rgba(0,74,173,0.2);
-    }
-    .service-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--text); margin-bottom: 0.6rem; line-height: 1.3;
-    }
-    .service-card p {
-      font-size: 0.88rem; color: var(--text-muted);
-      line-height: 1.65; margin-bottom: 1.2rem; flex: 1;
-    }
-    .service-bullets {
-      list-style: none; margin-bottom: 1.5rem;
-      display: flex; flex-direction: column; gap: 0.4rem;
-    }
-    .service-bullets li {
-      font-size: 0.82rem; color: var(--text-muted);
-      padding-left: 1.1rem; position: relative; line-height: 1.45;
-    }
-    .service-bullets li::before {
-      content: '›'; position: absolute; left: 0;
-      color: var(--blue); font-weight: 700; font-size: 1rem;
-    }
-    .service-outcome {
-      background: var(--off-white); border-radius: 10px;
-      padding: 0.75rem 1rem; margin-top: auto;
-      font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
-      border-left: 3px solid var(--green);
-    }
-    .service-outcome strong { color: var(--text); font-weight: 600; }
+    /* FOOTER */
+    footer { background: #0a1628; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1.5rem; }
+    .footer-inner { max-width: 1100px; margin: auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    @media (max-width: 700px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.75; margin-top: 1rem; max-width: 320px; }
+    .footer-logo { height: 56px; opacity: 1; }
+    .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .social-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.25s; font-size: 0.9rem; }
+    .social-icon:hover { background: var(--blue); color: #fff; }
+    .footer-col h5 { color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-links li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1100px; margin: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; font-size: 0.82rem; }
 
-    .services-positioning {
-      background: linear-gradient(135deg, #003b8e, #0060cc);
-      border-radius: 18px; padding: 2.5rem;
-      text-align: center; margin-top: 3rem; color: #fff;
-    }
-    .services-positioning p {
-      font-size: 1.08rem; color: rgba(255,255,255,0.85);
-      max-width: 720px; margin: 0 auto 1.8rem; line-height: 1.75;
-    }
-    .services-positioning-btns {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    }
-    .btn-white {
-      background: #fff; color: var(--blue);
-      padding: 0.8rem 1.6rem; border-radius: 8px;
-      font-weight: 600; font-size: 0.92rem;
-      text-decoration: none; transition: all 0.25s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-white:hover { background: var(--green); color: #fff; transform: translateY(-2px); }
-    .btn-white-outline {
-      border: 2px solid rgba(255,255,255,0.6); color: #fff;
-      padding: 0.8rem 1.6rem; border-radius: 8px;
-      font-weight: 500; font-size: 0.92rem;
-      text-decoration: none; transition: all 0.25s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,0.12); }
+    /* WHATSAPP */
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.5); z-index: 999; transition: all 0.3s; }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+    .whatsapp-tooltip { position: absolute; right: 68px; background: #fff; color: var(--text); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 8px; white-space: nowrap; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
 
-    /* ── FADE-IN ANIMATIONS ── */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    /* REVEAL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── DIVIDER ── */
-    .wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
-    .wave-divider svg { display: block; }
+    /* WORD CYCLE */
+    #hero-cycle { transition: opacity 0.4s ease, transform 0.4s ease; display: inline-block; }
+    #hero-cycle.cycling { opacity: 0; transform: translateY(-8px); }
 
+    /* TAB PANEL */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    @media (max-width: 600px) { .tab-panel.active { grid-template-columns: 1fr; } }
+    .outcomes-tabs { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .tab-btn { padding: 0.7rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: 2px solid var(--border); background: #fff; color: var(--text-muted); transition: all 0.25s; }
+    .tab-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .outcome-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); padding: 1.8rem; transition: all 0.3s; }
+    .outcome-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .outcome-card h4 { font-size: 1rem; font-weight: 600; color: var(--blue); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+    .outcome-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .outcome-card ul li { font-size: 0.88rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.5; }
+    .outcome-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-<!-- Scroll Progress -->
 <div id="progress-bar"></div>
 
-<a href="https://wa.me/919114327520?text=Hi%20AttiNexis%2C%20I%27d%20like%20to%20know%20more%20about%20your%20programs."
-   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+<!-- WhatsApp -->
+<a href="https://wa.me/919114327520?text=Hello%20AttiNexis%2C%20I%20would%20like%20to%20know%20more%20about%20your%20institutional%20partnership%20programs." target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
+  <span class="whatsapp-tooltip">Chat with us</span>
 </a>
-<span class="whatsapp-tooltip">Chat with us</span>
-  
+
 <!-- Top Bar -->
 <div class="topbar">
   <a href="mailto:connect@attinexis.com"><i class="fas fa-envelope"></i>connect@attinexis.com</a>
@@ -1149,608 +351,297 @@
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo"><img src="logo-header.png" alt="AttiNexis"></a>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about-founder">Our Founder</a></li>
       <li><a href="#problem">Why AttiNexis</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#modules">Modules</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#outcomes">Outcomes</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#partnership">How It Works</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#about-founder">Our Founder</a></li>
       <li><a href="https://substack.com/@dhanashrilandge" target="_blank">Blogs</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Conversation</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-tag">
-        <span class="dot"></span> Industry Intelligence & Employability Partner for Higher Education
-      </div>
-      <h1>Helping Colleges Stay <span id="hero-cycle">Industry-Relevant</span></h1>
-      <p class="hero-sub">From industry intelligence to student employability — AttiNexis helps institutions prepare for the future of work through research, expert networks and structured career-readiness programs.</p>
+      <div class="hero-tag"><span class="dot"></span> Industry Intelligence & Employability Partner</div>
+      <h1>Your College's External <span id="hero-cycle">Industry Partner</span></h1>
+      <p class="hero-sub">AttiNexis helps colleges stay industry-relevant, strengthen student employability and manage industry engagement — through intelligence briefings, expert networks and structured programs.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Institutional Consultation</a>
-        <a href="#contact" class="btn-outline"><i class="fas fa-file-alt"></i> Request a College Proposal</a>
+        <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book an Institutional Conversation</a>
+        <a href="#services" class="btn-outline"><i class="fas fa-arrow-down"></i> See What We Do</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="stat-card">
-        <div class="stat-icon">🏛️</div>
-        <div>
-          <h3>7 Services</h3>
-          <p>Industry intelligence to placement readiness</p>
-        </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📡</div>
+        <h4>Industry Intelligence Briefings</h4>
+        <p>Monthly hiring trends, AI workforce shifts and sector updates delivered to your placement team.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">👔</div>
-        <div>
-          <h3>5–42 Yrs</h3>
-          <p>Industry experience across our expert panel</p>
-        </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🎙️</div>
+        <h4>Managed Expert Connect</h4>
+        <p>We identify, onboard and coordinate industry professionals — end to end, no faculty overhead.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">📈</div>
-        <div>
-          <h3>240+ Students</h3>
-          <p>Reached across partner institutions</p>
-        </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🏛️</div>
+        <h4>Institutional Partnership</h4>
+        <p>Quarterly and annual models designed to become your college's long-term industry engagement arm.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Trust Bar -->
+<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-item"><i class="fas fa-lightbulb"></i> Industry Intelligence Partner</div>
-    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel Experience</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel</div>
     <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
-    <div class="trust-item"><i class="fas fa-handshake"></i> Institutional Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Quarterly & Annual Partnerships</div>
     <div class="trust-item"><i class="fas fa-graduation-cap"></i> PhD-Led Programs</div>
-    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
     <div class="trust-item"><i class="fas fa-robot"></i> AI & Future Workforce Ready</div>
+    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
     <div class="trust-item"><i class="fas fa-lightbulb"></i> Industry Intelligence Partner</div>
-    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel Experience</div>
+    <div class="trust-item"><i class="fas fa-briefcase"></i> 5–42 Yrs Expert Panel</div>
     <div class="trust-item"><i class="fas fa-building-columns"></i> NEP 2020 Aligned</div>
-    <div class="trust-item"><i class="fas fa-handshake"></i> Institutional Partnership Model</div>
+    <div class="trust-item"><i class="fas fa-handshake"></i> Quarterly & Annual Partnerships</div>
     <div class="trust-item"><i class="fas fa-graduation-cap"></i> PhD-Led Programs</div>
-    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
     <div class="trust-item"><i class="fas fa-robot"></i> AI & Future Workforce Ready</div>
+    <div class="trust-item"><i class="fas fa-chart-line"></i> Placement-Outcome Focused</div>
   </div>
 </div>
 
-<!-- Founder Section -->
-<section class="section" id="about-founder">
-  <div class="section-inner">
-    <div class="founder-grid">
-      <div class="founder-card reveal">
-        <div class="founder-img-wrap">
-          <div class="founder-avatar"><i class="fas fa-user"></i></div>
-          <div class="founder-name">Dhanashri Landge</div>
-          <div class="founder-title">Founder & Lead Facilitator, AttiNexis</div>
-        </div>
-        <div class="founder-body">
-          <ul class="credential-list">
-            <li><i class="fas fa-graduation-cap"></i> PhD — Marketing Management</li>
-            <li><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience across Industry</li>
-            <li><i class="fas fa-chalkboard-teacher"></i> Expert in Campus-to-Corporate Transition</li>
-            <li><i class="fas fa-handshake"></i> Trusted Academic Partner for Engineering & Management Institutes</li>
-            <li><i class="fas fa-award"></i> Designed curriculum aligned to NEP 2020 & Industry Hiring Standards</li>
-          </ul>
-        </div>
-      </div>
-      <div class="founder-content reveal reveal-delay-1">
-        <div class="section-label">Meet the Founder</div>
-        <h3>Where Academic Rigour Meets Corporate Reality</h3>
-        <p>AttiNexis was born out of a deeply personal insight — watching talented graduates struggle not because of a lack of knowledge, but a lack of corporate readiness. With a PhD and over a decade of hands-on corporate exposure, our founder brings both academic depth and real-world credibility to every program.</p>
-        <p>She engages directly with college leadership, TPOs, and faculty — understanding each institution's unique placement challenges and co-designing solutions that work. This isn't a standardised off-the-shelf product; it's a partnership built on trust and measurable outcomes.</p>
-        <div class="quote-block">
-          <p>"Every student deserves to graduate not just with a degree, but with the clarity, confidence, and career strategy to excel — that's the gap AttiNexis was built to close."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Problem Section -->
+<!-- WHY ATTINEXIS -->
 <section class="section section-alt" id="problem">
   <div class="section-inner">
     <div class="section-header center">
-      <div class="section-label">The Challenge</div>
-      <h2 class="section-title reveal">Why Student Employability Is At Risk</h2>
-      <p class="section-desc reveal">India's engineering and management graduates face a widening gap between what colleges teach and what employers expect. AttiNexis addresses each of these challenges head-on.</p>
+      <div class="section-label">The Gap We Fill</div>
+      <h2 class="section-title reveal">What Colleges Are Dealing With — Right Now</h2>
+      <p class="section-desc reveal">TPOs and Principals face a structural problem: soft-skill vendors are everywhere, but no one is bringing real, current industry intelligence into the institution.</p>
     </div>
     <div class="problem-grid">
       <div class="problem-card reveal">
         <div class="problem-num">01</div>
-        <h4>Skills Don't Match Jobs</h4>
-        <p>According to NASSCOM, 45% of graduates are unemployable due to lack of industry-relevant, hands-on skills.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>AttiNexis builds real, hands-on workplace skills across 8 structured modules.</div>
+        <h4>No Industry Intelligence Feed</h4>
+        <p>Placement teams lack access to current hiring trends, AI-driven workforce shifts and employer skill expectations — making it hard to prepare students effectively.</p>
+        <div class="problem-fix">→ AttiNexis delivers monthly intelligence briefings tailored to your placement context.</div>
       </div>
       <div class="problem-card reveal reveal-delay-1">
         <div class="problem-num">02</div>
-        <h4>No Career Direction</h4>
-        <p>Students lack structured guidance, leading to misaligned course and career choices that hurt long-term prospects.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>Our Career Strategy module gives students a clear, personalised roadmap.</div>
+        <h4>Expert Sessions Are a Logistics Nightmare</h4>
+        <p>Finding, scheduling and coordinating industry professionals falls entirely on already-stretched faculty and TPOs — and it often doesn't happen at all.</p>
+        <div class="problem-fix">→ We handle identification, onboarding, coordination and reporting — end to end.</div>
       </div>
       <div class="problem-card reveal reveal-delay-2">
         <div class="problem-num">03</div>
-        <h4>Generic Curriculum</h4>
-        <p>One-size-fits-all learning fails to address individual aspirations or specific industry needs.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>We co-design each engagement around your institute's specific student profile.</div>
+        <h4>Faculty Are Disconnected from Industry</h4>
+        <p>Faculty guide students on career choices without regular exposure to how industries are actually evolving — creating a silent credibility gap in the classroom.</p>
+        <div class="problem-fix">→ Our faculty briefings and enablement sessions bridge this directly.</div>
       </div>
       <div class="problem-card reveal">
         <div class="problem-num">04</div>
-        <h4>No Real Industry Link</h4>
-        <p>Limited employer collaboration means students miss real-world exposure, internship pipelines, and live project experience.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>Every program includes live industry expert sessions and real case studies.</div>
+        <h4>Soft-Skill Vendors Don't Solve the Real Problem</h4>
+        <p>Most colleges already have a soft-skills training partner. What's missing is someone who brings structured industry engagement, not generic communication workshops.</p>
+        <div class="problem-fix">→ AttiNexis is positioned as an intelligence and engagement partner, not a vendor.</div>
       </div>
       <div class="problem-card reveal reveal-delay-1">
         <div class="problem-num">05</div>
-        <h4>Rising Career Anxiety</h4>
-        <p>Students fear being left behind — unsure of what to learn, how to prepare, or which career path to choose.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>We replace anxiety with clarity — tools, direction, and practiced confidence.</div>
+        <h4>NAAC / NIRF Pressure Is Rising</h4>
+        <p>Accreditation frameworks increasingly demand evidence of industry linkages, employer engagement and student employability outcomes — areas most colleges struggle to document.</p>
+        <div class="problem-fix">→ Our structured programs generate the engagement evidence colleges need.</div>
       </div>
       <div class="problem-card reveal reveal-delay-2">
         <div class="problem-num">06</div>
-        <h4>Policy Pressure Rising</h4>
-        <p>NEP 2020 demands that colleges integrate employability and skill development into mainstream education — urgently.</p>
-        <div class="problem-fix"><i class="fas fa-arrow-right"></i>AttiNexis programs are fully aligned to NEP 2020 employability mandates.</div>
+        <h4>No Structured Corporate Hiring Pipeline</h4>
+        <p>Students miss out on internships, live projects and PPO pathways because no one is systematically building corporate relationships on the college's behalf.</p>
+        <div class="problem-fix">→ We connect colleges with structured corporate opportunities through our network.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
+<!-- CORE SERVICES -->
 <section class="section" id="services">
   <div class="section-inner">
     <div class="section-header center">
-      <div class="section-label">What We Do</div>
-      <h2 class="section-title reveal">Our Services</h2>
-      <p class="section-desc reveal">We help colleges stay industry-relevant, strengthen student employability and manage industry engagement through research, expert networks and structured career-readiness programs.</p>
+      <div class="section-label">Core Services</div>
+      <h2 class="section-title reveal">Three Things We Do — Exceptionally Well</h2>
+      <p class="section-desc reveal">Our three core services are what set AttiNexis apart. Everything else we offer builds on top of these.</p>
     </div>
-    <div class="services-grid">
-
-      <div class="service-card reveal">
-        <div class="service-card-icon">🔍</div>
-        <h3>Industry Intelligence for Higher Education</h3>
-        <p>We help colleges understand how industries, technologies and hiring expectations are changing — so academic and placement teams can make better decisions.</p>
-        <ul class="service-bullets">
-          <li>Emerging industry and technology trends</li>
-          <li>AI-led workforce changes</li>
-          <li>High-growth sectors and job roles</li>
+    <div class="core-services-grid">
+      <div class="core-card reveal">
+        <div class="core-card-icon"><i class="fas fa-satellite-dish"></i></div>
+        <h3>Industry Intelligence</h3>
+        <p class="card-desc">We research and synthesise what's happening in hiring, AI, and workforce evolution — and deliver it directly to your placement team and faculty in a format they can act on.</p>
+        <ul>
+          <li>Monthly intelligence briefings</li>
+          <li>AI-led workforce change updates</li>
+          <li>High-growth sectors and roles</li>
           <li>Employer skill expectations</li>
-          <li>Placement and hiring intelligence</li>
+          <li>Entry-level salary and hiring trends</li>
         </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Academic leaders and placement teams receive current industry insights to make better program, training and placement decisions.</div>
+        <div class="core-outcome"><strong>Outcome:</strong> Your team makes better program, training and placement decisions — backed by current data, not assumptions.</div>
       </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-card-icon">🤝</div>
-        <h3>Managed Industry Expert Connect</h3>
-        <p>AttiNexis manages the complete expert engagement process for colleges — from identification to post-session reporting. Our expert panel spans 5 to 42 years of industry experience.</p>
-        <ul class="service-bullets">
+      <div class="core-card reveal reveal-delay-1">
+        <div class="core-card-icon"><i class="fas fa-people-group"></i></div>
+        <h3>Managed Expert Connect</h3>
+        <p class="card-desc">We manage the complete industry expert engagement process — so your faculty and TPO team gets the benefit without the operational burden.</p>
+        <ul>
           <li>Expert identification and onboarding</li>
           <li>Session planning and topic alignment</li>
-          <li>Expert coordination and student engagement</li>
-          <li>Feedback collection and post-session reporting</li>
+          <li>Expert coordination and follow-up</li>
+          <li>Student engagement facilitation</li>
+          <li>Post-session reporting and feedback</li>
         </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Colleges gain reliable access to industry professionals without increasing administrative workload on faculty and placement teams.</div>
+        <div class="core-outcome"><strong>Outcome:</strong> Reliable, high-quality industry access — without increasing your team's workload. Our panel spans 5 to 42 years of experience.</div>
       </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-card-icon">🚀</div>
-        <h3>Future Workforce Readiness Programs</h3>
-        <p>We prepare students for changing workplace expectations through practical, industry-led learning — going well beyond generic soft-skills training.</p>
-        <ul class="service-bullets">
-          <li>Corporate communication and workplace behaviour</li>
-          <li>AI and digital literacy</li>
-          <li>Career strategy and professional confidence</li>
-          <li>Problem-solving and interview readiness</li>
-          <li>Industry awareness</li>
-        </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Students become better prepared to contribute from the first day of employment.</div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-card-icon">👩‍🏫</div>
-        <h3>Faculty & Placement Team Enablement</h3>
-        <p>We support faculty members and placement teams with current industry insights, frameworks and employability tools — reducing the operational burden on college teams.</p>
-        <ul class="service-bullets">
-          <li>Faculty industry briefings</li>
-          <li>AI awareness sessions</li>
+      <div class="core-card reveal reveal-delay-2">
+        <div class="core-card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>Faculty & Placement Enablement</h3>
+        <p class="card-desc">We support your faculty and placement team with current industry frameworks, so they can guide students with confidence and reduce their own operational burden.</p>
+        <ul>
+          <li>Faculty industry briefing sessions</li>
+          <li>AI awareness and digital shifts</li>
           <li>Recruiter expectation updates</li>
           <li>Student readiness frameworks</li>
-          <li>Industry engagement planning</li>
+          <li>Placement preparation support</li>
         </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Faculty and placement teams can guide students more effectively with reduced operational burden.</div>
+        <div class="core-outcome"><strong>Outcome:</strong> Faculty and placement teams guide students more effectively — grounded in what employers actually want today.</div>
       </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-card-icon">🏭</div>
-        <h3>Corporate Hiring & Internship Partnerships</h3>
-        <p>AttiNexis connects colleges with corporate opportunities for internships, live projects, placements and PPOs — with full coordination and candidate readiness support.</p>
-        <ul class="service-bullets">
-          <li>Internship sourcing and corporate hiring coordination</li>
-          <li>Student shortlisting and employer communication</li>
-          <li>Pre-placement preparation</li>
-          <li>Candidate readiness support</li>
-        </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Colleges gain access to structured corporate opportunities while students receive practical exposure and career pathways.</div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-card-icon">⚡</div>
-        <h3>Student Career Labs</h3>
-        <p>Short-format career labs designed for students who may not engage with long training programs — focused, practical and relevant in an engaging format.</p>
-        <ul class="service-bullets">
-          <li>3-hour industry sessions and career clinics</li>
-          <li>Role-based workshops and interview labs</li>
-          <li>AI readiness sessions</li>
-          <li>Salary and career pathway discussions</li>
-        </ul>
-        <div class="service-outcome"><strong>Outcome:</strong> Students receive focused, practical and relevant learning in an engaging format.</div>
-      </div>
-
-      <div class="service-card reveal" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-        <div>
-          <div class="service-card-icon">🏛️</div>
-          <h3>Industry Intelligence Partnership for Colleges</h3>
-          <p>For institutions seeking continuous support, AttiNexis offers quarterly and annual partnerships — becoming your institution's external industry intelligence and employability partner.</p>
-          <ul class="service-bullets">
-            <li>Monthly industry intelligence brief</li>
-            <li>Expert sessions and faculty briefings</li>
-            <li>Student workshops and placement insights</li>
-            <li>Career readiness assessments</li>
-            <li>Corporate engagement support</li>
-          </ul>
-        </div>
-        <div style="display:flex; flex-direction:column; justify-content:center; height:100%;">
-          <div class="service-outcome" style="margin-bottom:1rem; border-left-color: var(--blue);">
-            <strong>Outcome:</strong> AttiNexis becomes the institution's external industry intelligence and employability partner — on a quarterly or annual basis.
-          </div>
-          <a href="#contact" class="btn-card btn-card-primary" style="text-align:center; margin-top:0.5rem;">
-            <i class="fas fa-handshake"></i> Explore Partnership Models
-          </a>
-        </div>
-      </div>
-
     </div>
 
-    <div class="services-positioning reveal">
-      <p>Bring Industry Intelligence into Your Campus — partner with AttiNexis to strengthen placement readiness, support faculty teams and connect students with real industry expectations.</p>
-      <div class="services-positioning-btns">
-        <a href="#contact" class="btn-white"><i class="fas fa-calendar-check"></i> Book an Institutional Consultation</a>
-        <a href="#contact" class="btn-white-outline"><i class="fas fa-file-alt"></i> Request a College Proposal</a>
+    <!-- ADD-ON SERVICES -->
+    <div style="margin-top:3.5rem;">
+      <div class="section-header center">
+        <div class="section-label">Add-On Services</div>
+        <h2 class="section-title reveal" style="font-size:1.7rem;">Available as Part of Your Partnership</h2>
+      </div>
+      <div class="addon-grid">
+        <div class="addon-card reveal">
+          <div class="addon-icon">🧪</div>
+          <h4>Student Career Labs</h4>
+          <p>Short-format, high-impact sessions — career clinics, interview labs, AI readiness workshops and role-based sessions designed for students who need focused, practical exposure.</p>
+        </div>
+        <div class="addon-card reveal reveal-delay-1">
+          <div class="addon-icon">🤝</div>
+          <h4>Corporate Hiring & Internship Partnerships</h4>
+          <p>We connect your college with structured corporate opportunities — internships, live projects, hiring coordination and pre-placement preparation — through our corporate network.</p>
+        </div>
+        <div class="addon-card reveal reveal-delay-2">
+          <div class="addon-icon">🏗️</div>
+          <h4>Live Projects & Industry Immersion</h4>
+          <p>Real work assignments with industry partners that give students practical exposure and employers a low-risk pipeline to future talent. Structured, supervised and outcome-tracked.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Modules Section -->
-<section class="section section-blue" id="modules">
+<!-- HOW PARTNERSHIP WORKS -->
+<section class="section section-blue" id="partnership">
   <div class="section-inner">
     <div class="section-header center">
-      <div class="section-label light">What We Teach</div>
-      <h2 class="section-title light reveal">8 Modules. One Complete Career Foundation.</h2>
-      <p class="section-desc light reveal">Every module is built in close alignment with what hiring managers and talent acquisition teams actually look for.</p>
+      <div class="section-label light">How It Works</div>
+      <h2 class="section-title light reveal">A Partnership That Grows With Your Institution</h2>
+      <p class="section-desc light reveal">We don't sell one-off workshops. We build an ongoing relationship designed to deepen over time — starting with a low-risk pilot and growing into your college's dedicated industry intelligence arm.</p>
     </div>
-    <div class="modules-grid">
-      <div class="module-card reveal">
-        <div class="module-icon"><i class="fas fa-building"></i></div>
-        <h4>Corporate Readiness</h4>
+    <div class="partnership-timeline reveal">
+      <div class="timeline-step">
+        <div class="timeline-num">1</div>
+        <span class="timeline-tag">Month 1–3 · Pilot</span>
+        <h4>Start Small, See Results</h4>
+        <p>A focused pilot engagement to demonstrate value before any long-term commitment.</p>
         <ul>
-          <li>Industry expectations vs. college reality</li>
-          <li>Workplace communication norms</li>
-          <li>Time ownership & deadline management</li>
+          <li>1 industry intelligence brief</li>
+          <li>1–2 managed expert sessions</li>
+          <li>1 faculty briefing</li>
+          <li>Placement team consultation</li>
         </ul>
-        <div class="module-why">Employers say first-job ramp-up is the #1 cost of hiring freshers.</div>
       </div>
-      <div class="module-card reveal reveal-delay-1">
-        <div class="module-icon"><i class="fas fa-brain"></i></div>
-        <h4>Critical Thinking & Problem Solving</h4>
+      <div class="timeline-step">
+        <div class="timeline-num">2</div>
+        <span class="timeline-tag">Quarter 2+ · Quarterly Partner</span>
+        <h4>Build Consistent Engagement</h4>
+        <p>A structured quarterly model delivering regular intelligence and expert access.</p>
         <ul>
-          <li>Case-based problem solving</li>
-          <li>Business models & workflows</li>
-          <li>Lateral thinking techniques</li>
+          <li>Monthly intelligence briefings</li>
+          <li>2–3 expert sessions per quarter</li>
+          <li>Faculty enablement sessions</li>
+          <li>Student career labs (add-on)</li>
         </ul>
-        <div class="module-why">Ranked the #1 skill gap by hiring managers across BFSI, IT & consulting.</div>
       </div>
-      <div class="module-card reveal reveal-delay-2">
-        <div class="module-icon"><i class="fas fa-file-alt"></i></div>
-        <h4>Resume, LinkedIn & Job Strategy</h4>
+      <div class="timeline-step">
+        <div class="timeline-num">3</div>
+        <span class="timeline-tag">Year 2+ · Annual Partner</span>
+        <h4>Become a Future-Ready Campus</h4>
+        <p>AttiNexis becomes your institution's dedicated external industry intelligence and employability partner.</p>
         <ul>
-          <li>Impactful resume structuring</li>
-          <li>LinkedIn branding & job strategy</li>
-          <li>Cold email & application tailoring</li>
+          <li>All quarterly deliverables</li>
+          <li>8–10 expert sessions annually</li>
+          <li>Corporate hiring pipeline</li>
+          <li>Full placement support</li>
         </ul>
-        <div class="module-why">Most students never get screened in — this module fixes that.</div>
-      </div>
-      <div class="module-card reveal reveal-delay-3">
-        <div class="module-icon"><i class="fas fa-comments"></i></div>
-        <h4>Business Communication</h4>
-        <ul>
-          <li>Group discussion & mock sessions</li>
-          <li>Presentation design & delivery</li>
-          <li>Elevator pitch confidence</li>
-        </ul>
-        <div class="module-why">GDs and presentations are elimination rounds — practice here is practice for real.</div>
-      </div>
-      <div class="module-card reveal">
-        <div class="module-icon"><i class="fas fa-laptop-code"></i></div>
-        <h4>Corporate Tools & Digital Literacy</h4>
-        <ul>
-          <li>Excel, Tableau, Power BI basics</li>
-          <li>Productivity tools (Notion, Slack, Trello)</li>
-          <li>AI tools: ChatGPT, Canva, etc.</li>
-        </ul>
-        <div class="module-why">Day-one productivity is now a baseline expectation, not a bonus.</div>
-      </div>
-      <div class="module-card reveal reveal-delay-1">
-        <div class="module-icon"><i class="fas fa-user-tie"></i></div>
-        <h4>Interview Skills Bootcamp</h4>
-        <ul>
-          <li>Mock HR & technical interviews</li>
-          <li>STAR technique & structured responses</li>
-          <li>Body language & emotional regulation</li>
-        </ul>
-        <div class="module-why">Confidence in interviews is a skill — it's built through repetition, not hope.</div>
-      </div>
-      <div class="module-card reveal reveal-delay-2">
-        <div class="module-icon"><i class="fas fa-chart-bar"></i></div>
-        <h4>Emerging Careers & Trends</h4>
-        <ul>
-          <li>AI, data, consulting & tech hiring</li>
-          <li>BFSI, IT, Analytics, EdTech prep</li>
-          <li>Freelance & global work trends</li>
-        </ul>
-        <div class="module-why">Students who know where the jobs are moving get there first.</div>
-      </div>
-      <div class="module-card reveal reveal-delay-3">
-        <div class="module-icon"><i class="fas fa-compass"></i></div>
-        <h4>Career Strategy & Life Design</h4>
-        <ul>
-          <li>Job vs. higher studies vs. entrepreneurship</li>
-          <li>Multiple income streams</li>
-          <li>Personal finance basics</li>
-        </ul>
-        <div class="module-why">Clarity of direction multiplies the impact of every other skill.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Programs Section -->
-<section class="section" id="programs">
+<!-- PACKAGES -->
+<section class="section" id="packages">
   <div class="section-inner">
     <div class="section-header center">
-      <div class="section-label">Our Programs</div>
-      <h2 class="section-title reveal">Choose the Right Track</h2>
-      <p class="section-desc reveal">Both programs deliver real impact. Choose based on your institute's timeline and depth requirements.</p>
+      <div class="section-label">Partnership Models</div>
+      <h2 class="section-title reveal">Choose the Right Engagement Model</h2>
+      <p class="section-desc reveal">Both models are designed around your institution's needs. Pricing is customised based on scope and institution size — contact us for a tailored proposal.</p>
     </div>
-    <div class="programs-grid">
-      <div class="program-card reveal">
-        <div class="program-icon">⚡</div>
-        <div class="program-name">Sprint Course</div>
-        <div class="program-hours"><i class="fas fa-clock"></i> 40 Hours</div>
-
-        <ul class="program-features">
-          <li><i class="fas fa-check-circle"></i> Focused coverage on placement-critical sections</li>
-          <li><i class="fas fa-check-circle"></i> 8 activities (1 per module)</li>
-          <li><i class="fas fa-check-circle"></i> 4 Industry expert sessions</li>
-          <li><i class="fas fa-check-circle"></i> 2 hours mock practice sessions</li>
-          <li><i class="fas fa-check-circle"></i> All 8 core modules at high-level</li>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-icon">📋</div>
+        <div class="package-name">Quarterly Partner</div>
+        <div class="package-tagline">Structured engagement, renewed every quarter</div>
+        <ul class="package-features">
+          <li><i class="fas fa-check-circle"></i> Monthly industry intelligence brief</li>
+          <li><i class="fas fa-check-circle"></i> 2–3 managed expert sessions</li>
+          <li><i class="fas fa-check-circle"></i> 1 faculty enablement session</li>
+          <li><i class="fas fa-check-circle"></i> Placement team consultation</li>
+          <li><i class="fas fa-check-circle"></i> Post-session reports and insights</li>
+          <li><i class="fas fa-check-circle"></i><span class="feat-muted">Student career labs (add-on)</span></li>
         </ul>
-        <a href="#contact" class="btn-card btn-card-outline">Enquire Now</a>
+        <a href="#contact" class="btn-card btn-card-outline">Request a Proposal</a>
+        <p class="package-note">Ideal starting point for most institutions</p>
       </div>
-      <div class="program-card featured reveal reveal-delay-1">
-        <div class="featured-badge">⭐ Most Comprehensive</div>
-        <div class="program-icon" style="background:rgba(0,74,173,0.1);">🏆</div>
-        <div class="program-name">Marathon Course</div>
-        <div class="program-hours"><i class="fas fa-clock"></i> 90 Hours</div>
-
-        <ul class="program-features">
-          <li><i class="fas fa-check-circle"></i> Deep-dive across all 8 modules + sub-sections</li>
-          <li><i class="fas fa-check-circle"></i> 20 activities (multiple per module)</li>
-          <li><i class="fas fa-check-circle"></i> 8–10 Industry expert sessions</li>
-          <li><i class="fas fa-check-circle"></i> 8–10 hours mock practice sessions</li>
-          <li><i class="fas fa-check-circle"></i> Best for holistic, long-term career success</li>
+      <div class="package-card featured reveal reveal-delay-1">
+        <div class="featured-badge">⭐ Recommended</div>
+        <div class="package-icon">🏛️</div>
+        <div class="package-name">Annual Institutional Partner</div>
+        <div class="package-tagline">Your dedicated external industry intelligence arm</div>
+        <ul class="package-features">
+          <li><i class="fas fa-check-circle"></i> Everything in Quarterly Partner</li>
+          <li><i class="fas fa-check-circle"></i> 8–10 expert sessions annually</li>
+          <li><i class="fas fa-check-circle"></i> Quarterly faculty briefings</li>
+          <li><i class="fas fa-check-circle"></i> Student career labs included</li>
+          <li><i class="fas fa-check-circle"></i> Corporate hiring pipeline access</li>
+          <li><i class="fas fa-check-circle"></i> NAAC/NIRF engagement documentation</li>
         </ul>
-        <a href="#contact" class="btn-card btn-card-primary">Get a Custom Quote</a>
+        <a href="#contact" class="btn-card btn-card-primary">Book an Institutional Conversation</a>
+        <p class="package-note">For institutions ready for a long-term partnership</p>
       </div>
     </div>
-
-    <!-- Comparison Table -->
-    <div class="reveal" style="overflow-x:auto; margin-top:1rem;">
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Particulars</th>
-            <th>Sprint Course</th>
-            <th>Marathon Course</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Duration</strong></td>
-            <td class="col-sprint">40 Hours</td>
-            <td class="col-marathon">90 Hours</td>
-          </tr>
-          <tr>
-            <td><strong>Coverage</strong></td>
-            <td class="col-sprint">High-level, placement-focused</td>
-            <td class="col-marathon">In-depth, all 8 modules + sub-sections</td>
-          </tr>
-          <tr>
-            <td><strong>Activities</strong></td>
-            <td class="col-sprint">8 (1 per module)</td>
-            <td class="col-marathon">20 (multiple per module)</td>
-          </tr>
-          <tr>
-            <td><strong>Industry Expert Sessions</strong></td>
-            <td class="col-sprint">4 sessions</td>
-            <td class="col-marathon">8–10 sessions</td>
-          </tr>
-          <tr>
-            <td><strong>Practice Sessions</strong></td>
-            <td class="col-sprint">2 hours</td>
-            <td class="col-marathon">8–10 hours</td>
-          </tr>
-
-        </tbody>
-      </table>
-      <p style="font-size:0.88rem; color:var(--text-muted); margin-top:1.2rem; text-align:center;">Pricing is customised based on your batch size and program track. <a href="#contact" style="color:var(--blue); font-weight:600;">Reach out for a tailored quote →</a></p>
-    </div>
+    <p style="text-align:center;font-size:0.88rem;color:var(--text-muted);margin-top:1.5rem;">Pricing is customised based on your institution's scope, size and engagement model. <a href="#contact" style="color:var(--blue);font-weight:600;">Reach out for a tailored quote →</a></p>
   </div>
 </section>
 
-<!-- Outcomes Section -->
-<section class="section section-alt" id="outcomes">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-label">Impact</div>
-      <h2 class="section-title reveal">Targeted Outcomes</h2>
-      <p class="section-desc reveal">AttiNexis programs are designed to deliver measurable results — for both institutes and students.</p>
-    </div>
-    <div class="outcomes-tabs reveal">
-      <button class="tab-btn active" onclick="switchTab('institutes', this)">🏫 For Institutes</button>
-      <button class="tab-btn" onclick="switchTab('students', this)">🎓 For Students</button>
-    </div>
-    <div id="tab-institutes" class="tab-panel active">
-      <div class="outcome-card">
-        <h4><i class="fas fa-chart-line"></i> Improved Placement Outcomes</h4>
-        <ul>
-          <li>10–15% increase in students securing jobs or internships in reputed firms</li>
-          <li>Better placement statistics strengthening institutional reputation</li>
-          <li>Higher admission demand driven by visible career outcomes</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-award"></i> Industry Alignment & Branding</h4>
-        <ul>
-          <li>Positioned as a "future-ready campus" with direct industry collaboration</li>
-          <li>Competitive advantage in NAAC/NIRF accreditations and rankings</li>
-          <li>Differentiated offering in a crowded education landscape</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-handshake"></i> Employer Partnerships & Visibility</h4>
-        <ul>
-          <li>Attracts recruiters with trained, job-ready students</li>
-          <li>Opens doors to new industry partnerships, live projects, and internships</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-heart"></i> Retention & Student Satisfaction</h4>
-        <ul>
-          <li>Students perceive institute as invested in their career journey</li>
-          <li>Higher alumni success translates into stronger alumni networks and brand loyalty</li>
-        </ul>
-      </div>
-    </div>
-    <div id="tab-students" class="tab-panel">
-      <div class="outcome-card">
-        <h4><i class="fas fa-user-tie"></i> Industry-Ready Graduates</h4>
-        <ul>
-          <li>Exposure to workplace etiquette, communication norms, and project workflows</li>
-          <li>Confidence to adapt quickly in first job roles, reducing ramp-up time</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-id-badge"></i> Strong Personal Brand & Career Clarity</h4>
-        <ul>
-          <li>Refined resumes, LinkedIn profiles, and interview preparation for better visibility</li>
-          <li>Clear direction: job vs. higher studies vs. entrepreneurship pathways</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-tools"></i> Job-Ready Tools, Mindset & Confidence</h4>
-        <ul>
-          <li>Hands-on proficiency in Excel, PowerPoint, AI tools, and productivity apps</li>
-          <li>Critical thinking and problem-solving mindset that employers value</li>
-        </ul>
-      </div>
-      <div class="outcome-card">
-        <h4><i class="fas fa-rocket"></i> Future-Proofed Learning Path</h4>
-        <ul>
-          <li>Awareness of emerging industries: AI, analytics, consulting, fintech, and more</li>
-          <li>Guidance on freelancing, multiple income streams, and long-term career resilience</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="section" id="testimonials">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-label">What They Say</div>
-      <h2 class="section-title reveal">Voices from Our Community</h2>
-    </div>
-    <div class="testimonials-grid" id="testimonialCarousel">
-      <div class="testimonial-slide active">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">AttiNexis gave me the confidence to face interviews head-on. The mock sessions were a game changer — I walked into my placement interview feeling fully prepared.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">S</div>
-            <div>
-              <div class="author-name">Student</div>
-              <div class="author-role">Engineering Graduate, Class of 2025</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">Our institute saw a significant improvement in placement outcomes after collaborating with AttiNexis. The structured approach and faculty engagement made all the difference.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">T</div>
-            <div>
-              <div class="author-name">Training & Placement Officer</div>
-              <div class="author-role">Partner Engineering College</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">The LinkedIn branding workshop alone helped me reframe how I present myself professionally. I received three interview calls within a week of updating my profile.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">R</div>
-            <div>
-              <div class="author-name">Management Student</div>
-              <div class="author-role">MBA Graduate, 2025 Batch</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-dots">
-        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-        <button class="carousel-dot" onclick="goToSlide(1)"></button>
-        <button class="carousel-dot" onclick="goToSlide(2)"></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Case Study -->
+<!-- CASE STUDY -->
 <div class="casestudy-wrap" id="case-study">
   <div class="casestudy-inner">
-    <div class="casestudy-header reveal">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
       <div class="section-label light">Partner Engagement</div>
-      <h2 class="section-title light">From Classroom to Corporate — In Action</h2>
-      <p class="section-desc light">A look at what AttiNexis partnership looks like on the ground.</p>
+      <h2 class="section-title light">What Our Partnership Looks Like — On the Ground</h2>
     </div>
     <div class="casestudy-card reveal">
       <div class="casestudy-top">
@@ -1762,7 +653,7 @@
         </div>
         <div class="casestudy-content">
           <div class="section-label">Case Study</div>
-          <h3>Bridging the Industry Gap for 240+ Engineering Students</h3>
+          <h3>Industry Engagement Partner for 240+ Engineering Students</h3>
           <div class="casestudy-metrics">
             <div class="metric-box">
               <div class="metric-value count-up" data-target="240" data-suffix="+">0+</div>
@@ -1774,120 +665,155 @@
             </div>
             <div class="metric-box">
               <div class="metric-value">↑ Placed</div>
-              <div class="metric-label">Increased Placement<br>Success Rate</div>
+              <div class="metric-label">Improved Placement<br>Outcomes</div>
             </div>
           </div>
           <div class="casestudy-insights">
-            <div class="insight-item">
-              <i class="fas fa-industry"></i>
-              <span>Embedded as <strong>adjunct industry partner</strong>, bridging classroom theory with corporate reality</span>
-            </div>
-            <div class="insight-item">
-              <i class="fas fa-microchip"></i>
-              <span>Rising industry demand for <strong>AI, ML, and IoT-capable</strong> talent clearly identified</span>
-            </div>
-            <div class="insight-item">
-              <i class="fas fa-lightbulb"></i>
-              <span>This generation is <strong>task-focused and values personal alignment</strong> — reshaping how readiness must be cultivated</span>
-            </div>
-            <div class="insight-item">
-              <i class="fas fa-chart-line"></i>
-              <span>Measurable improvement in <strong>corporate readiness</strong> and placement outcomes across cohorts</span>
-            </div>
+            <div class="insight-item"><i class="fas fa-industry"></i><span>Embedded as <strong>adjunct industry partner</strong>, bridging classroom learning with real corporate context</span></div>
+            <div class="insight-item"><i class="fas fa-microchip"></i><span>Identified rising demand for <strong>AI, ML and IoT-capable</strong> talent through structured intelligence work</span></div>
+            <div class="insight-item"><i class="fas fa-lightbulb"></i><span>Insight: this generation is <strong>task-focused and values personal alignment</strong> — reshaping what readiness must look like</span></div>
+            <div class="insight-item"><i class="fas fa-chart-line"></i><span>Measurable improvement in <strong>corporate readiness and placement outcomes</strong> across cohorts</span></div>
           </div>
         </div>
       </div>
       <div class="casestudy-bottom">
         <i class="fas fa-circle-check"></i>
-        <span>AttiNexis remains at the forefront of this shift — <strong>shaping career-ready talent for the next generation of industry.</strong></span>
+        <span>AttiNexis continues to serve as the institution's industry engagement partner — <strong>shaping career-ready talent for the next generation of work.</strong></span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- About -->
-<section class="section section-alt" id="about">
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
   <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-content reveal">
-        <div class="section-label">About AttiNexis</div>
-        <h2>Attitude Meets Action</h2>
-        <p>At AttiNexis, we are on a mission to bridge the gap between academic learning and corporate readiness. Today's graduates often enter the job market with strong technical knowledge but lack the career skills, confidence, and industry exposure needed to thrive.</p>
-        <p>We design and deliver career readiness programs that empower students with the tools, mindset, and practical experiences to succeed in placements and beyond. Our modules are built in close alignment with industry expectations and current hiring trends.</p>
-        <div class="about-extra" id="aboutExtra">
-          <p>With a blend of expert-led sessions, interactive activities, and real-world problem-solving, we help students transform into industry-ready professionals who stand out in competitive markets.</p>
-        </div>
-        <button class="read-more-btn" id="readMoreBtn" onclick="toggleReadMore()">Read more <i class="fas fa-arrow-right" id="readMoreIcon"></i></button>
-        <div class="about-counters">
-          <div class="about-counter-item">
-            <div class="num count-up" data-target="8">0</div>
-            <div class="lbl">Career Modules</div>
-          </div>
-          <div class="about-counter-item">
-            <div class="num count-up" data-target="90" data-suffix="h">0h</div>
-            <div class="lbl">Max Program Depth</div>
-          </div>
-          <div class="about-counter-item">
-            <div class="num count-up" data-target="10" data-suffix="+">0+</div>
-            <div class="lbl">Expert Sessions</div>
-          </div>
-          <div class="about-counter-item">
-            <div class="num count-up" data-target="240" data-suffix="+">0+</div>
-            <div class="lbl">Students Reached</div>
-          </div>
+    <div class="section-header center">
+      <div class="section-label">What They Say</div>
+      <h2 class="section-title reveal">Voices from Our Community</h2>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-slide active">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">AttiNexis gave me the confidence to face interviews head-on. The mock sessions and the industry awareness I gained were a genuine game-changer — I walked in fully prepared.</p>
+          <div class="testimonial-author"><div class="author-avatar">S</div><div><div class="author-name">Student</div><div class="author-role">Engineering Graduate, Class of 2025</div></div></div>
         </div>
       </div>
-      <div class="about-visual reveal reveal-delay-1">
-        <div class="vision-statement" style="height:100%; display:flex; flex-direction:column; justify-content:center; border-radius:20px; margin:0;">
-          <h4>Our Vision</h4>
-          <p>"To create a future where every student graduates not just with a degree, but with the clarity, confidence, and career strategy to excel in their chosen path."</p>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Our institute saw a clear improvement in placement outcomes after partnering with AttiNexis. The structured expert sessions and the intelligence briefings made a real difference to how our team operates.</p>
+          <div class="testimonial-author"><div class="author-avatar">T</div><div><div class="author-name">Training & Placement Officer</div><div class="author-role">Partner Engineering College</div></div></div>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">The LinkedIn branding and career strategy sessions transformed how our students present themselves. Three interview calls within a week of updating profiles — that's the kind of result we needed.</p>
+          <div class="testimonial-author"><div class="author-avatar">R</div><div><div class="author-name">Management Student</div><div class="author-role">MBA Graduate, 2025 Batch</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" onclick="goToSlide(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section section-alt" id="about-founder">
+  <div class="section-inner">
+    <div class="founder-grid">
+      <div class="founder-card reveal">
+        <div class="founder-img-wrap">
+          <div class="founder-avatar"><i class="fas fa-user"></i></div>
+          <div class="founder-name">Dhanashri Landge</div>
+          <div class="founder-title">Founder & Lead Facilitator, AttiNexis</div>
+        </div>
+        <div class="founder-body">
+          <ul class="credential-list">
+            <li><i class="fas fa-graduation-cap"></i> PhD — Marketing</li>
+            <li><i class="fas fa-briefcase"></i> 10+ Years Corporate Experience across Industry</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Expert in Campus-to-Corporate and Industry Engagement</li>
+            <li><i class="fas fa-handshake"></i> Trusted Partner for Engineering & Management Institutes</li>
+            <li><i class="fas fa-award"></i> Curriculum aligned to NEP 2020 & Current Industry Standards</li>
+          </ul>
+        </div>
+      </div>
+      <div class="founder-content reveal reveal-delay-1">
+        <div class="section-label">Our Founder</div>
+        <h3>Where Academic Rigour Meets Corporate Reality</h3>
+        <p>AttiNexis was founded on a direct observation — colleges are not lacking in effort, they are lacking in structured, current industry intelligence. With a PhD and over a decade of corporate exposure, Dhanashri built AttiNexis to be the external industry arm that institutions need but rarely have.</p>
+        <p>She engages directly with college leadership, TPOs and faculty — understanding each institution's unique context before co-designing an engagement model that delivers measurable outcomes.</p>
+        <div class="quote-block">
+          <p>"The gap is not in student effort. It is in the quality of industry connection that colleges can provide. AttiNexis was built to close that gap — structurally, not one workshop at a time."</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section class="section" id="contact">
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <div class="section-label">About AttiNexis</div>
+        <h2>Attitude Meets Action</h2>
+        <p>AttiNexis is an Industry Intelligence and Employability Partner for higher education institutions. We help colleges stay industry-relevant, strengthen student employability and manage industry engagement more effectively.</p>
+        <p>We are a registered LLP with a team of five professionals spanning corporate careers, academia and industry training — bringing together the depth needed to serve as a genuine external intelligence partner.</p>
+        <div class="about-extra" id="aboutExtra">
+          <p>Our programs are built in close alignment with current hiring trends, NEP 2020 mandates and employer expectations — delivered through expert-led sessions, structured briefings and real-world engagement frameworks.</p>
+        </div>
+        <button class="read-more-btn" id="readMoreBtn" onclick="toggleReadMore()">Read more <i class="fas fa-arrow-right" id="readMoreIcon"></i></button>
+        <div class="about-counters">
+          <div class="about-counter-item"><div class="num count-up" data-target="5">0</div><div class="lbl">LLP Partners</div></div>
+          <div class="about-counter-item"><div class="num count-up" data-target="240" data-suffix="+">0+</div><div class="lbl">Students Reached</div></div>
+          <div class="about-counter-item"><div class="num count-up" data-target="42" data-suffix=" Yrs">0 Yrs</div><div class="lbl">Max Expert Experience</div></div>
+          <div class="about-counter-item"><div class="num count-up" data-target="3">0</div><div class="lbl">Core Services</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal reveal-delay-1">
+        <div class="vision-statement">
+          <h4>Our Vision</h4>
+          <p>"To become the most trusted Industry Intelligence and Employability Partner for higher education institutions in India — helping every college build a structured, ongoing connection with the world of work."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
   <div class="section-inner">
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="section-label">Get In Touch</div>
         <h3>Let's Build Something Together</h3>
-        <p>Whether you're a Training & Placement Officer, Principal, or College Director — we'd love to understand your specific challenges and show you how AttiNexis can help. Reach out for a no-obligation conversation.</p>
+        <p>Whether you are a TPO looking to improve placement outcomes, a Principal seeking industry alignment, or a College Director exploring long-term partnerships — we would love to understand your context and show you what AttiNexis can do for your institution.</p>
         <div class="contact-details">
           <div class="contact-detail">
             <div class="icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <a href="mailto:connect@attinexis.com">connect@attinexis.com</a>
-              <small>We respond within 24 hours</small>
-            </div>
+            <div><a href="mailto:connect@attinexis.com">connect@attinexis.com</a><small>We respond within 24 hours</small></div>
+          </div>
+          <div class="contact-detail">
+            <div class="icon"><i class="fab fa-whatsapp"></i></div>
+            <div><a href="https://wa.me/919114327520" target="_blank">+91 9114327520</a><small>Chat with us on WhatsApp</small></div>
           </div>
           <div class="contact-detail">
             <div class="icon"><i class="fab fa-linkedin"></i></div>
-            <div>
-              <a href="https://www.linkedin.com/company/attinexis/" target="_blank">AttiNexis on LinkedIn</a>
-              <small>Follow us for updates & insights</small>
-            </div>
+            <div><a href="https://www.linkedin.com/company/attinexis/" target="_blank">AttiNexis on LinkedIn</a><small>Follow us for updates & insights</small></div>
           </div>
           <div class="contact-detail">
             <div class="icon"><i class="fab fa-instagram"></i></div>
-            <div>
-              <a href="https://www.instagram.com/attinexis_yourcareercoach" target="_blank">@attinexis_yourcareercoach</a>
-              <small>Follow us on Instagram</small>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="icon"><i class="fas fa-globe"></i></div>
-            <div>
-              <a href="https://attinexis.com">attinexis.com</a>
-              <small>Attitude Meets Action</small>
-            </div>
+            <div><a href="https://www.instagram.com/attinexis_yourcareercoach" target="_blank">@attinexis_yourcareercoach</a><small>Follow us on Instagram</small></div>
           </div>
         </div>
       </div>
       <div class="contact-form reveal reveal-delay-1">
-        <h4>Send Us a Message</h4>
+        <h4>Book an Institutional Conversation</h4>
         <div class="form-group">
           <label>Your Name *</label>
           <input type="text" id="fname" placeholder="Full name" required>
@@ -1903,66 +829,79 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Your Role</label>
+          <select id="frole">
+            <option value="">Select your role</option>
+            <option>Training & Placement Officer (TPO)</option>
+            <option>Principal / Director</option>
+            <option>College CEO / Management</option>
+            <option>Faculty Member</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Interested In</label>
           <select id="fprogram">
-            <option value="">Select a program</option>
-            <option>Sprint Course (40 Hours)</option>
-            <option>Marathon Course (90 Hours)</option>
-            <option>Not sure yet — need more info</option>
+            <option value="">Select an option</option>
+            <option>Quarterly Partner Model</option>
+            <option>Annual Institutional Partner</option>
+            <option>Specific Service (Expert Sessions, Intelligence, etc.)</option>
+            <option>Just exploring — want to learn more</option>
           </select>
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea id="fmessage" placeholder="Tell us about your institute, number of students, and what you're looking to achieve..."></textarea>
+          <textarea id="fmessage" placeholder="Tell us about your institution, number of students, and what you're trying to achieve..."></textarea>
         </div>
-        <button class="submit-btn" onclick="submitForm()">Send Message <i class="fas fa-paper-plane" style="margin-left:0.5rem;"></i></button>
+        <button class="submit-btn" onclick="submitForm()">Book a Conversation <i class="fas fa-paper-plane" style="margin-left:0.5rem;"></i></button>
         <div id="form-success">
           <div class="success-icon">🎉</div>
           <h4 id="success-name">Thank you!</h4>
-          <p>We've received your message and will get back to you within 24 hours. While you wait, follow us on LinkedIn for career readiness insights.</p>
-          <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="success-linkedin">
-            <i class="fab fa-linkedin-in"></i> Follow AttiNexis
-          </a>
+          <p>We've received your message and will get back to you within 24 hours. While you wait, follow us on LinkedIn for weekly industry insights.</p>
+          <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="success-linkedin"><i class="fab fa-linkedin-in"></i> Follow AttiNexis</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="logo-footer-white.png" alt="AttiNexis" class="footer-logo">
-      <p>Bridging the gap between campus learning and corporate success through structured, PhD-led career readiness programs.</p>
+      <p>Industry Intelligence and Employability Partner for higher education institutions. Helping colleges stay industry-relevant, strengthen student employability and manage industry engagement.</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/attinexis/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.instagram.com/attinexis_yourcareercoach" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919114327520" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:connect@attinexis.com" class="social-icon"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
     <div class="footer-col">
       <h5>Quick Links</h5>
       <ul class="footer-links">
-        <li><a href="#about-founder">Our Founder</a></li>
         <li><a href="#problem">Why AttiNexis</a></li>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#programs">Programs</a></li>
-        <li><a href="#outcomes">Outcomes</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#partnership">How It Works</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#about-founder">Our Founder</a></li>
         <li><a href="https://substack.com/@dhanashrilandge" target="_blank">Blogs</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Programs</h5>
+      <h5>Our Services</h5>
       <ul class="footer-links">
-        <li><a href="#programs">Sprint Course (40 Hrs)</a></li>
-        <li><a href="#programs">Marathon Course (90 Hrs)</a></li>
-        <li><a href="#contact">Request Custom Program</a></li>
+        <li><a href="#services">Industry Intelligence</a></li>
+        <li><a href="#services">Managed Expert Connect</a></li>
+        <li><a href="#services">Faculty Enablement</a></li>
+        <li><a href="#services">Student Career Labs</a></li>
+        <li><a href="#services">Corporate Hiring Partnerships</a></li>
       </ul>
       <h5 style="margin-top:1.5rem;">Contact</h5>
       <ul class="footer-links">
         <li><a href="mailto:connect@attinexis.com">connect@attinexis.com</a></li>
+        <li><a href="https://wa.me/919114327520" target="_blank">+91 9114327520</a></li>
         <li><a href="https://attinexis.com">attinexis.com</a></li>
       </ul>
     </div>
@@ -1974,49 +913,35 @@
 </footer>
 
 <script>
-  // ── SCROLL PROGRESS ──
+  // SCROLL PROGRESS
   window.addEventListener('scroll', () => {
     const st = document.documentElement.scrollTop;
     const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     document.getElementById('progress-bar').style.width = (st / sh * 100) + '%';
   });
 
-  // ── HAMBURGER MENU ──
+  // HAMBURGER
   document.getElementById('hamburger').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('open');
   });
 
-  // ── SCROLL REVEAL ──
+  // SCROLL REVEAL
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(r => revealObs.observe(r));
 
-  // ── OUTCOME TABS ──
-  function switchTab(tab, btn) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  // ── 1. HERO WORD CYCLE ──
-  const words = ['Industry-Relevant', 'Future-Ready', 'Placement-Strong', 'Employer-Aligned'];
+  // HERO WORD CYCLE
+  const words = ['Industry Partner', 'Intelligence Hub', 'Employability Engine', 'Future-Ready Ally'];
   let wordIdx = 0;
   const cycleEl = document.getElementById('hero-cycle');
   setInterval(() => {
     cycleEl.classList.add('cycling');
-    setTimeout(() => {
-      wordIdx = (wordIdx + 1) % words.length;
-      cycleEl.textContent = words[wordIdx];
-      cycleEl.classList.remove('cycling');
-    }, 400);
+    setTimeout(() => { wordIdx = (wordIdx + 1) % words.length; cycleEl.textContent = words[wordIdx]; cycleEl.classList.remove('cycling'); }, 400);
   }, 2800);
 
-  // ── 2. COUNT-UP ANIMATION ──
+  // COUNT-UP
   function animateCount(el) {
     const target = parseInt(el.dataset.target);
     const suffix = el.dataset.suffix || '';
@@ -2029,77 +954,57 @@
       if (current >= target) clearInterval(timer);
     }, 16);
   }
-
   const countObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCount(e.target);
-        countObs.unobserve(e.target);
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
   }, { threshold: 0.5 });
   document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
 
-  // ── 3. TESTIMONIAL CAROUSEL ──
+  // TESTIMONIAL CAROUSEL
   let currentSlide = 0;
   let carouselTimer;
-
   function goToSlide(index) {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
+    document.querySelectorAll('.testimonial-slide')[currentSlide].classList.remove('active');
+    document.querySelectorAll('.carousel-dot')[currentSlide].classList.remove('active');
     currentSlide = index;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-    resetCarouselTimer();
-  }
-
-  function nextSlide() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    goToSlide((currentSlide + 1) % slides.length);
-  }
-
-  function resetCarouselTimer() {
+    document.querySelectorAll('.testimonial-slide')[currentSlide].classList.add('active');
+    document.querySelectorAll('.carousel-dot')[currentSlide].classList.add('active');
     clearInterval(carouselTimer);
-    carouselTimer = setInterval(nextSlide, 4500);
+    carouselTimer = setInterval(() => goToSlide((currentSlide + 1) % 3), 4500);
   }
+  carouselTimer = setInterval(() => goToSlide((currentSlide + 1) % 3), 4500);
 
-  resetCarouselTimer();
-
-  // ── 4. ABOUT READ MORE ──
+  // READ MORE
   function toggleReadMore() {
     const extra = document.getElementById('aboutExtra');
-    const btn = document.getElementById('readMoreBtn');
-    const icon = document.getElementById('readMoreIcon');
     const isOpen = extra.classList.contains('open');
     extra.classList.toggle('open');
-    btn.innerHTML = isOpen
+    document.getElementById('readMoreBtn').innerHTML = isOpen
       ? 'Read more <i class="fas fa-arrow-right" id="readMoreIcon"></i>'
       : 'Read less <i class="fas fa-arrow-up" id="readMoreIcon"></i>';
   }
 
-  // ── 5. FORM SUBMIT ──
+  // FORM SUBMIT
   function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const email = document.getElementById('femail').value.trim();
     if (!name || !email) { alert('Please fill in your name and email.'); return; }
     const firstName = name.split(' ')[0];
-    const msg = `Hello AttiNexis,\n\nName: ${name}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${document.getElementById('fprogram').value}\n\nMessage:\n${document.getElementById('fmessage').value}`;
-    window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Program Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
+    const role = document.getElementById('frole').value;
+    const program = document.getElementById('fprogram').value;
+    const msg = `Hello AttiNexis,\n\nName: ${name}\nRole: ${role}\nPhone: ${document.getElementById('fphone').value}\nInterested In: ${program}\n\nMessage:\n${document.getElementById('fmessage').value}`;
+    window.location.href = `mailto:connect@attinexis.com?subject=AttiNexis Institutional Enquiry from ${name}&body=${encodeURIComponent(msg)}`;
     document.getElementById('success-name').textContent = `Thank you, ${firstName}!`;
     const form = document.querySelector('.contact-form');
     form.querySelectorAll('.form-group, .form-row, .submit-btn, h4').forEach(el => el.style.display = 'none');
     document.getElementById('form-success').style.display = 'block';
   }
 
-  // ── 6. ACTIVE NAV HIGHLIGHT ──
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  // ACTIVE NAV
+  const sections = document.querySelectorAll('section[id], div[id]');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
-    navLinks.forEach(a => {
+    document.querySelectorAll('.nav-links a').forEach(a => {
       a.classList.remove('active');
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
