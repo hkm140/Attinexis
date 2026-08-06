@@ -334,8 +334,19 @@
     .social-icon:hover { background: var(--blue); color: #fff; }
     .footer-col h5 { color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-links li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    .footer-links li a:hover { color: #fff; }
+.footer-legal-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-legal-links a:hover,
+.footer-legal-links a:visited,
+.footer-legal-links a:active {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.85;
+}
     .footer-bottom { max-width: 1100px; margin: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; font-size: 0.82rem; }
 
     /* WHATSAPP */
